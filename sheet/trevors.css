@@ -3094,3 +3094,83 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   box-sizing: border-box;
 }
 .sheetroot .npclegend { margin-bottom: 4px; }
+
+/* --- NPC: Attack checkbox on each action; attack fields only when ticked --- */
+.sheetroot .npcaction {
+  grid-template-columns: 22px 1fr 1fr 1fr 16px 44px;
+  grid-template-areas: "roll name  name   name   chk   lbl"
+                       ".    hit   reach  reach  reach reach"
+                       ".    dmg   dmgt   dmg2   dmg2t dmg2t"
+                       ".    dc    save   .      .     ."
+                       ".    desc  desc   desc   desc  desc";
+}
+.sheetroot .npcaction .npcatkflag { grid-area: chk; margin: 0; justify-self: center; }
+.sheetroot .npcaction .npcatklabel { grid-area: lbl; font-size: 8pt; color: var(--muted); }
+.sheetroot .npcatkflag:not(:checked) ~ .npcacthit,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactreach,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactdmg,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactdmgtype,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactdmg2,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactdmg2type,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactdc,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactsave { display: none; }
+
+/* Clickable labels (Hit Points, Initiative, spell Attack) look like the other keys */
+.sheetroot .npc button.npckey {
+  font-size: 9pt !important;
+  font-weight: bold;
+  text-align: left;
+  padding: 0 !important;
+  min-width: 92px;
+  height: 22px;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+.sheetroot .npc .npcshort { min-width: 0; margin-left: 10px; }
+.sheetroot .npcbig { font-weight: bold; font-size: 11pt; }
+.sheetroot .npc select.npcspellabl { width: 70px; height: 22px; }
+
+/* Spell slots: nine small cells, left / total */
+.sheetroot .npcslots {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  column-gap: 4px;
+  margin: 4px 0 6px 0;
+}
+.sheetroot .npcslot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  font-size: 8pt;
+}
+.sheetroot .npcslot span { grid-column: 1 / 3; font-weight: bold; }
+.sheetroot .npc .npcslot input[type="text"] { width: 100%; height: 20px; padding: 0; text-align: center; font-size: 9pt; }
+
+/* Spell rows */
+.sheetroot .npcspell {
+  display: grid;
+  grid-template-columns: 22px 16px 42px 16px 34px 58px 1fr 1fr;
+  grid-template-areas: "roll name name name name name name  level"
+                       ".    atk  atkl sv   svl  sabl dmg   dmgt"
+                       ".    desc desc desc desc desc desc  desc";
+  column-gap: 4px;
+  row-gap: 3px;
+  align-items: center;
+  padding: 4px 0 6px 0;
+  border-bottom: 1px dotted var(--field-line);
+}
+.sheetroot .npcspell .npcroll { grid-area: roll; }
+.sheetroot .npcspell .npcactname { grid-area: name; }
+.sheetroot .npcspell .npcspelllevel { grid-area: level; }
+.sheetroot .npcspell .npcatkflag { grid-area: atk; margin: 0; justify-self: center; }
+.sheetroot .npcspell .npcatklabel { grid-area: atkl; font-size: 8pt; color: var(--muted); }
+.sheetroot .npcspell .npcsaveflag { grid-area: sv; margin: 0; justify-self: center; }
+.sheetroot .npcspell .npcsavelabel { grid-area: svl; font-size: 8pt; color: var(--muted); }
+.sheetroot .npcspell .npcspellsaveabl { grid-area: sabl; }
+.sheetroot .npcspell .npcspelldmg { grid-area: dmg; }
+.sheetroot .npcspell .npcspelldmgtype { grid-area: dmgt; }
+.sheetroot .npcspell .npcactdesc { grid-area: desc; }
+.sheetroot .npc .npcspell input[type="text"],
+.sheetroot .npc .npcspell select { width: 100%; min-width: 0; height: 22px; font-size: 9pt; }
+.sheetroot .npcsaveflag:not(:checked) ~ .npcspellsaveabl { visibility: hidden; }
+.sheetroot .npc button.npckey.npcshort { min-width: 0; margin-left: 10px; }

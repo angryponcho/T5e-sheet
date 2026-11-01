@@ -1097,16 +1097,14 @@
       <div class="npcline"><span class="npckey">Armor Class</span>
         <input type="text" class="npcnum" name="attr_ac" placeholder="10"/>
         <input type="text" class="npcnote" name="attr_npc_actype" placeholder="(natural armor)"/></div>
-      <div class="npcline"><span class="npckey">Hit Points</span>
+      <div class="npcline"><button class="wordbutton npckey" type="roll" name="roll_npchp" value="&{template:default} {{name=@{character_name}}} {{Hit Points=[[@{npc_hpformula}]]}}" title="Roll hit points from the formula">Hit Points</button>
         <input type="text" class="npcnum" name="attr_current_hp" placeholder="0"/><span>/</span>
         <input type="text" class="npcnum" name="attr_max_hp" placeholder="0"/>
-        <input type="text" class="npcnote" name="attr_npc_hpformula" placeholder="(2d8+2)"/>
-        <button class="wordbutton npcsmallroll" type="roll" name="roll_npchp" value="&{template:default} {{name=@{character_name}}} {{Hit Points=[[@{npc_hpformula}]]}}" title="Roll hit points">Roll</button></div>
+        <input type="text" class="npcnote" name="attr_npc_hpformula" placeholder="(2d8+2)"/></div>
       <div class="npcline"><span class="npckey">Speed</span>
         <input type="text" class="npcwide" name="attr_speed" placeholder="30 ft."/></div>
-      <div class="npcline"><span class="npckey">Initiative</span>
-        <input type="text" class="npcnum" name="attr_npc_initbonus" placeholder="+0" title="Bonus on top of DEX"/>
-        <button class="wordbutton npcsmallroll" type="roll" name="roll_npcinit" value="&{template:default} {{name=@{character_name}}} {{Initiative=[[1d20 + @{dex_mod} + @{npc_initbonus} &{tracker}]]}}" title="Roll initiative and add to the turn tracker">Roll</button></div>
+      <div class="npcline"><button class="wordbutton npckey" type="roll" name="roll_npcinit" value="&{template:default} {{name=@{character_name}}} {{Initiative=[[1d20 + @{dex_mod} + @{npc_initbonus} &{tracker}]]}}" title="Roll initiative (adds to the turn tracker)">Initiative</button>
+        <input type="text" class="npcnum" name="attr_npc_initbonus" value="0" title="Bonus on top of DEX"/></div>
       <div class="npcrule"></div>
       <div class="npcabilities">
       <div class="npcabil">
@@ -1205,6 +1203,7 @@
         <div class="npcaction">
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
+          <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
           <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
           <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
@@ -1227,6 +1226,7 @@
         <div class="npcaction">
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
+          <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
           <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
           <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
@@ -1249,6 +1249,7 @@
         <div class="npcaction">
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
+          <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
           <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
           <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
@@ -1272,6 +1273,7 @@
         <div class="npcaction">
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
+          <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
           <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
           <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
@@ -1285,6 +1287,40 @@
           </select>
           <textarea class="npcactdesc" name="attr_actdesc" placeholder="Description"></textarea>
           <input type="hidden" name="attr_actmacro" value=""/>
+        </div>
+      </fieldset>
+    </div>
+    <div class="npcblock section">
+      <label class="npcheading">Spellcasting</label>
+      <div class="npcline npcspellhead">
+        <span class="npckey">Ability</span>
+        <select class="npcspellabl" name="attr_npc_spellability"><option value="">None</option><option value="STR">STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+        <span class="npckey npcshort">Save DC</span><span class="npcbig" name="attr_npc_spelldc">10</span>
+        <button class="wordbutton npckey npcshort" type="roll" name="roll_npcspellatk" value="&{template:default} {{name=@{character_name}}} {{Spell attack=[[1d20 + @{npc_spellattack}]]}}" title="Roll a spell attack">Attack</button><span class="npcbig">+<span name="attr_npc_spellattack">2</span></span>
+      </div>
+      <div class="npcslots" title="Slots left / total (shared with the Spells tab)">
+        <div class="npcslot"><span>1st</span><input type="text" name="attr_slnc1" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx1" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>2nd</span><input type="text" name="attr_slnc2" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx2" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>3rd</span><input type="text" name="attr_slnc3" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx3" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>4th</span><input type="text" name="attr_slnc4" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx4" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>5th</span><input type="text" name="attr_slnc5" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx5" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>6th</span><input type="text" name="attr_slnc6" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx6" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>7th</span><input type="text" name="attr_slnc7" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx7" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>8th</span><input type="text" name="attr_slnc8" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx8" placeholder="-" title="Slots total"/></div>
+        <div class="npcslot"><span>9th</span><input type="text" name="attr_slnc9" placeholder="-" title="Slots left"/><input type="text" name="attr_slmx9" placeholder="-" title="Slots total"/></div>
+      </div>
+      <fieldset class="repeating_npcspell">
+        <div class="npcspell">
+          <button class="npcroll" type="roll" name="roll_spell" value="@{spellmacro}" title="Cast">0</button>
+          <input type="text" class="npcactname" name="attr_npcspellname" placeholder="Spell (e.g. Fire Bolt)"/>
+          <select class="npcspelllevel" name="attr_npcspelllevel"><option value="0">Cantrip</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option><option value="7">7th</option><option value="8">8th</option><option value="9">9th</option><option value="atwill">At will</option><option value="1day">1/day</option><option value="2day">2/day</option><option value="3day">3/day</option></select>
+          <input type="checkbox" class="npcatkflag" name="attr_npcspellattack" value="1" title="Makes a spell attack"/><span class="npcatklabel">Attack</span>
+          <input type="checkbox" class="npcsaveflag" name="attr_npcspellsave" value="1" title="Target makes a save"/><span class="npcsavelabel">Save</span>
+          <select class="npcspellsaveabl" name="attr_npcspellsaveabl"><option value="STR">STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcspelldmg" name="attr_npcspelldamage" placeholder="Damage (2d10)"/>
+          <input type="text" class="npcspelldmgtype" name="attr_npcspelldamagetype" placeholder="Type (fire)"/>
+          <textarea class="npcactdesc" name="attr_npcspelldesc" placeholder="Description"></textarea>
+          <input type="hidden" name="attr_spellmacro" value=""/>
         </div>
       </fieldset>
     </div>
@@ -1483,7 +1519,7 @@
     return Math.max(2, Math.floor((Math.max(1, Math.ceil(crNumber(cr))) - 1) / 4) + 2);
   };
 
-  var NPC_INPUTS = ["npc_cr"].concat(ABILITIES);
+  var NPC_INPUTS = ["npc_cr", "npc_spellability"].concat(ABILITIES);
   ABILITIES.forEach(function(a) { NPC_INPUTS.push("npc_" + a + "saveprof"); });
 
   var npcMath = function() {
@@ -1491,6 +1527,10 @@
       var pb = npcProfBonus(v.npc_cr);
       var cr = String(v.npc_cr || "").trim();
       var update = { npc_pb: pb, npc_xp: CR_XP[cr] !== undefined ? CR_XP[cr] : "" };
+      var castAbl = String(v.npc_spellability || "").toLowerCase();
+      var castMod = castAbl ? abilityMod(v[castAbl]) : 0;
+      update.npc_spellattack = pb + castMod;
+      update.npc_spelldc = 8 + pb + castMod;
       ABILITIES.forEach(function(a) {
         update["npc_" + a + "save"] = abilityMod(v[a]) + (v["npc_" + a + "saveprof"] == "on" ? pb : 0);
       });
@@ -1503,9 +1543,14 @@
     return cleanText(text).replace(/\s*\n\s*/g, " ");
   };
 
+  /* Descriptions may hold inline rolls like [[2d6]]; only braces and newlines are removed */
+  var descText = function(text) {
+    return String(text || "").replace(/[{}|]/g, "").replace(/\s*\n\s*/g, " ").trim();
+  };
+
   /* Actions, bonus actions, reactions and legendary actions share one row layout */
   var NPC_ACTION_SECTIONS = ["npcaction", "npcbonus", "npcreaction", "npclegendary"];
-  var actionFields = ["actname", "acttohit", "actreach", "actdamage", "actdamagetype",
+  var actionFields = ["actname", "actattack", "acttohit", "actreach", "actdamage", "actdamagetype",
                       "actdamage2", "actdamage2type", "actsavedc", "actsaveabl", "actdesc"];
 
   var updateNpcActions = function(section, onlyIds) {
@@ -1520,23 +1565,24 @@
         ids.forEach(function(id) {
           var row = function(f) { return v["repeating_" + section + "_" + id + "_" + f]; };
           var macro = "&{template:default} {{name=" + (oneLine(row("actname")) || "Action") + "}}";
-          var toHit = oneLine(row("acttohit"));
+          var isAttack = row("actattack") == "1";
+          var toHit = isAttack ? oneLine(row("acttohit")) : "";
           var hitNum = parseInt(toHit.replace(/\s/g, ""), 10);
           if (toHit !== "") {
             macro += " {{Attack=[[1d20 " + signed(isNaN(hitNum) ? 0 : hitNum) + "]]"
                    + (oneLine(row("actreach")) ? " " + oneLine(row("actreach")) : "") + "}}";
           }
-          if (oneLine(row("actdamage"))) {
+          if (isAttack && oneLine(row("actdamage"))) {
             macro += " {{Damage=[[" + oneLine(row("actdamage")) + "]] " + oneLine(row("actdamagetype")) + "}}";
           }
-          if (oneLine(row("actdamage2"))) {
+          if (isAttack && oneLine(row("actdamage2"))) {
             macro += " {{Extra=[[" + oneLine(row("actdamage2")) + "]] " + oneLine(row("actdamage2type")) + "}}";
           }
-          if (oneLine(row("actsavedc"))) {
+          if (isAttack && oneLine(row("actsavedc"))) {
             macro += " {{Save=DC " + oneLine(row("actsavedc")) + " " + (row("actsaveabl") || "STR") + "}}";
           }
-          if (oneLine(row("actdesc"))) {
-            macro += " {{Effect=" + oneLine(row("actdesc")) + "}}";
+          if (descText(row("actdesc"))) {
+            macro += " {{Effect=" + descText(row("actdesc")) + "}}";
           }
           update["repeating_" + section + "_" + id + "_actmacro"] = macro;
         });
@@ -1557,7 +1603,7 @@
         ids.forEach(function(id) {
           var p = "repeating_npctrait_" + id + "_";
           update[p + "traitmacro"] = "&{template:default} {{name=" + (oneLine(v[p + "traitname"]) || "Trait") + "}}"
-            + (oneLine(v[p + "traitdesc"]) ? " {{Effect=" + oneLine(v[p + "traitdesc"]) + "}}" : "");
+            + (descText(v[p + "traitdesc"]) ? " {{Effect=" + descText(v[p + "traitdesc"]) + "}}" : "");
         });
         setAttrs(update, {silent: true});
       });
@@ -1582,5 +1628,48 @@
     updateNpcTraits();
     NPC_ACTION_SECTIONS.forEach(function(section) { updateNpcActions(section); });
   });
+
+  /* NPC spells: attack and DC come from the Spellcasting ability */
+  var LEVEL_NAMES = {"0": "Cantrip", "1": "1st level", "2": "2nd level", "3": "3rd level",
+    "4": "4th level", "5": "5th level", "6": "6th level", "7": "7th level", "8": "8th level",
+    "9": "9th level", "atwill": "At will", "1day": "1/day", "2day": "2/day", "3day": "3/day"};
+  var spellFields = ["npcspellname", "npcspelllevel", "npcspellattack", "npcspellsave",
+                     "npcspellsaveabl", "npcspelldamage", "npcspelldamagetype", "npcspelldesc"];
+  var updateNpcSpells = function(onlyIds) {
+    getSectionIDs("repeating_npcspell", function(allIds) {
+      var ids = onlyIds || allIds;
+      var fields = ["npc_cr", "npc_spellability"].concat(ABILITIES);
+      ids.forEach(function(id) {
+        spellFields.forEach(function(f) { fields.push("repeating_npcspell_" + id + "_" + f); });
+      });
+      getAttrs(fields, function(v) {
+        var pb = npcProfBonus(v.npc_cr);
+        var castAbl = String(v.npc_spellability || "").toLowerCase();
+        var castMod = castAbl ? abilityMod(v[castAbl]) : 0;
+        var update = {};
+        ids.forEach(function(id) {
+          var row = function(f) { return v["repeating_npcspell_" + id + "_" + f]; };
+          var macro = "&{template:default} {{name=" + (oneLine(row("npcspellname")) || "Spell") + "}}"
+                    + " {{Level=" + (LEVEL_NAMES[row("npcspelllevel") || "0"] || "") + "}}";
+          if (row("npcspellattack") == "1") macro += " {{Attack=[[1d20 " + signed(pb + castMod) + "]]}}";
+          if (row("npcspellsave") == "1") macro += " {{Save=DC " + (8 + pb + castMod) + " " + (row("npcspellsaveabl") || "STR") + "}}";
+          if (oneLine(row("npcspelldamage"))) {
+            macro += " {{Damage=[[" + oneLine(row("npcspelldamage")) + "]] " + oneLine(row("npcspelldamagetype")) + "}}";
+          }
+          if (descText(row("npcspelldesc"))) macro += " {{Effect=" + descText(row("npcspelldesc")) + "}}";
+          update["repeating_npcspell_" + id + "_spellmacro"] = macro;
+        });
+        setAttrs(update, {silent: true});
+      });
+    });
+  };
+  on("change:repeating_npcspell", function(eventInfo) {
+    if (/_spellmacro$/.test(eventInfo.sourceAttribute || "")) return;
+    var m = (eventInfo.sourceAttribute || "").match(/^repeating_npcspell_(.+)_[a-z]+$/);
+    updateNpcSpells(m ? [m[1]] : undefined);
+  });
+  /* The spell attack/DC inputs feed every spell row */
+  on(NPC_INPUTS.map(function(a) { return "change:" + a; }).join(" "), function() { updateNpcSpells(); });
+  on("sheet:opened", function() { updateNpcSpells(); });
 
 </script>
