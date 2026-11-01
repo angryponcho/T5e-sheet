@@ -39,7 +39,7 @@
 
 .feature {
   grid-area: feature;
-  border: black solid 2px;
+  border: var(--line) solid 2px;
   padding: 2px;
   border-radius: 5px;
   margin: 0px 0px 10px 0px ;
@@ -55,18 +55,18 @@
 
 .featurename { 
   grid-area: featurename;
-  border: black solid 1px;
+  border: var(--line) solid 1px;
   font-weight: bold;
 }
 
 .featuresource {
   grid-area: featuresource; 
-  border: black solid 1px;
+  border: var(--line) solid 1px;
 }
 
 .featuretext {
   grid-area: featuretext; 
-  border: black solid 1px;  
+  border: var(--line) solid 1px;  
   width: auto;
 }
 
@@ -81,7 +81,7 @@
 /* Class resources (Ki, Rage, Sorcery Points, ...) */
 .resources {
   width: 95%;
-  border: black solid 2px;
+  border: var(--line) solid 2px;
   border-radius: 5px;
   padding: 4px;
   margin: 0px 0px 10px 0px;
@@ -114,7 +114,7 @@
 
 .resource input,
 .resource select {
-  border: black solid 1px;
+  border: var(--line) solid 1px;
 }
 
 .resourcename { font-weight: bold; }
@@ -187,12 +187,12 @@
   text-align: center;
   font-size: 14pt;
   font-weight: bold;
-  border: 1pt solid black !important;
+  border: 1pt solid var(--line) !important;
 }
 
 .slotbanner {
   grid-area: slotbanner;
-  border: solid black 1px;
+  border: solid var(--line) 1px;
   border-radius: 5px;
   padding-bottom: 5px;
 
@@ -234,7 +234,7 @@
 
 .spell {
   grid-area: spell;
-  border: black solid 1px;
+  border: var(--line) solid 1px;
   padding: 2px;
   border-radius: 3px;
   height: 130px;
@@ -361,11 +361,6 @@
 ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
 ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
 
-/* Paper texture behind every tab of the sheet */
-.charsheet {
-  background: #fff url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/WtJzLgg.jpg") repeat-y top center / 100% auto;
-}
-
 .main {
   font-family: Arial;
 
@@ -385,8 +380,8 @@
 ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
 .header {
   grid-area: header;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharScroll.svg");
-  background-repeat: no-repeat;
+  position: relative;
+  isolation: isolate;
 }
 
 .charbox {
@@ -394,8 +389,6 @@
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharBox.svg");
-  background-repeat: no-repeat;
 
   display: grid;
   grid-column-gap: 3px;
@@ -404,6 +397,8 @@
   grid-template-rows: 45px 45px;
   grid-template-areas:"race characterlevel pronouns"
                       "playername alignment charbg";
+  position: relative;
+  isolation: isolate;
 }
 
 .charbox input {
@@ -414,7 +409,7 @@
   width: 90%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--line);
   padding-bottom: 0px;
 }
 
@@ -467,9 +462,7 @@
 /*---SIDEBAR - SCORES---*/
 .scores {
   grid-area: scores;
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-back.svg");
-  background-repeat: no-repeat;
-  background-size: 90px 650px;
+
   height: 600px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -484,6 +477,8 @@
                       "int"
                       "wis"
                       "cha";
+  position: relative;
+  isolation: isolate;
 }
 
 .score {
@@ -498,16 +493,15 @@
 
 .str {
   grid-area: str;
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-STR.svg");
-  background-repeat: no-repeat;
-  background-position: center;
 
   display: grid;
   grid-template-columns: 90px;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas:"strlabel"
                       "strmod"
-                      "strscore"
+                      "strscore";
+  position: relative;
+  isolation: isolate;
 }
 
 .strlabel { grid-area: strlabel; }
@@ -516,16 +510,15 @@
 
 .dex {
   grid-area: dex;
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-DEX.svg");
-  background-repeat: no-repeat;
-  background-position: center;
 
   display: grid;
   grid-template-columns: 90px;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas:"dexlabel"
                       "dexmod"
-                      "dexscore"
+                      "dexscore";
+  position: relative;
+  isolation: isolate;
 }
 
 .dexlabel { grid-area: dexlabel; }
@@ -534,16 +527,15 @@
 
 .con {
   grid-area: con;
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CNS.svg");
-  background-repeat: no-repeat;
-  background-position: center;
 
   display: grid;
   grid-template-columns: 90px;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas:"conlabel"
                       "conmod"
-                      "conscore"
+                      "conscore";
+  position: relative;
+  isolation: isolate;
 }
 
 .conlabel { grid-area: conlabel; }
@@ -552,16 +544,15 @@
 
 .int {
   grid-area: int;  
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-INT.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  
+
   display: grid;
   grid-template-columns: 90px;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas:"intlabel"
                       "intmod"
-                      "intscore"
+                      "intscore";
+  position: relative;
+  isolation: isolate;
 }
 
 .intlabel { grid-area: intlabel; }
@@ -570,16 +561,15 @@
 
 .wis {
   grid-area: wis;
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-WIS.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  
+
   display: grid;
   grid-template-columns: 90px;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas:"wislabel"
                       "wismod"
-                      "wisscore"
+                      "wisscore";
+  position: relative;
+  isolation: isolate;
 }
 
 .wislabel { grid-area: wislabel; }
@@ -588,16 +578,15 @@
 
 .cha {
   grid-area: cha;
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CHA.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  
+
   display: grid;
   grid-template-columns: 90px;
   grid-template-rows: 30px 30px 35px;
   grid-template-areas:"chalabel"
                       "chamod"
-                      "chascore"
+                      "chascore";
+  position: relative;
+  isolation: isolate;
 }
 
 .chalabel { grid-area: chalabel; }
@@ -679,7 +668,7 @@
 
 .skills input[type="text"] {
   width: 25px;
-  border-bottom: black solid 1px;
+  border-bottom: var(--line) solid 1px;
   text-align: center;
 }
 
@@ -720,9 +709,8 @@
 
 .insp {
   grid-area: insp;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/inspiration.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  isolation: isolate;
 }
 
 .insp input[type="checkbox"] {
@@ -756,9 +744,8 @@
 
 .prof {
   grid-area: prof;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/proficency-bonus.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  isolation: isolate;
 }
 
 .prof input[type="text"] {
@@ -1187,8 +1174,9 @@
 }
 
 .ac { 
-  grid-area: ac; 
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/AC.svg");
+  grid-area: ac;
+  position: relative;
+  isolation: isolate;
 }
 
 .ac label, 
@@ -1207,7 +1195,8 @@
 
 .init { 
   grid-area: init;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+  position: relative;
+  isolation: isolate;
 }
 
 .init button {
@@ -1220,7 +1209,8 @@
 
 .speed { 
   grid-area: speed;
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+  position: relative;
+  isolation: isolate;
 }
 
 .ac, .init, .speed {
@@ -1377,7 +1367,7 @@
 
 .shortcut {
   font-size: 8pt;
-  border: 1pt black solid;
+  border: 1pt var(--line) solid;
   border-radius: 3px;
   margin: 0px 3px 3px 3px;
 
@@ -1518,7 +1508,7 @@
 
 .itemlist { 
   grid-area: itemlist; 
-  border: 1px black solid;
+  border: 1px var(--line) solid;
   margin: 5px 5px 5px 5px;
   width: 240px !important;
   height: 95% !important;
@@ -1552,7 +1542,7 @@
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--line);
 }
 
 .levels { grid-area: levels; }
@@ -1618,7 +1608,7 @@
   width: 90%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--line);
   padding-bottom: 0px;
 }
 
@@ -1681,22 +1671,22 @@
 
 .trait { 
   grid-area: trait;
-  border: solid black 1px;
+  border: solid var(--line) 1px;
 }
 
 .ideal { 
   grid-area: ideal; 
-  border: solid black 1px;
+  border: solid var(--line) 1px;
 }
 
 .bond { 
   grid-area: bond; 
-  border: solid black 1px;
+  border: solid var(--line) 1px;
 }
 
 .flaw { 
   grid-area: flaw;
-  border: solid black 1px;
+  border: solid var(--line) 1px;
 }
 
 .proficiencies { grid-area: proficiencies; }
@@ -1750,13 +1740,14 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
-  background-color: #FFFFFF;
+  border-color: var(--line);
+  background-color: var(--panel);
 }
 
 .section label{
   font-size: 8pt;
   text-align: center;
-  color:black;
+  color: var(--text);
 }
 
 .wordbutton {
@@ -1816,14 +1807,14 @@ button[type=roll]:hover{
   content: '(';
   visibility: visible;
   font-family: pictos;
-  background-color: #fff;
-  border: 1px solid black;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-line);
   border-radius: 2px;
   font-size: 12px;
   height: 12px;
   width: 12px;
   padding: 2px 4px 2px 4px;
-  color: black; }
+  color: var(--text); }
 
 .editmode ~ .repcontrol .repcontrol_edit:after {
   content: ')'; }
@@ -1832,18 +1823,18 @@ button[type=roll]:hover{
   content: '&';
   visibility: visible;
   font-family: pictos;
-  background-color: #fff;
-  border: 1px solid black;
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-line);
   border-radius: 2px;
   font-size: 12px;
   height: 12px;
   width: 12px;
   padding: 2px 4px 2px 4px;
-  color: black; }
+  color: var(--text); }
 
 .repcontrol .repcontrol_edit:hover:after,
 .repcontrol .repcontrol_add:hover:before {
-  background-color: #EFEFEF; }
+  background-color: var(--btn-hover); }
 
 .sheet-resources .repcontrol {
   margin-top: -10px; }
@@ -1924,11 +1915,296 @@ button[type=roll]:hover{
 .artisantools input[type="checkbox"] { justify-self: start; margin-left: 2px; }
 .skilllist input.expcheck,
 .advtools input.expcheck,
-.artisantools input.expcheck { justify-self: end; margin-right: 2px; accent-color: #b8860b; }
+.artisantools input.expcheck { justify-self: end; margin-right: 2px; accent-color: var(--accent); }
 
 
 /* Expertise is locked until the proficiency box next to it is checked */
 input[type="checkbox"]:not(:checked) + input.expcheck {
   pointer-events: none;
   opacity: 0.3;
+}
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** **** THEMES **** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Every colour on the sheet comes from these tokens. Light and dark are tuned
+   separately. The Light/Dark switch sets attr_sheettheme, which a hidden input
+   just before .sheetroot mirrors, so the sibling selector below can see it. */
+.sheetroot {
+  --paper: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/WtJzLgg.jpg");
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --text: #1b1b1b;
+  --muted: #5a5a5a;
+  --line: #000000;
+  --field-bg: transparent;
+  --field-line: #9a9a9a;
+  --btn-bg: #f4f4f4;
+  --btn-line: #b5b5b5;
+  --btn-hover: #e8e8e8;
+  --accent: #b8860b;
+  --check: auto;
+  --art-filter: none;
+  color-scheme: light;
+}
+
+.themeinput[value="dark"] + .sheetroot {
+  --paper: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/paper-dark.jpg");
+  --bg: #1c1d20;
+  --panel: #232428;
+  --text: #e9e6df;
+  --muted: #a7a39a;
+  --line: #a8a39a;
+  --field-bg: #2b2c31;
+  --field-line: #4b4c53;
+  --btn-bg: #2e2f35;
+  --btn-line: #55565e;
+  --btn-hover: #3a3b42;
+  --accent: #e0b44a;
+  --check: #c9a24a;
+  /* line art is drawn black-on-white: flip it to warm off-white on charcoal */
+  --art-filter: invert(0.87) sepia(0.15) hue-rotate(180deg);
+  color-scheme: dark;
+}
+
+.sheetroot {
+  background: var(--bg) var(--paper) repeat-y top center / 100% auto;
+  color: var(--text);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Inputs, dropdowns and text areas */
+.sheetroot input[type="text"],
+.sheetroot input[type="number"],
+.sheetroot select,
+.sheetroot textarea {
+  color: var(--text);
+  background-color: var(--field-bg);
+}
+.sheetroot select,
+.sheetroot textarea {
+  border-color: var(--field-line);
+}
+.sheetroot input::placeholder,
+.sheetroot textarea::placeholder {
+  color: var(--muted);
+}
+.sheetroot input[type="checkbox"],
+.sheetroot input[type="radio"] {
+  accent-color: var(--check);
+}
+
+/* Roll buttons (skills, saves, abilities) and the tab buttons */
+.sheetroot button[type="roll"],
+.sheetroot button[type="action"] {
+  color: var(--text);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-line);
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: none;
+}
+.sheetroot button[type="roll"]:hover,
+.sheetroot button[type="action"]:hover {
+  background: var(--btn-hover);
+}
+.sheetroot .shortname button[type="roll"] {
+  background: transparent;
+  border: none;
+}
+
+/* Theme switch, top left of every tab */
+.themeswitch {
+  float: left;
+  font-size: 9pt;
+  color: var(--muted);
+  padding-top: 8px;
+}
+.themeswitch label {
+  display: inline;
+  margin: 0 8px 0 2px;
+  color: var(--text);
+}
+.themeswitch input[type="radio"] {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Small checkbox art (inspiration, death saves) follows the theme too */
+.insp label,
+.succs label,
+.fails label {
+  filter: var(--art-filter);
+}
+
+/* Art layers for the framed boxes (moved from the boxes themselves) */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharScroll.svg");
+  background-repeat: no-repeat;
+}
+
+.charbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharBox.svg");
+  background-repeat: no-repeat;
+}
+
+.scores::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-back.svg");
+  background-repeat: no-repeat;
+  background-size: 90px 650px;
+}
+
+.str::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-STR.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.dex::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-DEX.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.con::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CNS.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.int::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-INT.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.wis::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-WIS.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cha::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CHA.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.insp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/inspiration.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.prof::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/proficency-bonus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ac::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/AC.svg");
+}
+
+.init::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+}
+
+.speed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: var(--art-filter);
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+}
+
+/* Coin values sit on coloured coin art, so keep them dark and bold in both themes */
+.sheetroot input.copper,
+.sheetroot input.silver,
+.sheetroot input.gold,
+.sheetroot input.platinum {
+  color: #1b1b1b;
+  font-weight: bold;
+  background-color: transparent;
 }
