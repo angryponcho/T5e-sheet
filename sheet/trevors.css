@@ -2740,3 +2740,51 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
 .sheetroot .vitals-three > * { min-height: 0; height: 96px; }
 /* Character Name label a little further right, under the banner */
 .sheetroot .header label { left: 80px; }
+
+/* --- Features tab: Features ~70% on the left, Class Resources on the right --- */
+.tabstoggle[value="features"] ~ div.features {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: auto;
+  grid-template-areas: "featurecol resources";
+  column-gap: 10px;
+  align-items: start;
+}
+.sheetroot .featurecol { grid-area: featurecol; min-width: 0; }
+.sheetroot .features .resources { grid-area: resources; margin: 0; }
+.sheetroot .featureslabel { margin: 6px 0; }
+.sheetroot .feature { grid-template-columns: 1fr 3fr; }
+/* Each resource: name on its own line, then current / max and recharge */
+.sheetroot .resource {
+  grid-template-columns: 1fr 12px 1fr 1.6fr;
+  grid-template-areas: "rname rname rname rname"
+                       "rcur rslash rmax rrech";
+  row-gap: 3px;
+  padding: 4px 0 6px 0;
+  border-bottom: 1px solid var(--field-line);
+}
+.sheetroot .resourcename { grid-area: rname; }
+.sheetroot .resourcecurrent { grid-area: rcur; }
+.sheetroot .resourceslash { grid-area: rslash; }
+.sheetroot .resourcemax { grid-area: rmax; }
+.sheetroot .resourcerecharge { grid-area: rrech; }
+.sheetroot .resource input[type="number"],
+.sheetroot .resource input[type="text"],
+.sheetroot .resource select { width: 100%; margin: 0; }
+
+/* Modify mode: drag handle first, delete X to its right */
+.sheetroot .repcontainer.editmode .itemcontrol {
+  display: flex;
+  gap: 2px;
+}
+.sheetroot .itemcontrol .repcontrol_move { order: 1; float: none; }
+.sheetroot .itemcontrol .repcontrol_del { order: 2; float: none; }
+
+/* Placeholder (example) text reads as a hint, not as data */
+.sheetroot input::placeholder,
+.sheetroot textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+  font-style: italic;
+  font-weight: normal;
+}
