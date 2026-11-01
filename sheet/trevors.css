@@ -1701,6 +1701,20 @@
 
 .proficiencies { grid-area: proficiencies; }
 
+/* Each row holds two floated fields; contain them so the Modify/Add
+   buttons sit below the list inside the box instead of floating out */
+.proficiencies .proflist {
+  display: flow-root;
+  margin-bottom: 2px;
+}
+.proficiencies .repcontrol {
+  clear: both;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin: 2px 3px 3px 3px;
+}
+
 .proficiencies input[type="text"] {
   height: 25px;
   float: right;
@@ -1920,4 +1934,10 @@ button[type=roll]:hover{
    Delete this rule to go back to the light sheet. */
 .charsheet {
   filter: invert(1) hue-rotate(180deg);
+}
+
+/* Expertise is locked until the proficiency box next to it is checked */
+input[type="checkbox"]:not(:checked) + input.expcheck {
+  pointer-events: none;
+  opacity: 0.3;
 }

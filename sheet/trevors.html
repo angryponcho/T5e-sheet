@@ -1141,8 +1141,11 @@
 
       /* skills and tools: expertise = double proficiency */
       CHECKS.forEach(function(k) {
-        var training = values[k + "exp"] == "on" ? profBonus * 2
-                     : values[k + "prof"] == "on" ? profBonus : 0;
+        var proficient = values[k + "prof"] == "on";
+        var expert = proficient && values[k + "exp"] == "on";
+        /* expertise needs proficiency: clear it if proficiency was unchecked */
+        if (!proficient && values[k + "exp"] == "on") update[k + "exp"] = "0";
+        var training = expert ? profBonus * 2 : proficient ? profBonus : 0;
         update[k + "mod"] = training + (mods[values[k + "ability"] || "STR"] || 0);
       });
 
