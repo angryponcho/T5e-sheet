@@ -1858,3 +1858,13 @@ button[type=roll]:hover{
 .skilllist input.expcheck,
 .advtools input.expcheck,
 .artisantools input.expcheck { justify-self: end; margin-right: 2px; accent-color: #b8860b; }
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** **** DARK MODE *** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Flips the whole sheet: white fills become black, black text and outlines become white.
+   hue-rotate keeps colours (like the gold expertise boxes) close to their original hue.
+   Delete this rule to go back to the light sheet. */
+.charsheet {
+  filter: invert(1) hue-rotate(180deg);
+}
