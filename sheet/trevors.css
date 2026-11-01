@@ -243,7 +243,7 @@
   display: grid;
   width: 100%;
   grid-gap: 2px;
-  grid-template-columns: 300px 200px 340px;
+  grid-template-columns: 330px 220px 374px;
   grid-template-rows: 100px;
   grid-template-areas:"spellleft spellcenter spellright"
 }
@@ -365,9 +365,10 @@
   font-family: Arial;
 
   display: grid;
-  min-width: 800px;
+  min-width: 880px;
   grid-gap: 3px;
-  grid-template-columns: 90px 250px 260px 230px;
+  /* stats column stays 90px; the other three share the extra 10% */
+  grid-template-columns: 90px 278px 289px 256px;
   grid-template-rows: 130px 1fr;
   grid-template-areas:"header  header  header  header"
                       "sidebar  skills  core  bio";
@@ -2294,4 +2295,22 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   font-size: 18px;
   font-weight: bold;
   height: 32px;
+}
+
+/* Race ... Background frame: the art is stretched to exactly fill the box,
+   and the fields are centred inside the same box, so they always line up */
+.charbox::before {
+  background-size: 100% 100%;
+  background-position: center;
+}
+.charbox {
+  padding: 0 18px;
+  align-content: center;
+}
+
+/* Death Saves label on one line */
+.sheetroot .dslabel {
+  white-space: nowrap;
+  font-size: 8pt !important;
+  padding: 0 4px;
 }
