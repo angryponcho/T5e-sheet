@@ -449,7 +449,7 @@
   padding: 0 6px;
   background: transparent;
   border: none;
-  font-size: 16pt;
+  font-size: 20pt;
   font-weight: bold;
 }
 
@@ -1188,18 +1188,30 @@
   isolation: isolate;
 }
 
-.ac label, 
+/* Labels and values centred in each frame */
+.ac label,
 .speed label {
+  display: block;
+  float: none;
+  width: 100%;
   text-align: center;
-  float: left;
-  margin-top: 5px;
+  margin: 6px 0 0 0;
+  font-weight: bold;
 }
 
 .ac input,
 .init input,
 .speed input {
+  display: block;
+  float: none;
+  width: 100%;
   text-align: center;
-  float: left;  
+}
+
+.init button {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .init { 
@@ -2247,4 +2259,32 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+}
+
+/* Frame art: one copy, centred and scaled to fit (no tiling) */
+.ac::before,
+.init::before,
+.speed::before {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Race ... Background: see-through fields with a 1px rule above each label */
+.sheetroot .charbox input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+.sheetroot .charbox input[type="text"]:focus {
+  background: rgba(127, 127, 127, 0.15);
+  outline: none;
+}
+
+/* Ability scores: nudge down to sit centred in the oval */
+.sheetroot .ability-score input.score {
+  position: relative;
+  top: 5px;
 }
