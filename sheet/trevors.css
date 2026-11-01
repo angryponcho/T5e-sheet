@@ -3175,3 +3175,14 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
 .sheetroot .npcsaveflag:not(:checked) ~ .npcspellsaveabl { visibility: hidden; }
 .sheetroot .npc button.npckey.npcshort { min-width: 0; margin-left: 10px; }
 .sheetroot .npc select.npccasterlevel { width: 48px; height: 22px; }
+
+/* Dropdowns follow the theme: the open list, scrollbars and native controls
+   use dark colours in Dark Mode, and every option uses the sheet colours */
+.sheetroot { color-scheme: light; }
+.themeinput[value="dark"] + .sheetroot { color-scheme: dark; }
+.sheetroot select { color: var(--text); }
+.sheetroot select option,
+.sheetroot select optgroup {
+  background-color: var(--panel);
+  color: var(--text);
+}
