@@ -2788,3 +2788,76 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   font-style: italic;
   font-weight: normal;
 }
+
+/* --- Page width: centred, 12px padding each side; every column grows in
+   proportion up to 980px, then the sheet stays centred --- */
+.sheetroot .main,
+.sheetroot .tabButtons,
+.sheetroot div.features,
+.sheetroot div.spells {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.sheetroot .main {
+  grid-template-columns: 90fr 278fr 289fr 256fr;
+  min-width: 880px;
+}
+
+/* --- Tabs: sit right above the race-background frame, styled like the
+   sheet's section boxes; the open tab is filled in --- */
+.sheetroot .tabButtons {
+  display: grid;
+  height: auto;
+  column-gap: 3px;
+  /* same split as .main, with the race-background span cut into three */
+  grid-template-columns: 90fr 278fr 181.67fr 181.67fr 181.67fr;
+  align-items: end;
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+.sheetroot .themeswitch {
+  float: none;
+  grid-column: 1 / 3;
+  padding: 0 0 4px 0;
+}
+.sheetroot .tabButtons button[type="action"] {
+  float: none;
+  width: 100%;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+.sheetroot .tabButtons .charButton { grid-column: 3; grid-row: 1; }
+.sheetroot .tabButtons .featButton { grid-column: 4; grid-row: 1; }
+.sheetroot .tabButtons .spelButton { grid-column: 5; grid-row: 1; }
+.sheetroot .tabButtons button[type="action"]:hover { background: var(--btn-hover); }
+.tabstoggle[value="character"] ~ .tabButtons .charButton,
+.tabstoggle[value="features"] ~ .tabButtons .featButton,
+.tabstoggle[value="spells"] ~ .tabButtons .spelButton {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.sheetroot .charbox { padding: 0 26px; }
+.sheetroot .tabstoggle[value="character"] ~ .tabButtons .charButton,
+.sheetroot .tabstoggle[value="features"] ~ .tabButtons .featButton,
+.sheetroot .tabstoggle[value="spells"] ~ .tabButtons .spelButton {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
