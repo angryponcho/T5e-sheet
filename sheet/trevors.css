@@ -3174,3 +3174,4 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
 .sheetroot .npc .npcspell select { width: 100%; min-width: 0; height: 22px; font-size: 9pt; }
 .sheetroot .npcsaveflag:not(:checked) ~ .npcspellsaveabl { visibility: hidden; }
 .sheetroot .npc button.npckey.npcshort { min-width: 0; margin-left: 10px; }
+.sheetroot .npc select.npccasterlevel { width: 48px; height: 22px; }

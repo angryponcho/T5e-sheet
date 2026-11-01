@@ -1295,6 +1295,8 @@
       <div class="npcline npcspellhead">
         <span class="npckey">Ability</span>
         <select class="npcspellabl" name="attr_npc_spellability"><option value="">None</option><option value="STR">STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+        <span class="npckey npcshort">Caster Level</span>
+        <select class="npccasterlevel" name="attr_npc_casterlevel" title="Fills in max slots (wizard progression)"><option value="">-</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>
         <span class="npckey npcshort">Save DC</span><span class="npcbig" name="attr_npc_spelldc">10</span>
         <button class="wordbutton npckey npcshort" type="roll" name="roll_npcspellatk" value="&{template:default} {{name=@{character_name}}} {{Spell attack=[[1d20 + @{npc_spellattack}]]}}" title="Roll a spell attack">Attack</button><span class="npcbig">+<span name="attr_npc_spellattack">2</span></span>
       </div>
@@ -1671,5 +1673,25 @@
   /* The spell attack/DC inputs feed every spell row */
   on(NPC_INPUTS.map(function(a) { return "change:" + a; }).join(" "), function() { updateNpcSpells(); });
   on("sheet:opened", function() { updateNpcSpells(); });
+
+  /* Caster level fills in max spell slots (full-caster / wizard table).
+     Slots left are reset to the new max; edit either by hand afterwards. */
+  var WIZARD_SLOTS = [[],
+    [2], [3], [4,2], [4,3], [4,3,2], [4,3,3], [4,3,3,1], [4,3,3,2], [4,3,3,3,1], [4,3,3,3,2],
+    [4,3,3,3,2,1], [4,3,3,3,2,1], [4,3,3,3,2,1,1], [4,3,3,3,2,1,1], [4,3,3,3,2,1,1,1],
+    [4,3,3,3,2,1,1,1], [4,3,3,3,2,1,1,1,1], [4,3,3,3,3,1,1,1,1], [4,3,3,3,3,2,1,1,1],
+    [4,3,3,3,3,2,2,1,1]];
+  on("change:npc_casterlevel", function() {
+    getAttrs(["npc_casterlevel"], function(v) {
+      var lvl = parseInt(v.npc_casterlevel, 10);
+      if (!(lvl >= 1 && lvl <= 20)) return;
+      var slots = WIZARD_SLOTS[lvl], update = {};
+      for (var n = 1; n <= 9; n++) {
+        update["slmx" + n] = slots[n - 1] || "";
+        update["slnc" + n] = slots[n - 1] || "";
+      }
+      setAttrs(update, {silent: true});
+    });
+  });
 
 </script>
