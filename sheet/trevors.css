@@ -1,0 +1,1856 @@
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** TABS ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+
+.tabButtons {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.charButton,
+.featButton,
+.spelButton {
+  float: right;
+  width: 10%;
+  background: transparent;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** FEATURES ** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+
+.features {
+  display: grid;
+  min-width: 800px;
+  grid-gap: 3px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75px;
+  grid-template-areas:"feature";
+}
+
+.feature {
+  grid-area: feature;
+  border: black solid 2px;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 0px 0px 10px 0px ;
+
+  display: grid;
+  width: 95%;
+  grid-gap: 3px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 30px 30px;
+  grid-template-areas:"featurename featuretext"
+                      "featuresource featuretext"
+}
+
+.featurename { 
+  grid-area: featurename;
+  border: black solid 1px;
+  font-weight: bold;
+}
+
+.featuresource {
+  grid-area: featuresource; 
+  border: black solid 1px;
+}
+
+.featuretext {
+  grid-area: featuretext; 
+  border: black solid 1px;  
+  width: auto;
+}
+
+.featuretext textarea { 
+  border: none;
+  background: transparent;
+  resize: none;
+  width: 99%;
+  height: 90%;
+}
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** SPELLS ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+
+.spelllist {
+  display: grid;
+  min-width: 800px;
+  margin-top: 10px;
+
+  grid-gap: 3px;
+  grid-template-columns: 100%;
+  grid-template-rows: 50px 90px 1fr;
+  grid-template-areas:"castingbanner"
+                      "slotbanner"
+                      "spellbanner"
+}
+
+.castingbanner {
+  grid-area: castingbanner;
+  font-weight: bold;
+
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: 175px 150px 200px 50px 175px 50px;
+  grid-template-rows: 35px;
+  grid-template-areas:"spellcastingstatlabel spellcastingstat spellattackbonuslabel spellattackbonus spellsavedclabel spellsavedc"
+}
+
+.spellcastingstatlabel { grid-area: spellcastingstatlabel; }
+.spellcastingstat { grid-area: spellcastingstat; }
+.spellattackbonuslabel { grid-area: spellattackbonuslabel; }
+.spellattackbonus { grid-area: spellattackbonus; }
+.spellsavedclabel { grid-area: spellsavedclabel; }
+.spellsavedc { grid-area: spellsavedc; }
+
+.castingbanner input {
+  width: 75px;
+}
+
+.spellcastingstatlabel, .spellattackbonuslabel, .spellsavedclabel {
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: right;
+}
+
+.spellcastingstat {
+  padding-left: 10px;
+  font-size: 16pt;
+  font-weight: bold;
+  width: 150px;
+  border: 0;
+  margin: 0;
+
+  /* for Firefox */ 
+  -moz-appearance: none; 
+  /* for Safari, Chrome, Opera */ 
+  -webkit-appearance: none; 
+}
+
+.spellattackbonus, .spellsavedc {
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  border: 1pt solid black !important;
+}
+
+.slotbanner {
+  grid-area: slotbanner;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding-bottom: 5px;
+
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  grid-gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:"spelllevellabel lb1   lb2   lb3   lb4   lb5   lb6   lb7   lb8   lb9"
+                      "slotleftlabel  slcn1 slcn2 slcn3 slcn4 slcn5 slcn6 slcn7 slcn8 slcn9"
+                      "slottotallabel slmx1 slmx2 slmx3 slmx4 slmx5 slmx6 slmx7 slmx8 slmx9";
+}
+
+.lb1, .lb2, .lb3, .lb4, .lb5, .lb6, .lb7, .lb8, .lb9 {
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+.slcn1, .slcn2, .slcn3, .slcn4, .slcn5, .slcn6, .slcn7, .slcn8, .slcn9,
+.slmx1, .slmx2, .slmx3, .slmx4, .slmx5, .slmx6, .slmx7, .slmx8, .slmx9 {
+  outline: none;
+  background: transparent; 
+  align-self: center;
+}
+
+.spelllevellabel { grid-area: spelllevellabel; }
+.slotleftlabel { grid-area: slotleftlabel; }
+.slottotallabel { grid-area: slottotallabel; }
+
+.spelllevellabel, .slotleftlabel, .slottotallabel {
+  font-weight: bold;
+}
+
+.spellbanner {
+  grid-area: spellbanner;
+}
+
+.spell {
+  grid-area: spell;
+  border: black solid 1px;
+  padding: 2px;
+  border-radius: 3px;
+  height: 130px;
+  margin-top: 10px;
+
+  display: grid;
+  width: 100%;
+  grid-gap: 2px;
+  grid-template-columns: 300px 200px 340px;
+  grid-template-rows: 100px;
+  grid-template-areas:"spellleft spellcenter spellright"
+}
+
+.spellleft {
+  grid-area: spellleft;
+  padding: 1px;
+
+  display: grid;
+  width: 100%;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 25px 25px 25px 25px;
+  grid-template-areas:"spellname spellname spellname"
+                      "components verbal somatic"
+                      "material materialdesc materialdesc"
+                      "prepared spellschool spellschool"
+}
+
+.prepared { grid-area: prepared; }
+.spellname { 
+  grid-area: spellname; 
+  width: 250px;
+}
+.spellname input {
+  width: 200px;
+}
+.components { grid-area: components; }
+.verbal { grid-area: verbal; }
+.somatic { grid-area: somatic; }
+.material { 
+  grid-area: material; 
+  align-content: right;
+}
+.materialdesc { 
+  grid-area: materialdesc; 
+  width: 150px;
+}
+.spellschool { grid-area: spellschool; }
+.spellschool select {
+  width: 125px;
+}
+
+.spellcenter {
+  grid-area: spellcenter;
+  padding: 1px;
+
+  display: grid;
+  width: 100%;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:"castingtime castingtime"
+                      "duration duration"
+                      "ritual concentration"
+                      "range range"
+}
+
+.spellcenter input[type="text"] {
+  width: 125px;
+}
+
+.castingtime { grid-area: castingtime; }
+.castingtime input[type="text"] {
+  width: 100px;
+}
+.duration { grid-area: duration; }
+.ritual { grid-area: ritual; }
+.concentration { grid-area: concentration; }
+.range { grid-area: range; }
+
+.spellright {
+  grid-area: spellright;
+  padding: 1px;
+
+  display: grid;
+  width: 100%;
+  grid-gap: 2px;
+  grid-template-columns: 100%;
+  grid-template-rows: 15% 85%;
+  grid-template-areas:"spelldescriptionlabel"
+                      "spelldescription"
+}
+
+.spelldescriptionlabel {
+  grid-area: spelldescriptionlabel; 
+  text-align: center;
+  font-size: 8pt;
+  font-weight: bold;
+}
+
+.spelldescription {
+  grid-area: spelldescription; 
+  height: 85px !important;
+  width: 320px !important;
+}
+
+.spells input[type="text"] {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** **** CHARACTER *** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+
+.main {
+  font-family: Arial;
+  /*background: url("https://i.imgur.com/WtJzLgg.jpg");*/
+
+  display: grid;
+  min-width: 800px;
+  grid-gap: 3px;
+  grid-template-columns: 90px 250px 260px 230px;
+  grid-template-rows: 130px 1fr;
+  grid-template-areas:"header  header  header  header"
+                      "sidebar  skills  core  bio";
+}
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** HEADER ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+.header {
+  grid-area: header;
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharScroll.svg");
+  background-repeat: no-repeat;
+}
+
+.charbox {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharBox.svg");
+  background-repeat: no-repeat;
+
+  display: grid;
+  grid-column-gap: 3px;
+  padding-top: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 45px 45px;
+  grid-template-areas:"race characterlevel pronouns"
+                      "playername alignment charbg";
+}
+
+.charbox input {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 0px;
+}
+
+.charbox span {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0px;
+  font-size: 8pt;
+  padding: 0px 0px 0px 0px;
+}
+
+.pronouns { grid-area: pronouns; }
+.race { grid-area: race; }
+.characterlevel { grid-area: characterlevel; }
+.playername { grid-area: playername; }
+.alignment { grid-area: alignment; }
+.charbg { grid-area: charbg; }
+
+.header label {
+  padding: 94px 0px 0px 80px;
+  font-weight: bold;
+  font-size: 8pt;
+}
+
+.header input {
+  float: left;
+  background: transparent;
+  border: none;
+  margin: 55px 0px 0px 25px;
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** SIDBAR ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+.sidebar {
+  grid-area: sidebar;
+
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 655px 1fr;
+  grid-template-areas:"scores"
+                      "blank";
+}
+
+/*---SIDEBAR - SCORES---*/
+.scores {
+  grid-area: scores;
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-back.svg");
+  background-repeat: no-repeat;
+  background-size: 90px 650px;
+  height: 600px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-columns: 90px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:"str"
+                      "dex"
+                      "con"
+                      "int"
+                      "wis"
+                      "cha";
+}
+
+.score {
+  font-size: 14pt;
+  padding: 0px;
+  margin-top: 5px;
+}
+
+.score-mod {
+  font-size: 26pt;
+}
+
+.str {
+  grid-area: str;
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-STR.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 30px 30px 35px;
+  grid-template-areas:"strlabel"
+                      "strmod"
+                      "strscore"
+}
+
+.strlabel { grid-area: strlabel; }
+.strmod { grid-area: strmod; }
+.strscore { grid-area: strscore; }
+
+.dex {
+  grid-area: dex;
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-DEX.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 30px 30px 35px;
+  grid-template-areas:"dexlabel"
+                      "dexmod"
+                      "dexscore"
+}
+
+.dexlabel { grid-area: dexlabel; }
+.dexmod { grid-area: dexmod; }
+.dexscore { grid-area: dexscore; }
+
+.con {
+  grid-area: con;
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CNS.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 30px 30px 35px;
+  grid-template-areas:"conlabel"
+                      "conmod"
+                      "conscore"
+}
+
+.conlabel { grid-area: conlabel; }
+.conmod { grid-area: conmod; }
+.conscore { grid-area: conscore; }
+
+.int {
+  grid-area: int;  
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-INT.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 30px 30px 35px;
+  grid-template-areas:"intlabel"
+                      "intmod"
+                      "intscore"
+}
+
+.intlabel { grid-area: intlabel; }
+.intmod { grid-area: intmod; }
+.intscore { grid-area: intscore; }
+
+.wis {
+  grid-area: wis;
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-WIS.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 30px 30px 35px;
+  grid-template-areas:"wislabel"
+                      "wismod"
+                      "wisscore"
+}
+
+.wislabel { grid-area: wislabel; }
+.wismod { grid-area: wismod; }
+.wisscore { grid-area: wisscore; }
+
+.cha {
+  grid-area: cha;
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CHA.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  display: grid;
+  grid-template-columns: 90px;
+  grid-template-rows: 30px 30px 35px;
+  grid-template-areas:"chalabel"
+                      "chamod"
+                      "chascore"
+}
+
+.chalabel { grid-area: chalabel; }
+.chamod { grid-area: chamod; }
+.chascore { grid-area: chascore; }
+
+
+.ability-score label {
+  padding-top: 5px;
+  font-size: 16pt;
+  width: 100%;
+  text-align: center;
+}
+
+.ability-score input {
+  background: transparent;
+  border: none;
+  width: 90px;
+  text-align: center;
+}
+
+.blank {
+  grid-area: blank;
+}
+
+
+.sidebar button[type=roll] {
+  font-size: 16pt !important;
+}
+
+.strlabel, .dexlabel, .conlabel, .intlabel, .wislabel, .chalabel {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** SAVES SKILLS artisantools***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+.skills {
+  grid-area: skills;
+
+  display: grid;
+  grid-row-gap: 3px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 125px 147px 307px 167px 387px;
+  grid-template-areas:"inspprof"
+                      "saves"
+                      "skilllist"
+                      "advtools"
+                      "artisantools";
+}
+
+.skills select {
+  margin-right: 5px;
+  height: 20px;
+  width: 40px; 
+  font-size: 12px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  /* for Firefox */ 
+  -moz-appearance: none; 
+  /* for Safari, Chrome, Opera */ 
+  -webkit-appearance: none; 
+}
+
+.skills input {
+  background: transparent;
+  border: none;
+  width: 20px;
+  text-align: center;
+}
+
+.skills input[type="text"] {
+  width: 25px;
+  border-bottom: black solid 1px;
+  text-align: center;
+}
+
+.skills input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+.skills button {
+  font-size: 13px !important;
+  margin: 0px !important;
+  text-align: left;
+}
+
+.inspprof {
+  grid-area: inspprof;
+
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 55px 65px;
+  grid-template-areas:"insp"
+                      "prof";
+}
+
+.inspprof input {
+  background: transparent;
+  border: none;
+  width: 60px;
+  text-align: center;
+  font-size: 22pt;  
+}
+
+.inspprof span {
+  font-size: 8pt;
+  font-weight: bold;
+  padding-bottom: 0px;
+}
+
+.insp {
+  grid-area: insp;
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/inspiration.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.insp input[type="checkbox"] {
+  display:none;
+}
+
+.insp input + label {
+  display: inline-block;  
+  width: 45px;
+  height: 45px;
+  cursor: pointer; 
+  margin: 4px 0px 0px 14px; 
+  background-image: url("https://i.imgur.com/pYDAWWx.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.insp input[type="checkbox"]:checked + label {
+  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/insperation.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.insplabel {
+  float: right;
+  margin-right: 55px;
+  margin-top: 20px;
+}
+
+.prof {
+  grid-area: prof;
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/proficency-bonus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.prof input[type="text"] {
+  width: 60px;
+  margin: 11px 0px 0px 18px;
+  border: none;
+}
+
+.proflabel {
+  float: right;
+  margin-right: 31px;
+  margin-top: 25px;
+}
+
+
+.saves {
+  grid-area: saves;
+  padding-bottom: 5px;
+  text-align: left;
+  width: 200px;
+  justify-self: center;
+
+  display: grid;
+  grid-template-columns: 25px 35px 1fr;
+  grid-template-rows: repeat(7, 20px);
+  grid-template-areas:"savelabel savelabel savelabel"
+                      "strprof strsavemod strbutton"
+                      "dexprof dexsavemod dexbutton"
+                      "conprof consavemod conbutton"
+                      "intprof intsavemod intbutton"
+                      "wisprof wissavemod wisbutton"
+                      "chaprof chasavemod chabutton";
+}
+
+.saves input[type="checkbox"] {
+  margin-left: 5px;
+}
+
+.savelabel {
+  grid-area: savelabel;   
+  margin: auto;
+  text-align: center;
+}
+
+.strprof { grid-area: strprof; }
+.strsavemod { grid-area: strsavemod; }
+.strbutton { grid-area: strbutton; }
+
+.dexprof { grid-area: dexprof; }
+.dexsavemod { grid-area: dexsavemod; }
+.dexbutton { grid-area: dexbutton; }
+
+.conprof { grid-area: conprof; }
+.consavemod { grid-area: consavemod; }
+.conbutton { grid-area: conbutton; }
+
+.intprof { grid-area: intprof; }
+.intsavemod { grid-area: intsavemod; }
+.intbutton { grid-area: intbutton; }
+
+.wisprof { grid-area: wisprof; }
+.wissavemod { grid-area: wissavemod; }
+.wisbutton { grid-area: wisbutton; }
+
+.chaprof { grid-area: chaprof; }
+.chasavemod { grid-area: chasavemod; }
+.chabutton { grid-area: chabutton; }
+
+
+.skilllist {
+  grid-area: skilllist;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: 36px 28px 1fr 1fr 43px;
+  grid-template-rows: repeat(15, 20px);
+  grid-template-areas:"skillslabel skillslabel skillslabel skillslabel skillslabel"
+                      "acroprof acromod acrobutton acrobutton acroability"
+                      "athlprof athlmod athlbutton athlbutton athlability"
+                      "anhnprof anhnmod anhnbutton anhnbutton anhnability"
+                      "insiprof insimod insibutton insibutton insiability"
+                      "intiprof intimod intibutton intibutton intiability"
+                      "know1prof know1mod know1button know1text know1ability"
+                      "know2prof know2mod know2button know2text know2ability"
+                      "know3prof know3mod know3button know3text know3ability"
+                      "mediprof medimod medibutton medibutton mediability"
+                      "natrprof natrmod natrbutton natrbutton natrability"
+                      "srchprof srchmod srchbutton srchbutton srchability"
+                      "spcfprof spcfmod spcfbutton spcfbutton spcfability"
+                      "stlhprof stlhmod stlhbutton stlhbutton stlhability"
+                      "swimprof swimmod swimbutton swimbutton swimability";
+}
+
+.skillslabel {
+  grid-area: skillslabel;   
+  margin: auto;
+  text-align: center;
+}
+
+.acroprof { grid-area: acroprof; }
+.acromod { grid-area: acromod; }
+.acrobutton { grid-area: acrobutton; }
+.acroability { grid-area: acroability; }
+
+.athlprof { grid-area: athlprof; }
+.athlmod { grid-area: athlmod; }
+.athlbutton { grid-area: athlbutton; }
+.athlability { grid-area: athlability; }
+
+.anhnprof { grid-area: anhnprof; }
+.anhnmod { grid-area: anhnmod; }
+.anhnbutton { grid-area: anhnbutton; }
+.anhnability { grid-area: anhnability; }
+
+.insiprof { grid-area: insiprof; }
+.insimod { grid-area: insimod; }
+.insibutton { grid-area: insibutton; }
+.insiability { grid-area: insiability; }
+
+.intiprof { grid-area: intiprof; }
+.intimod { grid-area: intimod; }
+.intibutton { grid-area: intibutton; }
+.intiability { grid-area: intiability; }
+
+.know1prof { grid-area: know1prof; }
+.know1mod { grid-area: know1mod; }
+.know1button { grid-area: know1button; }
+.know1ability { grid-area: know1ability; }
+.know1text { grid-area: know1text; }
+
+.know2prof { grid-area: know2prof; }
+.know2mod { grid-area: know2mod; }
+.know2button { grid-area: know2button; }
+.know2ability { grid-area: know2ability; }
+.know2text { grid-area: know2text; }
+
+.know3prof { grid-area: know3prof; }
+.know3mod { grid-area: know3mod; }
+.know3button { grid-area: know3button; }
+.know3ability { grid-area: know3ability; }
+.know3text { grid-area: know3text; }
+
+.mediprof { grid-area: mediprof; }
+.medimod { grid-area: medimod; }
+.medibutton { grid-area: medibutton; }
+.acroability { grid-area: acroability; }
+
+.natrprof { grid-area: natrprof; }
+.natrmod { grid-area: natrmod; }
+.natrbutton { grid-area: natrbutton; }
+.natrability { grid-area: natrability; }
+
+.srchprof { grid-area: srchprof; }
+.srchmod { grid-area: srchmod; }
+.srchbutton { grid-area: srchbutton; }
+.srchability { grid-area: srchability; }
+
+.spcfprof { grid-area: spcfprof; }
+.spcfmod { grid-area: spcfmod; }
+.spcfbutton { grid-area: spcfbutton; }
+.spcfhability { grid-area: spcfability; }
+
+.stlhprof { grid-area: stlhprof; }
+.stlhmod { grid-area: stlhmod; }
+.stlhbutton { grid-area: stlhbutton; }
+.stlhability { grid-area: stlhability; }
+
+.swimprof { grid-area: swimprof; }
+.swimmod { grid-area: swimmod; }
+.swimbutton { grid-area: swimbutton; }
+.swimability { grid-area: swimability; }
+
+.know1text,
+.know2text,
+.know3text {
+  width: 68px !important;
+  border-bottom: none !important;
+  background: transparent;
+  font-size: 10pt;
+  text-align: center;
+  padding-top: 10px;
+}
+
+
+.advtools {
+  grid-area: advtools;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: 36px 28px 1fr 43px;
+  grid-template-rows: repeat(8, 20px);
+  grid-template-areas:"advtoolslabel advtoolslabel advtoolslabel advtoolslabel"
+                      "clmbprof clmbmod clmbbutton clmbability"
+                      "disgprof disgmod disgbutton disgability"
+                      "forgprof forgmod forgbutton forgability"
+                      "herbprof herbmod herbbutton herbability"
+                      "navgprof navgmod navgbutton navgability"
+                      "psnrprof psnrmod psnrbutton psnrability"
+                      "thvsprof thvsmod thvsbutton thvsability";
+}
+
+.advtoolslabel {
+  grid-area: advtoolslabel;   
+  margin: auto;
+}
+
+.clmbprof { grid-area: clmbprof; }
+.clmbmod { grid-area: clmbmod; }
+.clmbbutton { grid-area: clmbbutton; }
+.clmbability { grid-area: clmbability; }
+
+.disgprof { grid-area: disgprof; }
+.disgmod { grid-area: disgmod; }
+.disgbutton { grid-area: disgbutton; }
+.disgability { grid-area: disgability; }
+
+.forgprof { grid-area: forgprof; }
+.forgmod { grid-area: forgmod; }
+.forgbutton { grid-area: forgbutton; }
+.forgability { grid-area: forgability; }
+
+.herbprof { grid-area: herbprof; }
+.herbmod { grid-area: herbmod; }
+.herbbutton { grid-area: herbbutton; }
+.herbability { grid-area: herbability; }
+
+.navgprof { grid-area: navgprof; }
+.navgmod { grid-area: navgmod; }
+.navgbutton { grid-area: navgbutton; }
+.navgability { grid-area: navgability; }
+
+.psnrprof { grid-area: psnrprof; }
+.psnrmod { grid-area: psnrmod; }
+.psnrbutton { grid-area: psnrbutton; }
+.psnrability { grid-area: psnrability; }
+
+.thvsprof { grid-area: thvsprof; }
+.thvsmod { grid-area: thvsmod; }
+.thvsbutton { grid-area: thvsbutton; }
+.thvsability { grid-area: thvsability; }
+
+
+
+.artisantools {
+  grid-area: artisantools;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: 36px 28px 1fr 43px;
+  grid-template-rows: repeat(19, 20px);
+  grid-template-areas:"artisantoolslabel artisantoolslabel artisantoolslabel artisantoolslabel"
+                      "alchprof alchmod alchbutton alchability"
+                      "brewprof brewmod brewbutton brewability"
+                      "cligprof cligmod cligbutton cligability"
+                      "cpntprof cpntmod cpntbutton cpntability"
+                      "crtgprof crtgmod crtgbutton crtgability"
+                      "cobbprof cobbmod cobbbutton cobbability"
+                      "cookprof cookmod cookbutton cookability"
+                      "glbwprof glbwmod glbwbutton glbwability"
+                      "jwlrprof jwlrmod jwlrbutton jwlrability"
+                      "lthrprof lthrmod lthrbutton lthrability"
+                      "masnprof masnmod masnbutton masnability"
+                      "muscprof muscmod muscbutton muscability"
+                      "pntrprof pntrmod pntrbutton pntrability"
+                      "pttrprof pttrmod pttrbutton pttrability"
+                      "smthprof smthmod smthbutton smthability"
+                      "tnkrprof tnkrmod tnkrbutton tnkrability"
+                      "wevrprof wevrmod wevrbutton wevrability"
+                      "wcrvprof wcrvmod wcrvbutton wrcvability";
+}
+
+.artisantoolslabel {
+  grid-area: artisantoolslabel;   
+  margin: auto;
+}
+
+.alchprof { grid-area: alchprof; }
+.alchmod { grid-area: alchmod; }
+.alchbutton { grid-area: alchbutton; }
+.alchability { grid-area: alchability; }
+
+.brewprof { grid-area: brewprof; }
+.brewmod { grid-area: brewmod; }
+.brewbutton { grid-area: brewbutton; }
+.brewability { grid-area: brewability; }
+
+.cligprof { grid-area: cligprof; }
+.cligmod { grid-area: cligmod; }
+.cligbutton { grid-area: cligbutton; }
+.cligability { grid-area: cligability; }
+
+.cpntprof { grid-area: cpntprof; }
+.cpntmod { grid-area: cpntmod; }
+.cpntbutton { grid-area: cpntbutton; }
+.cpntability { grid-area: cpntability; }
+
+.crtgprof { grid-area: crtgprof; }
+.crtgmod { grid-area: crtgmod; }
+.crtgbutton { grid-area: crtgbutton; }
+.crtgability { grid-area: crtgability; }
+
+.cobbprof { grid-area: cobbprof; }
+.cobbmod { grid-area: cobbmod; }
+.cobbbutton { grid-area: cobbbutton; }
+.cobbability { grid-area: cobbability; }
+
+.cookprof { grid-area: cookprof; }
+.cookmod { grid-area: cookmod; }
+.cookbutton { grid-area: cookbutton; }
+.cookability { grid-area: cookability; }
+
+.glbwprof { grid-area: glbwprof; }
+.glbwmod { grid-area: glbwmod; }
+.glbwbutton { grid-area: glbwbutton; }
+.glbwability { grid-area: glbwability; }
+
+.jwlrprof { grid-area: jwlrprof; }
+.jwlrmod { grid-area: jwlrmod; }
+.jwlrbutton { grid-area: jwlrbutton; }
+.jwlrability { grid-area: jwlrability; }
+
+.lthrprof { grid-area: lthrprof; }
+.lthrmod { grid-area: lthrmod; }
+.lthrbutton { grid-area: lthrbutton; }
+.lthrability { grid-area: lthrability; }
+
+.masnprof { grid-area: masnprof; }
+.masnmod { grid-area: masnmod; }
+.masnbutton { grid-area: masnbutton; }
+.masnability { grid-area: masnability; }
+
+.muscprof { grid-area: muscprof; }
+.muscmod { grid-area: muscmod; }
+.muscbutton { grid-area: muscbutton; }
+.muscability { grid-area: muscability; }
+
+.pntrprof { grid-area: pntrprof; }
+.pntrmod { grid-area: pntrmod; }
+.pntrbutton { grid-area: pntrbutton; }
+.pntrability { grid-area: pntrability; }
+
+.pttrprof { grid-area: pttrprof; }
+.pttrmod { grid-area: pttrmod; }
+.pttrbutton { grid-area: pttrbutton; }
+.pttrability { grid-area: pttrability; }
+
+.smthprof { grid-area: smthprof; }
+.smthmod { grid-area: smthmod; }
+.smthbutton { grid-area: smthbutton; }
+.smthability { grid-area: smthability; }
+
+.tnkrprof { grid-area: tnkrprof; }
+.tnkrmod { grid-area: tnkrmod; }
+.tnkrbutton { grid-area: tnkrbutton; }
+.tnkrability { grid-area: tnkrability; }
+
+.wevrprof { grid-area: wevrprof; }
+.wevrmod { grid-area: wevrmod; }
+.wevrbutton { grid-area: wevrbutton; }
+.wevrability { grid-area: wevrability; }
+
+.wcrvprof { grid-area: wcrvprof; }
+.wcrvmod { grid-area: wcrvmod; }
+.wcrvbutton { grid-area: wcrvbutton; }
+.wrcvability { grid-area: wrcvability; }
+
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** SHORTCUTS & INV  ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+.core {
+  grid-area: core;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 3px;
+  grid-template-rows: 266px 1fr 1fr;
+  grid-template-areas:"vitals"
+                      "shortcuts"
+                      "inventory";
+}
+
+
+/*---CORE - vitals---*/
+.vitals {
+  grid-area: vitals;  
+
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 85px 85px 85px;
+  grid-template-areas:"vitals-one"
+                      "vitals-two"
+                      "vitals-three";
+}
+
+.vital label {
+  margin: 0;
+  font-size: 8pt;
+  margin: 1px;
+}
+
+.vital input {  
+  font-size: 24pt;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+
+
+.vitals-one {
+  grid-area: vitals-one;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"ac init speed";
+}
+
+.ac { 
+  grid-area: ac; 
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/AC.svg");
+}
+
+.ac label, 
+.speed label {
+  text-align: center;
+  float: left;
+  margin-top: 5px;
+}
+
+.ac input,
+.init input,
+.speed input {
+  text-align: center;
+  float: left;  
+}
+
+.init { 
+  grid-area: init;
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+}
+
+.init button {
+  font-size: 8pt !important;
+  font-weight: bold;
+  justify-self: center;
+  width: 74px;
+  margin: 5px 0px 0px 0px;
+}
+
+.speed { 
+  grid-area: speed;
+  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+}
+
+.ac, .init, .speed {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+
+.vitals-two {
+  grid-area: vitals-two;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"hptemp hpcurr hpmax";
+}
+
+.hptemp { grid-area: hptemp; }
+.hpcurr { grid-area: hpcurr; }
+.hpmax { grid-area: hpmax; }
+
+.hptemp label,
+.hpcurr label, 
+.hpmax label {
+  text-align: center;
+  float: left;
+  margin-top: 5px;
+}
+
+.hptemp input,
+.hpcurr input,
+.hpmax input {
+  text-align: center;
+  float: left;  
+  width: 95% !important;
+}
+
+
+.vitals-three {
+  grid-area: vitals-three;
+
+  display: grid;
+  grid-column-gap: 5px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"hitdice deathsv";
+}
+
+
+.hitdice { grid-area: hitdice; }
+
+.deathsv {
+  grid-area: deathsv; 
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25px 25px 30px;
+  grid-template-areas:"succs"
+                      "fails"
+                      "dslabel"
+}
+
+.deathsv button { 
+  width: 90px;
+  vertical-align: bottom;
+  padding: 0px;
+  text-align: center;
+  font-size: 8pt !important;
+  font-weight: bold;
+}
+
+.deathsv span {
+  padding: 3px 0px 0px 3px;
+}
+
+.deathsv input {
+  margin: auto;
+  padding: 3px 3px 3px 3px;
+}
+
+.succs {
+  grid-area: succs;
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"success succ1 succ2 succ3"
+}
+
+.success { grid-area: success; font-family: pictos; }
+.succ1 { grid-area: succ1; }
+.succ2 { grid-area: succ2; }
+.succ3 { grid-area: succ3; }
+
+.fails {
+  grid-area: fails;
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"failure fail1 fail2 fail3"
+}
+
+.failure { grid-area: failure; font-family: pictos; }
+.fail1 { grid-area: fail1; }
+.fail2 { grid-area: fail2; }
+.fail3 { grid-area: fail3; }
+
+.succs input[type="checkbox"],
+.fails input[type="checkbox"] {
+  display:none;
+}
+
+.succs input + label,
+.fails input + label {
+  display: inline-block;  
+  width: 13px;
+  height: 13px;
+  cursor: pointer; 
+  margin: 5px 0px 0px 2px;
+  background-image: url("https://i.imgur.com/wa8p2pv.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.succs input[type="checkbox"]:checked + label {
+  background-image: url("https://i.imgur.com/VL0Ilw5.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.fails input[type="checkbox"]:checked + label {
+  background-image: url("https://i.imgur.com/DFoEgvx.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.dslabel { grid-area: dslabel; }
+
+/*---CORE - SHORTCUTS---*/
+.shortcuts {
+  grid-area: shortcuts;
+  /*background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/4RCRsAd.png");*/
+  background-repeat: no-repeat;
+  min-height: 150px;
+}
+
+.shortcut {
+  font-size: 8pt;
+  border: 1pt black solid;
+  border-radius: 3px;
+  margin: 0px 3px 3px 3px;
+
+  display: grid;
+  align-items: center;
+  grid-gap: 1px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25px 22px 22px 22px 22px;
+  grid-template-areas:"shortname"
+                      "shortattack"
+                      "shortdamage"
+                      "shortdamagetype"
+                      "shortsave"
+}
+
+.shortcut input[type="text"],
+.shortcut input[type="number"],
+.shortcut select {
+  max-height: 20px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 8pt;
+
+  /* for Firefox */ 
+  -moz-appearance: none; 
+  /* for Safari, Chrome, Opera */ 
+  -webkit-appearance: none; 
+}
+
+.shortname {
+  grid-area: shortname;
+}
+
+.shortname button {
+  height: 20px;
+  background: transparent;
+  border: none;
+  font-family: dicefontd20;
+  font-size: 12pt;
+}
+
+.shortname input {
+  font-weight: bold;
+}
+
+.shortattack {
+  grid-area: shortattack;
+}
+
+.shortattack select {
+  width: 50px;
+}
+
+.shortdamage {
+  grid-area: shortdamage;
+}
+
+.shortdamage input { width: 50px; }
+.shortdamage select { width: 50px; }
+
+.shortdamagetype {
+  grid-area: shortdamagetype;
+}
+
+.shortdamagetype input { width: 75px; }
+
+.shortsave {
+  grid-area: shortsave;
+}
+
+.shortsave select { width: 50px; }
+.shortsave input { width: 50px; }
+
+
+/*---CORE - INVENTORY---*/
+.inventory {
+  grid-area: inventory;
+  min-height: 150px;
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 20px 50px 20px 1fr;
+  grid-template-areas:"invlabel invlabel invlabel invlabel"
+                      "copper silver gold platinum"
+                      "copperlabel silverlabel goldlabel platinumlabel"
+                      "itemlist itemlist itemlist itemlist"
+}
+
+.invlabel {
+  grid-area: invlabel;
+  font-size: 8pt;
+  vertical-align: top;
+  padding: 0px;
+  text-align: center;
+}
+
+.copper { 
+  grid-area: copper; 
+  background: url("https://i.imgur.com/7v6iyuW.png");
+}
+.silver { 
+  grid-area: silver;
+  background: url("https://i.imgur.com/Y5IYvdL.png"); 
+}
+.gold { 
+  grid-area: gold;
+  background: url("https://i.imgur.com/sKgkmhE.png");
+}
+.platinum { 
+  grid-area: platinum; 
+  background: url("https://i.imgur.com/Rl1AVh9.png");
+}
+
+.copper,
+.silver,
+.gold,
+.platinum {
+  width: 50px;
+  border: none;
+  margin: 0px 5px 0px 5px;
+  text-align: center;
+  padding: 0;
+  background-size: contain;
+}
+
+.copperlabel,
+.silverlabel,
+.goldlabel,
+.platinumlabel {  
+  width: 50px;
+  margin: 0px 5px 0px 5px;
+  text-align: center;
+  padding: 0;
+}
+
+.itemlist { 
+  grid-area: itemlist; 
+  border: 1px black solid;
+  margin: 5px 5px 5px 5px;
+  width: 240px !important;
+  height: 95% !important;
+  resize: none;
+  padding: 3px 5px 3px 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+
+
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** BIOGRAPHY ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+.bio {
+  grid-area: bio;
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr;
+  grid-template-rows: fit-content(100px) 200px 360px auto;
+  grid-template-areas:"levels"
+                      "appearance"
+                      "personality"
+                      "proficiencies";
+}
+
+.bio input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.levels { grid-area: levels; }
+
+.levels label {
+  margin-bottom: 0px;
+}
+
+.classlevel {
+  display: grid;
+  grid-template-columns: 190px 40px;
+  grid-template-rows: 40px 40px;
+  grid-template-areas:"class level"
+                      "subclass level";
+}
+
+.class { grid-area: class; }
+.subclass { grid-area: subclass; }
+.level { grid-area: level; align-self: center;}
+
+.classlevel span {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0px;
+  font-size: 8pt;
+  padding: 0px 0px 0px 0px;
+}
+
+.class input,
+.subclass input {
+  width: 170px;
+  height: 25px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.level input {
+  width: 35px;
+  height: 30px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.appearance {
+  grid-area: appearance; 
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20px 1fr 1fr 1fr 1fr;
+  grid-template-areas:"appearancelabel appearancelabel"
+                      "age size"
+                      "charheight charweight"
+                      "eyes hair"
+                      "skin marks";
+}
+
+.appearance input {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 0px;
+}
+
+.appearance span {
+  display: block;
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 8pt;
+  padding: 0px 0px 0px 0px;
+}
+
+.appearance label {
+  font-size: 8pt;
+  vertical-align: top;
+  padding: 0px;
+  text-align: center;
+}
+
+.appearancelabel { grid-area: appearancelabel; }
+.age { grid-area: age; }
+.size { grid-area: size; }
+.charheight { grid-area: charheight; }
+.charweight { grid-area: charweight; }
+.eyes { grid-area: eyes; }
+.hair { grid-area: hair; }
+.skin { grid-area: skin; }
+.marks { grid-area: marks; }
+
+
+.personality {
+  grid-area: personality; 
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90px 90px 90px 90px;
+  grid-template-areas:"trait"
+                      "ideal"
+                      "bond"
+                      "flaw"
+}
+
+.personality textarea {
+  border: none;
+  margin: 0px 5px 0px 5px;
+  width: 210px;
+  height: 60px;
+  resize: none;
+  padding: 0;
+}
+
+.personality span {
+  display: block;
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 8pt;
+  font-weight: bold;
+  padding: 0px 0px 0px 0px;
+  margin-top: 5px;
+}
+
+.trait { 
+  grid-area: trait;
+  border: solid black 1px;
+}
+
+.ideal { 
+  grid-area: ideal; 
+  border: solid black 1px;
+}
+
+.bond { 
+  grid-area: bond; 
+  border: solid black 1px;
+}
+
+.flaw { 
+  grid-area: flaw;
+  border: solid black 1px;
+}
+
+.proficiencies { grid-area: proficiencies; }
+
+.proficiencies input[type="text"] {
+  height: 25px;
+  float: right;
+  width: 65%; 
+  padding: 0px;
+  margin-left: 5%;
+}
+
+.proficiencies select {
+  float: left;
+  height: 25px;
+  width: 30%; 
+  font-size: 8pt;
+  font-weight: bold;
+  text-align: right;
+  border: 0;
+  margin: 0;
+
+  /* for Firefox */ 
+  -moz-appearance: none; 
+  /* for Safari, Chrome, Opera */ 
+  -webkit-appearance: none; 
+}
+
+
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** GENERAL ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+.section {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+}
+
+.section label{
+  font-size: 8pt;
+  text-align: center;
+  color:black;
+}
+
+.wordbutton {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+button[type=roll]::before {
+  content: '' !important;
+}
+
+button[type=roll] {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: none !important;
+}
+
+button[type=roll]:hover{
+  background-color: transparent;
+}
+
+.charactersheet {
+  overflow-x: hidden;
+}
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** Magic CSS ***** *****  ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** (dont edit) ***** ***** ***** ***** ***** ***** 
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+
+.repcontrol {
+  min-height: 27px; }
+
+.repcontrol .btn {
+  /*visibility: hidden;*/
+  border: medium none;
+  color: white !important;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.repcontrol .btn:focus {
+  outline: 0; }
+
+.repcontrol .repcontrol_edit,
+.repcontrol .repcontrol_add {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+.repcontrol .repcontrol_edit:after {
+  content: '(';
+  visibility: visible;
+  font-family: pictos;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 12px;
+  height: 12px;
+  width: 12px;
+  padding: 2px 4px 2px 4px;
+  color: black; }
+
+.editmode ~ .repcontrol .repcontrol_edit:after {
+  content: ')'; }
+
+.repcontrol .repcontrol_add:before {
+  content: '&';
+  visibility: visible;
+  font-family: pictos;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 12px;
+  height: 12px;
+  width: 12px;
+  padding: 2px 4px 2px 4px;
+  color: black; }
+
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before {
+  background-color: #EFEFEF; }
+
+.sheet-resources .repcontrol {
+  margin-top: -10px; }
+
+.itemcontrol {
+  z-index: 10; }
+
+.itemcontrol .repcontrol_del {
+  font-size: 10px;
+  margin-top: 3px;
+  padding: 0px;
+  height: 18px;
+  width: 18px; }
+
+.itemcontrol .repcontrol_move {
+  font-size: 10px;
+  margin-top: 3px;
+  padding: 0px;
+  height: 18px;
+  width: 18px; }
+
+/*Configure the tab buttons*/
+.character,
+.features,
+.spells {
+    display: none;
+}
+
+/* show the selected tab */
+.tabstoggle[value="character"] ~ div.character,
+.tabstoggle[value="features"] ~ div.features,
+.tabstoggle[value="spells"] ~ div.spells {
+    display: block;
+}
+
+/***** EXPERTISE: second checkbox shares the proficiency cell (left = proficient, right = expertise) *****/
+.acroexp { grid-area: acroprof; }
+.athlexp { grid-area: athlprof; }
+.anhnexp { grid-area: anhnprof; }
+.insiexp { grid-area: insiprof; }
+.intiexp { grid-area: intiprof; }
+.know1exp { grid-area: know1prof; }
+.know2exp { grid-area: know2prof; }
+.know3exp { grid-area: know3prof; }
+.mediexp { grid-area: mediprof; }
+.natrexp { grid-area: natrprof; }
+.srchexp { grid-area: srchprof; }
+.spcfexp { grid-area: spcfprof; }
+.stlhexp { grid-area: stlhprof; }
+.swimexp { grid-area: swimprof; }
+.clmbexp { grid-area: clmbprof; }
+.disgexp { grid-area: disgprof; }
+.forgexp { grid-area: forgprof; }
+.herbexp { grid-area: herbprof; }
+.navgexp { grid-area: navgprof; }
+.psnrexp { grid-area: psnrprof; }
+.thvsexp { grid-area: thvsprof; }
+.alchexp { grid-area: alchprof; }
+.brewexp { grid-area: brewprof; }
+.cligexp { grid-area: cligprof; }
+.cpntexp { grid-area: cpntprof; }
+.crtgexp { grid-area: crtgprof; }
+.cobbexp { grid-area: cobbprof; }
+.cookexp { grid-area: cookprof; }
+.glbwexp { grid-area: glbwprof; }
+.jwlrexp { grid-area: jwlrprof; }
+.lthrexp { grid-area: lthrprof; }
+.masnexp { grid-area: masnprof; }
+.muscexp { grid-area: muscprof; }
+.pntrexp { grid-area: pntrprof; }
+.pttrexp { grid-area: pttrprof; }
+.smthexp { grid-area: smthprof; }
+.tnkrexp { grid-area: tnkrprof; }
+.wevrexp { grid-area: wevrprof; }
+.wcrvexp { grid-area: wcrvprof; }
+.skilllist input[type="checkbox"],
+.advtools input[type="checkbox"],
+.artisantools input[type="checkbox"] { justify-self: start; margin-left: 2px; }
+.skilllist input.expcheck,
+.advtools input.expcheck,
+.artisantools input.expcheck { justify-self: end; margin-right: 2px; accent-color: #b8860b; }

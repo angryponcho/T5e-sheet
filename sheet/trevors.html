@@ -1,0 +1,1212 @@
+<div class="tabButtons">
+    <button class="spelButton" type="action" name="act_spells" >Spells</button>
+    <button class="featButton" type="action" name="act_features" >Features</button>
+    <button class="charButton" type="action" name="act_character" >Character</button>
+</div>
+<input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character"/>
+
+<div class="character">
+
+<div class="main">
+
+    <div class="header">
+      <input name="attr_character_name" type="text"/>
+      <label>Character Name</label>
+    </div>
+    <div class="charbox">
+      <div class="race"> <input name="attr_race" type="text"/> <span>Race</span> </div>
+      <div class="characterlevel"> <input name="attr_level" type="text"/> <span>Character Level</span> </div> 
+      <div class="pronouns"> <input name="attr_pronouns" type="text"/> <span>Pronouns</span> </div> 
+      <div class="playername"> <input name="attr_player_name" type="text"/> <span>Player Name</span> </div>
+      <div class="alignment"> <input name="attr_alignment" type="text"/> <span>Alignment</span> </div>
+      <div class="charbg"> <input name="attr_character_bg" type="text"/> <span>Background</span> </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="scores">
+        <div class="str ability-score">
+          <button class="wordbutton strlabel" type="roll" 
+              value="/em : Strength check! [[1d20 + @{str_mod}]]">STR</button>
+          <input class="strmod score-mod" type="text" name="attr_str_mod" value="0"/>
+          <input class="score strscore" type="text" name="attr_str"/>
+        </div>
+        <div class="dex ability-score">
+          <button class="wordbutton dexlabel" type="roll" 
+              value="/em : Dexterity check! [[1d20 + @{dex_mod}]]">DEX</button>
+          <input class="dexmod score-mod" type="text" name="attr_dex_mod" value="0"/>
+          <input class="score dexscore" type="text" name="attr_dex"/>
+        </div>
+        <div class="con ability-score">
+          <button class="wordbutton conlabel" type="roll" 
+              value="/em : Constitution check! [[1d20 + @{con_mod}]]">CON</button>
+          <input class="conmod score-mod" type="text" name="attr_con_mod" value="0"/>
+          <input class="score conscore" type="text" name="attr_con"/>
+        </div>
+        <div class="int ability-score">
+          <button class="wordbutton intlabel" type="roll" 
+              value="/em : Intelligence check! [[1d20 + @{int_mod}]]">INT</button>
+          <input class="intmod score-mod" type="text" name="attr_int_mod" value="0"/>
+          <input class="score intscore" type="text" name="attr_int"/>
+        </div>
+        <div class="wis ability-score">
+          <button class="wordbutton wislabel" type="roll" 
+              value="/em : Wisdom check! [[1d20 + @{wis_mod}]]">WIS</button>
+          <input class="wismod score-mod" type="text" name="attr_wis_mod" value="0"/>
+          <input class="score wisscore" type="text" name="attr_wis"/>
+        </div>
+        <div class="cha ability-score">
+          <button class="wordbutton chalabel" type="roll" 
+              value="/em : Charisma check! [[1d20 + @{cha_mod}]]">CHA</button>
+          <input class="chamod score-mod" type="text" name="attr_cha_mod" value="0"/>
+          <input class="score chascore" type="text" name="attr_cha"/>
+        </div>
+      </div>
+
+      <div class="blank">
+        
+      </div>
+      
+    </div>
+
+    <div class="skills">
+
+      <div class="inspprof">
+        <div class="insp">
+          <input id="myInput" type="checkbox" name="attr_insp" value="1"/> 
+          <label for="myInput"></label>
+
+          <span class="insplabel">INSPIRATION</span>
+        </div>
+
+        <div class="prof">
+          <input type="text" name="attr_profbonus" value="0"/> 
+          <span class="proflabel">PROFICIENCY BONUS</span>
+        </div>
+      </div>
+
+      <div class="saves section">
+        <label class="savelabel">SAVING THROWS</label>
+
+        <input type="checkbox" class="strprof" name="attr_strsaveprof"/>
+        <input type="text" class="strsavemod" name="attr_strsavemod" value="0"/>
+        <button class="wordbutton strbutton" type="roll" 
+          value="/em : Strength saving throw! [[1d20 + @{strsavemod}]]">Strength</button>
+
+        <input type="checkbox" class="dexprof" name="attr_dexsaveprof"/>
+        <input type="text" class="dexsavemod" name="attr_dexsavemod" value="0"/>
+        <button class="wordbutton dexbutton" type="roll" 
+          value="/em : Dexterity saving throw! [[1d20 + @{dexsavemod}]]">Dexterity</button>
+
+        <input type="checkbox" class="conprof" name="attr_consaveprof"/>
+        <input type="text" class="consavemod" name="attr_consavemod" value="0"/>
+        <button class="wordbutton conbutton" type="roll" 
+          value="/em : Constitution saving throw! [[1d20 + @{consavemod}]]">Constitution</button>
+
+        <input type="checkbox" class="intprof" name="attr_intsaveprof"/>
+        <input type="text" class="intsavemod" name="attr_intsavemod" value="0"/>
+        <button class="wordbutton intbutton" type="roll" 
+          value="/em : Intelligence saving throw! [[1d20 + @{intsavemod}]]">Intelligence</button>
+
+        <input type="checkbox" class="wisprof" name="attr_wissaveprof"/>
+        <input type="text" class="wissavemod" name="attr_wissavemod" value="0"/>
+        <button class="wordbutton wisbutton" type="roll" 
+          value="/em : Wisdom saving throw! [[1d20 + @{wissavemod}]]">Wisdom</button>
+
+        <input type="checkbox" class="chaprof" name="attr_chasaveprof"/>
+        <input type="text" class="chasavemod" name="attr_chasavemod" value="0"/>
+        <button class="wordbutton chabutton" type="roll" 
+          value="/em : Charisma saving throw! [[1d20 + @{chasavemod}]]">Charisma</button>
+      </div>
+
+      <div class="skilllist section">
+        <label class="skillslabel">SKILLS</label>
+
+        <input type="checkbox" class="acroprof" name="attr_acroprof"/>
+        <input type="checkbox" class="acroexp expcheck" name="attr_acroexp" title="Expertise"/>
+        <input type="text" class="acromod" name="attr_acromod" value="0"/>
+        <button class="wordbutton acrobutton" type="roll" 
+          value="/em : Acrobatics check! [[1d20 + @{acromod}]]">Acrobatics</button>
+        <select class="acroability" name="attr_acroability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="athlprof" name="attr_athlprof"/>
+        <input type="checkbox" class="athlexp expcheck" name="attr_athlexp" title="Expertise"/>
+        <input type="text" class="athlmod" name="attr_athlmod" value="0"/>
+        <button class="wordbutton athlbutton" type="roll" 
+          value="/em : Athletics check! [[1d20 + @{athlmod}]]">Athletics</button>
+        <select class="athlability" name="attr_athlability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="anhnprof" name="attr_anhnprof"/>
+        <input type="checkbox" class="anhnexp expcheck" name="attr_anhnexp" title="Expertise"/>
+        <input type="text" class="anhnmod" name="attr_anhnmod" value="0"/>
+        <button class="wordbutton anhnbutton" type="roll" 
+          value="/em : Animal Handling check! [[1d20 + @{anhnmod}]]">Animal Handling</button>
+        <select class="anhnability" name="attr_anhnability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="insiprof" name="attr_insiprof"/>
+        <input type="checkbox" class="insiexp expcheck" name="attr_insiexp" title="Expertise"/>
+        <input type="text" class="insimod" name="attr_insimod" value="0"/>
+        <button class="wordbutton insibutton" type="roll" 
+          value="/em : Insight check! [[1d20 + @{insimod}]]">Insight</button>
+        <select class="insiability" name="attr_insiability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="intiprof" name="attr_intiprof"/>
+        <input type="checkbox" class="intiexp expcheck" name="attr_intiexp" title="Expertise"/>
+        <input type="text" class="intimod" name="attr_intimod" value="0"/>
+        <button class="wordbutton intibutton" type="roll" 
+          value="/em : Intimidation check! [[1d20 + @{intimod}]]">Intimidation</button>
+        <select class="intiability" name="attr_intiability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="know1prof" name="attr_know1prof"/>
+        <input type="checkbox" class="know1exp expcheck" name="attr_know1exp" title="Expertise"/>
+        <input type="text" class="know1mod" name="attr_know1mod" value="0"/>
+        <button class="wordbutton know1button" type="roll" 
+          value="/em : Knowledge check! [[1d20 + @{know1mod}]]">Knowledge</button>        
+        <input type="text" class="know1text" name="attr_know1text" value="Arcana"/>
+        <select class="know1ability" name="attr_know1ability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="know2prof" name="attr_know2prof"/>
+        <input type="checkbox" class="know2exp expcheck" name="attr_know2exp" title="Expertise"/>
+        <input type="text" class="know2mod" name="attr_know2mod" value="0"/>
+        <button class="wordbutton know2button" type="roll" 
+          value="/em : Knowledge check! [[1d20 + @{know2mod}]]">Knowledge</button>
+        <input type="text" class="know2text" name="attr_know2text" value="History"/>
+        <select class="know2ability" name="attr_know2ability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="know3prof" name="attr_know3prof"/>
+        <input type="checkbox" class="know3exp expcheck" name="attr_know3exp" title="Expertise"/>
+        <input type="text" class="know3mod" name="attr_know3mod" value="0"/>
+        <button class="wordbutton know3button" type="roll" 
+          value="/em : Knowledge check! [[1d20 + @{know3mod}]]">Knowledge</button>
+        <input type="text" class="know3text" name="attr_know3text" value="Religion"/>
+        <select class="know3ability" name="attr_know3ability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="mediprof" name="attr_mediprof"/>
+        <input type="checkbox" class="mediexp expcheck" name="attr_mediexp" title="Expertise"/>
+        <input type="text" class="medimod" name="attr_medimod" value="0"/>
+        <button class="wordbutton medibutton" type="roll" 
+          value="/em : Medicine check! [[1d20 + @{medimod}]]">Medicine</button>
+        <select class="mediability" name="attr_mediability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="natrprof" name="attr_natrprof"/>
+        <input type="checkbox" class="natrexp expcheck" name="attr_natrexp" title="Expertise"/> 
+        <input type="text" class="natrmod" name="attr_natrmod" value="0"/>
+        <button class="wordbutton natrbutton" type="roll" 
+          value="/em : Nature check! [[1d20 + @{natrmod}]]">Nature</button>
+        <select class="natrability" name="attr_natrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="srchprof" name="attr_srchprof"/>
+        <input type="checkbox" class="srchexp expcheck" name="attr_srchexp" title="Expertise"/>
+        <input type="text" class="srchmod" name="attr_srchmod" value="0"/>
+        <button class="wordbutton srchbutton" type="roll" 
+          value="/em : Search check! [[1d20 + @{srchmod}]]">Search</button>
+        <select class="srchability" name="attr_srchability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="spcfprof" name="attr_spcfprof"/>
+        <input type="checkbox" class="spcfexp expcheck" name="attr_spcfexp" title="Expertise"/>
+        <input type="text" class="spcfmod" name="attr_spcfmod" value="0"/>
+        <button class="wordbutton spcfbutton" type="roll" 
+          value="/em : Speechcraft check! [[1d20 + @{spcfmod}]]">Speechcraft</button>
+        <select class="spcfability" name="attr_spcfability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+        
+        <input type="checkbox" class="stlhprof" name="attr_stlhprof"/>
+        <input type="checkbox" class="stlhexp expcheck" name="attr_stlhexp" title="Expertise"/>
+        <input type="text" class="stlhmod" name="attr_stlhmod" value="0"/>
+        <button class="wordbutton stlhbutton" type="roll" 
+          value="/em : Stealth check! [[1d20 + @{stlhmod}]]">Stealth</button>
+        <select class="stlhability" name="attr_stlhability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="swimprof" name="attr_swimprof"/>
+        <input type="checkbox" class="swimexp expcheck" name="attr_swimexp" title="Expertise"/>
+        <input type="text" class="swimmod" name="attr_swimmod" value="0"/>
+        <button class="wordbutton swimbutton" type="roll" 
+          value="/em : Swimming check! [[1d20 + @{swimmod}]]">Swimming</button>
+        <select class="swimability" name="attr_swimability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+      </div>
+
+      <div class="advtools section">
+        <label class="advtoolslabel">ADVENTURER TOOLS</label>
+
+        <input type="checkbox" class="clmbprof" name="attr_clmbprof"/>
+        <input type="checkbox" class="clmbexp expcheck" name="attr_clmbexp" title="Expertise"/>
+        <input type="text" class="clmbmod" name="attr_clmbmod" value="0"/>
+        <button class="wordbutton clmbbutton" type="roll" 
+          value="/em : Climber's Kit! [[1d20 + @{clmbmod}]]">Climber's Kit</button>
+        <select class="clmbability" name="attr_clmbability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>        
+
+        <input type="checkbox" class="disgprof" name="attr_disgprof"/>
+        <input type="checkbox" class="disgexp expcheck" name="attr_disgexp" title="Expertise"/>
+        <input type="text" class="disgmod" name="attr_disgmod" value="0"/>
+        <button class="wordbutton disgbutton" type="roll" 
+          value="/em : Disguise Kit! [[1d20 + @{disgmod}]]">Disguise Kit</button>
+        <select class="disgability" name="attr_disgability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>   
+
+        <input type="checkbox" class="forgprof" name="attr_forgprof"/>
+        <input type="checkbox" class="forgexp expcheck" name="attr_forgexp" title="Expertise"/>
+        <input type="text" class="forgmod" name="attr_forgmod" value="0"/>
+        <button class="wordbutton forgbutton" type="roll" 
+          value="/em : Forgery Kit! [[1d20 + @{forgmod}]]">Forgery Kit</button>
+        <select class="forgability" name="attr_forgability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>   
+
+        <input type="checkbox" class="herbprof" name="attr_herbprof"/>
+        <input type="checkbox" class="herbexp expcheck" name="attr_herbexp" title="Expertise"/>
+        <input type="text" class="herbmod" name="attr_herbmod" value="0"/>
+        <button class="wordbutton herbbutton" type="roll" 
+          value="/em : Herbalism Kit! [[1d20 + @{herbmod}]]">Herbalism Kit</button>
+        <select class="herbability" name="attr_herbability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>   
+
+        <input type="checkbox" class="navgprof" name="attr_navgprof"/>
+        <input type="checkbox" class="navgexp expcheck" name="attr_navgexp" title="Expertise"/>
+        <input type="text" class="navgmod" name="attr_navgmod" value="0"/>
+        <button class="wordbutton navgbutton" type="roll" 
+          value="/em : Navigator's Tools! [[1d20 + @{navgmod}]]">Navigator's Tools</button>
+        <select class="navgability" name="attr_navgability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>   
+
+        <input type="checkbox" class="psnrprof" name="attr_psnrprof"/>
+        <input type="checkbox" class="psnrexp expcheck" name="attr_psnrexp" title="Expertise"/>
+        <input type="text" class="psnrmod" name="attr_psnrmod" value="0"/>
+        <button class="wordbutton psnrbutton" type="roll" 
+          value="/em : Poisoner's Kit! [[1d20 + @{psnrmod}]]">Poisoner's Kit</button>
+        <select class="psnrability" name="attr_psnrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>   
+
+        <input type="checkbox" class="thvsprof" name="attr_thvsprof"/>
+        <input type="checkbox" class="thvsexp expcheck" name="attr_thvsexp" title="Expertise"/>
+        <input type="text" class="thvsmod" name="attr_thvsmod" value="0"/>
+        <button class="wordbutton thvsbutton" type="roll" 
+          value="/em : Thieves' Tools! [[1d20 + @{thvsmod}]]">Thieves' Tools</button>
+        <select class="thvsability" name="attr_thvsability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>   
+      </div>
+
+      <div class="artisantools section">
+        <label class="artisantoolslabel">ARTISAN TOOLS</label>
+
+        <input type="checkbox" class="alchprof" name="attr_alchprof"/>
+        <input type="checkbox" class="alchexp expcheck" name="attr_alchexp" title="Expertise"/>
+        <input type="text" class="alchmod" name="attr_alchmod" value="0"/>
+        <button class="wordbutton alchbutton" type="roll" 
+          value="/em : Alchemist's Supplies! [[1d20 + @{alchmod}]]">Alchemist's Supplies</button>
+        <select class="alchability" name="attr_alchability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="brewprof" name="attr_brewprof"/>
+        <input type="checkbox" class="brewexp expcheck" name="attr_brewexp" title="Expertise"/>
+        <input type="text" class="brewmod" name="attr_brewmod" value="0"/>
+        <button class="wordbutton brewbutton" type="roll" 
+          value="/em : Brewers's Supplies! [[1d20 + @{brewmod}]]">Brewers's Supplies</button>
+        <select class="brewability" name="attr_brewability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="cligprof" name="attr_cligprof"/>
+        <input type="checkbox" class="cligexp expcheck" name="attr_cligexp" title="Expertise"/>
+        <input type="text" class="cligmod" name="attr_cligmod" value="0"/>
+        <button class="wordbutton cligbutton" type="roll" 
+          value="/em : Calligrapher's Supplies! [[1d20 + @{cligmod}]]">Calligrapher's Supplies</button>
+        <select class="cligability" name="attr_cligability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="cpntprof" name="attr_cpntprof"/>
+        <input type="checkbox" class="cpntexp expcheck" name="attr_cpntexp" title="Expertise"/>
+        <input type="text" class="cpntmod" name="attr_cpntmod" value="0"/>
+        <button class="wordbutton cpntbutton" type="roll" 
+          value="/em : Carpenter's Tools! [[1d20 + @{cpntmod}]]">Carpenter's Tools</button>
+        <select class="cpntability" name="attr_cpntability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="crtgprof" name="attr_crtgprof"/>
+        <input type="checkbox" class="crtgexp expcheck" name="attr_crtgexp" title="Expertise"/>
+        <input type="text" class="crtgmod" name="attr_crtgmod" value="0"/>
+        <button class="wordbutton crtgbutton" type="roll" 
+          value="/em : Cartographer's Tools! [[1d20 + @{crtgmod}]]">Cartographer's Tools</button>
+        <select class="crtgability" name="attr_crtgability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="cobbprof" name="attr_cobbprof"/>
+        <input type="checkbox" class="cobbexp expcheck" name="attr_cobbexp" title="Expertise"/>
+        <input type="text" class="cobbmod" name="attr_cobbmod" value="0"/>
+        <button class="wordbutton cobbbutton" type="roll" 
+          value="/em : Cobbler's Tools! [[1d20 + @{cobbmod}]]">Cobbler's Tools</button>
+        <select class="cobbability" name="attr_cobbability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="cookprof" name="attr_cookprof"/>
+        <input type="checkbox" class="cookexp expcheck" name="attr_cookexp" title="Expertise"/>
+        <input type="text" class="cookmod" name="attr_cookmod" value="0"/>
+        <button class="wordbutton cookbutton" type="roll" 
+          value="/em : Cook's Utensils! [[1d20 + @{cookmod}]]">Cook's Utensils</button>
+        <select class="cookability" name="attr_cookability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="glbwprof" name="attr_glbwprof"/>
+        <input type="checkbox" class="glbwexp expcheck" name="attr_glbwexp" title="Expertise"/>
+        <input type="text" class="glbwmod" name="attr_glbwmod" value="0"/>
+        <button class="wordbutton glbwbutton" type="roll" 
+          value="/em : Glassblower's Tools! [[1d20 + @{glbwmod}]]">Glassblower's Tools</button>
+        <select class="glbwability" name="attr_glbwability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="jwlrprof" name="attr_jwlrprof"/>
+        <input type="checkbox" class="jwlrexp expcheck" name="attr_jwlrexp" title="Expertise"/>
+        <input type="text" class="jwlrmod" name="attr_jwlrmod" value="0"/>
+        <button class="wordbutton jwlrbutton" type="roll" 
+          value="/em : Jeweler's Tools! [[1d20 + @{jwlrmod}]]">Jeweler's Tools</button>
+        <select class="jwlrability" name="attr_jwlrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="lthrprof" name="attr_lthrprof"/>
+        <input type="checkbox" class="lthrexp expcheck" name="attr_lthrexp" title="Expertise"/>
+        <input type="text" class="lthrmod" name="attr_lthrmod" value="0"/>
+        <button class="wordbutton lthrbutton" type="roll" 
+          value="/em : Leatherworker's Tools! [[1d20 + @{lthrmod}]]">Leatherworker's Tools</button>
+        <select class="lthrability" name="attr_lthrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="masnprof" name="attr_masnprof"/>
+        <input type="checkbox" class="masnexp expcheck" name="attr_masnexp" title="Expertise"/>
+        <input type="text" class="masnmod" name="attr_masnmod" value="0"/>
+        <button class="wordbutton masnbutton" type="roll" 
+          value="/em : Mason's Tools! [[1d20 + @{masnmod}]]">Mason's Tools</button>
+        <select class="masnability" name="attr_masnability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="muscprof" name="attr_muscprof"/>
+        <input type="checkbox" class="muscexp expcheck" name="attr_muscexp" title="Expertise"/>
+        <input type="text" class="muscmod" name="attr_muscmod" value="0"/>
+        <button class="wordbutton muscbutton" type="roll" 
+          value="/em : Musical Instrument! [[1d20 + @{muscmod}]]">Musical Instrument</button>
+        <select class="muscability" name="attr_muscability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="pntrprof" name="attr_pntrprof"/>
+        <input type="checkbox" class="pntrexp expcheck" name="attr_pntrexp" title="Expertise"/>
+        <input type="text" class="pntrmod" name="attr_pntrmod" value="0"/>
+        <button class="wordbutton pntrbutton" type="roll" 
+          value="/em : Painter's Supplies! [[1d20 + @{pntrmod}]]">Painter's Supplies</button>
+        <select class="pntrability" name="attr_pntrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="pttrprof" name="attr_pttrprof"/>
+        <input type="checkbox" class="pttrexp expcheck" name="attr_pttrexp" title="Expertise"/>
+        <input type="text" class="pttrmod" name="attr_pttrmod" value="0"/>
+        <button class="wordbutton pttrbutton" type="roll" 
+          value="/em : Potter's Supplies! [[1d20 + @{pttrmod}]]">Potter's Supplies</button>
+        <select class="pttrability" name="attr_pttrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="smthprof" name="attr_smthprof"/>
+        <input type="checkbox" class="smthexp expcheck" name="attr_smthexp" title="Expertise"/>
+        <input type="text" class="smthmod" name="attr_smthmod" value="0"/>
+        <button class="wordbutton smthbutton" type="roll" 
+          value="/em : Smith's Tools! [[1d20 + @{smthmod}]]">Smith's Tools</button>
+        <select class="smthability" name="attr_smthability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="tnkrprof" name="attr_tnkrprof"/>
+        <input type="checkbox" class="tnkrexp expcheck" name="attr_tnkrexp" title="Expertise"/>
+        <input type="text" class="tnkrmod" name="attr_tnkrmod" value="0"/>
+        <button class="wordbutton tnkrbutton" type="roll" 
+          value="/em : Tinker's Tools! [[1d20 + @{tnkrmod}]]">Tinker's Tools</button>
+        <select class="tnkrability" name="attr_tnkrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="wevrprof" name="attr_wevrprof"/>
+        <input type="checkbox" class="wevrexp expcheck" name="attr_wevrexp" title="Expertise"/>
+        <input type="text" class="wevrmod" name="attr_wevrmod" value="0"/>
+        <button class="wordbutton wevrbutton" type="roll" 
+          value="/em : Weaver's Supplies! [[1d20 + @{wevrmod}]]">Weaver's Supplies</button>
+        <select class="wevrability" name="attr_wevrability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+
+        <input type="checkbox" class="wcrvprof" name="attr_wcrvprof"/>
+        <input type="checkbox" class="wcrvexp expcheck" name="attr_wcrvexp" title="Expertise"/>
+        <input type="text" class="wcrvmod" name="attr_wcrvmod" value="0"/>
+        <button class="wordbutton wcrvbutton" type="roll" 
+          value="/em : Woodcarver's Tools! [[1d20 + @{wcrvmod}]]">Woodcarver's Tools</button>
+        <select class="wcrvability" name="attr_wcrvability">
+          <option value="STR">(STR)</option>
+          <option value="DEX">(DEX)</option>
+          <option value="CON">(CON)</option>
+          <option value="INT">(INT)</option>
+          <option value="WIS">(WIS)</option>
+          <option value="CHA">(CHA)</option>
+        </select>
+      </div>  
+    </div>
+
+    <div class="core">
+      <div class="vitals">
+
+        <div class="vitals-one">          
+          <div class="ac vital">
+            <label>AC</label>
+            <input name="attr_ac" type="text">
+          </div>
+          <div class="init vital">
+            <button class="wordbutton" type="roll" 
+                value="/em : Initiative! [[1d20 + @{initmod}]]">INITIATIVE</button>
+            <input name="attr_initmod" type="text" value="0">
+          </div>
+          <div class="speed vital">
+            <label>SPEED</label>
+            <input name="attr_speed" type="text">
+          </div>
+        </div>
+
+        <div class="vitals-two section">
+          <div class="hptemp vital">   
+            <label>Temp HP</label>
+            <input name="attr_temp_hp" type="number">       
+          </div>
+          <div class="hpcurr vital">
+            <label>Hit Points</label>
+            <input name="attr_current_hp" type="number">
+          </div>
+          <div class="hpmax vital">
+            <label>Max HP</label>
+            <input name="attr_max_hp" type="number">
+          </div>
+        </div>
+
+        <div class="vitals-three">
+          <div class="hitdice vital section">
+            <input name="attr_hit_dice" type="text">
+            <label>HIT DICE</label>
+          </div>
+          <div class="deathsv section">
+            <div class="succs">
+              <span class="success">3</span>
+              <input type="checkbox" class="succ1" id="succ1" name="attr_deathsave_succ1" value="1"> <label for="succ1"></label>
+              <input type="checkbox" class="succ2" id="succ2" name="attr_deathsave_succ2" value="1"> <label for="succ2"></label>
+              <input type="checkbox" class="succ3" id="succ3" name="attr_deathsave_succ3" value="1"> <label for="succ3"></label>
+            </div>
+            <div class="fails">
+              <span class="failure">*</span>
+              <input type="checkbox" class="fail1" id="fail1" name="attr_deathsave_fail1" value="1"> <label for="fail1"></label>
+              <input type="checkbox" class="fail2" id="fail2" name="attr_deathsave_fail2" value="1"> <label for="fail2"></label>
+              <input type="checkbox" class="fail3" id="fail3" name="attr_deathsave_fail3" value="1"> <label for="fail3"></label>
+            </div>
+            <button class="wordbutton dslabel" type="roll" 
+                value="/em : Death Save! [[1d20]]">DEATH SAVES</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="shortcuts section">
+        <label>SHORTCUTS</label>
+
+        <fieldset class="repeating_shortcut">          
+          <div class="shortcut">
+          	<div class="shortname">
+          		<button type="roll" name="roll_attack" value="@{attackmacro}">0</button>
+          		<input type="text" name="attr_attackname">
+          		<input type="hidden" name="attr_attackmacro" value="">
+          	</div>
+
+          	<div class="shortattack">	
+	          <span>Attack: 1d20 +</span>
+	          <select name="attr_attackstat">
+		        <option value="NONE">NONE</option>
+		        <option value="STR">STR</option>
+		        <option value="DEX">DEX</option>
+		        <option value="CON">CON</option>
+		        <option value="INT">INT</option>
+		        <option value="WIS">WIS</option>
+		        <option value="CHA">CHA</option>
+	          </select>
+	          +
+	          <input type="number" name="attr_attackbonus">
+	          +
+	          <input type="checkbox" name="attr_attackprof">
+	          <span>Prof?</span>
+	        </div>
+
+	        <div class="shortdamage">
+	          <span>Damage:</span>
+	          <input type="text" name="attr_attackroll">
+	          +
+	          <select name="attr_damagestat">
+		        <option value="NONE">NONE</option>
+		        <option value="STR">STR</option>
+		        <option value="DEX">DEX</option>
+		        <option value="CON">CON</option>
+		        <option value="INT">INT</option>
+		        <option value="WIS">WIS</option>
+		        <option value="CHA">CHA</option>
+	          </select>
+	          +
+	          <input type="number" name="attr_damagebonus">
+	        </div>
+
+	        <div class="shortdamagetype">
+	          <span>Type:</span>
+	          <input type="text" name="attr_damagetype">
+			</div>
+
+			<div class="shortsave">
+          	  <span>Save?</span>
+          	  <select name="attr_damagesavestat">
+		        <option value="STR">STR</option>
+		        <option value="DEX">DEX</option>
+		        <option value="CON">CON</option>
+		        <option value="INT">INT</option>
+		        <option value="WIS">WIS</option>
+		        <option value="CHA">CHA</option>
+	          </select>
+	          <select name="attr_attacksaveeffect">
+		        <option value="HFDAM">Half Damage</option>
+		        <option value="NODAM">No Damage</option>
+	          </select>
+	          <span>DC:</span>
+	          <input type="text" name="attr_attacksavedc">
+            </div>
+
+          </div>
+        </fieldset>
+
+      </div>  
+
+      <div class="inventory section">
+        <label class="invlabel">INVENTORY</label>
+
+        <input name="attr_copper" type="text" class="copper">
+        <label class="copperlabel">Copper</label>
+        <input name="attr_silver" type="text" class="silver">
+        <label class="silverlabel">Silver</label>
+        <input name="attr_gold" type="text" class="gold">
+        <label class="goldlabel">Gold</label>
+        <input name="attr_platinum" type="text" class="platinum">
+        <label class="platinumlabel">Platinum</label>
+
+        <textarea name="attr_inventory" class="itemlist"></textarea>
+      </div>  
+
+    </div>
+
+    <div class="bio">
+      <div class="levels section">
+
+        <label>CLASS & LEVELS</label>  
+        <fieldset class="repeating_classlevel">          
+          <div class="classlevel">
+            <div class="class"> 
+              <input type="text"  name="attr_class">
+              <span>Class</span> 
+            </div> 
+
+            <div class="subclass"> 
+              <input type="text"  name="attr_subclass">
+              <span>Subclass</span> 
+            </div> 
+
+            <div class="level"> 
+              <input type="text"  name="attr_classlevel">
+              <span>Level</span> 
+            </div>             
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="appearance section"> 
+        <label class="appearancelabel">APPEARANCE</label>     
+        <div class="age"> <input name="attr_age" type="text"/> <span>Age</span> </div>
+        <div class="size"> <input name="attr_size" type="text"/> <span>Size</span> </div>
+        <div class="charheight"> <input name="attr_height" type="text"/> <span>Height</span> </div>
+        <div class="charweight"> <input name="attr_weight" type="text"/> <span>Weight</span> </div>
+        <div class="eyes"> <input name="attr_eyes" type="text"/> <span>Eyes</span> </div>
+        <div class="hair"> <input name="attr_hair" type="text"/> <span>Hair</span> </div>
+        <div class="skin"> <input name="attr_skin" type="text"/> <span>Skin</span> </div>
+        <div class="marks"> <input name="attr_marks" type="text"/> <span>Marks</span> </div>
+      </div>
+
+      <div class="personality">   
+        <div class="trait"> <span>TRAIT</span> <textarea name="attr_trait"></textarea> </div>
+        <div class="ideal"> <span>IDEAL</span> <textarea name="attr_ideal"></textarea> </div>
+        <div class="bond"> <span>BOND</span> <textarea name="attr_bond"></textarea> </div>
+        <div class="flaw"> <span>FLAW</span> <textarea name="attr_flaw"></textarea> </div>
+      </div>
+
+      <div class="proficiencies section">
+        <label>PROFICIENCIES</label>
+        <fieldset class="repeating_proflist">
+          <div class="proflist">
+            <select name="attr_proftype">
+              <option value="WEAPON">WEAPON</option>
+              <option value="ARMOR">ARMOR</option>
+              <option value="LANGUAGE">LANGUAGE</option>
+              <option value="OTHER">OTHER</option>
+            </select>
+            <input type="text" name="attr_profname">
+          </div>
+        </fieldset>        
+      </div>
+    </div>
+</div>
+
+</div>
+<div class="features">
+  <fieldset class="repeating_feature">          
+    <div class="feature">
+      <input type="text" class="featurename" name="attr_featurename">
+      <input type="text" class="featuresource" name="attr_featuresource">
+      <div class="featuretext"> <textarea name="attr_featuretext"></textarea> </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="spells">
+  <div class="spelllist">
+
+    <div class="castingbanner">
+      <span class="spellcastingstatlabel">Spellcasting Stat:</span>
+      <select class="spellcastingstat" name="attr_spellcastingstat">
+        <option value="STR">Strength</option>
+        <option value="DEX">Dexterity</option>
+        <option value="CON">Constitution</option>
+        <option value="INT">Intelligence</option>
+        <option value="WIS">Wisdom</option>
+        <option value="CHA">Charisma</option>      
+      </select>
+      <span class="spellattackbonuslabel">Spell Attack Bonus:</span>
+      <input class="spellattackbonus" type="text" name="attr_spellattackbonus">
+      <span class="spellsavedclabel">Spell Save DC:</span>
+      <input class="spellsavedc" type="text" name="attr_spellsavedc">
+    </div>
+
+    <div class="slotbanner">
+      <span class="spelllevellabel">Spell Level</span>
+      <span class="lb1">1st</span>
+      <span class="lb2">2nd</span>
+      <span class="lb3">3rd</span>
+      <span class="lb4">4th</span>
+      <span class="lb5">5th</span>
+      <span class="lb6">6th</span>
+      <span class="lb7">7th</span>
+      <span class="lb8">8th</span>
+      <span class="lb9">9th</span>
+
+      <span class="slotleftlabel">Slots Left</span>
+      <input class="slcn1" type="number" name="attr_slnc1">
+      <input class="slcn2" type="number" name="attr_slnc2">
+      <input class="slcn3" type="number" name="attr_slnc3">
+      <input class="slcn4" type="number" name="attr_slnc4">
+      <input class="slcn5" type="number" name="attr_slnc5">
+      <input class="slcn6" type="number" name="attr_slnc6">
+      <input class="slcn7" type="number" name="attr_slnc7">
+      <input class="slcn8" type="number" name="attr_slnc8">
+      <input class="slcn9" type="number" name="attr_slnc9">
+
+      <span class="slottotallabel">Slots Total</span>
+      <input class="slmx1" type="number" name="attr_slmx1">
+      <input class="slmx2" type="number" name="attr_slmx2">
+      <input class="slmx3" type="number" name="attr_slmx3">
+      <input class="slmx4" type="number" name="attr_slmx4">
+      <input class="slmx5" type="number" name="attr_slmx5">
+      <input class="slmx6" type="number" name="attr_slmx6">
+      <input class="slmx7" type="number" name="attr_slmx7">
+      <input class="slmx8" type="number" name="attr_slmx8">
+      <input class="slmx9" type="number" name="attr_slmx9">
+    </div>
+
+    <div class="spellbanner">
+      <fieldset class="repeating_spell">
+        <div class="spell">
+
+          <div class="spellleft">
+            <div class="spellname">
+              <span>Name:</span>
+              <input type="text" name="attr_spellname">
+            </div>
+
+            <span class="components">Components:</span>
+            <div class="verbal">
+              <span>Verbal</span>
+              <input type="checkbox" name="attr_spellverbal">
+            </div>  
+            <div class="somatic">
+              <span>Somatic</span>
+              <input type="checkbox" name="attr_spellsomatic">
+            </div> 
+
+            <div class="material">
+              <span>Material</span>
+              <input type="checkbox" name="attr_spellmaterial">
+            </div>
+            <input class="materialdesc" type="text" name="attr_spellmaterialdesc">
+
+            <div class="prepared">
+              <span>Prepared?</span>
+              <input type="checkbox" name="attr_spellprepped">
+            </div>
+
+            <div class="spellschool">
+              <span>School:</span>
+              <select name="attr_spellschool">
+              	<option value="Abjuration">Abjuration</option>
+              	<option value="Conjuration">Conjuration</option>
+              	<option value="Divination">Divination</option>
+              	<option value="Enchantment">Enchantment</option>
+              	<option value="Evocation">Evocation</option>
+              	<option value="Illusion">Illusion</option>
+              	<option value="Necromancy">Necromancy</option>
+              	<option value="Psionics">Psionics</option>
+              	<option value="Transmutation">Transmutation</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="spellcenter">
+            <div class="castingtime">
+              <span>Casting Time</span>
+              <input type="text" name="attr_spellcastingtime">
+            </div>
+
+            <div class="duration">
+              <span>Duration</span>
+              <input type="text" name="attr_spellduration">
+            </div>
+
+            <div class="ritual">
+              <span>Ritual?</span>
+              <input type="checkbox" name="attr_spellritual">
+            </div>
+
+            <div class="concentration">
+              <span>Concentration?</span>
+              <input type="checkbox" name="attr_spellconcentration">
+            </div>
+
+            <div class="range">
+              <span>Range</span>
+              <input type="text" name="attr_spellrange">
+            </div>
+          </div>
+
+          <div class="spellright">
+            <span class="spelldescriptionlabel">Description</span>
+            <textarea class="spelldescription" name="attr_spelldescription"></textarea>
+          </div>
+
+        </div>
+      </fieldset> 
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/worker">
+    const buttonlist = ["character","features","spells"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+</script>
+
+<script type="text/worker">
+
+  /* ----- Lists of everything the math covers ----- */
+  var ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
+
+  /* Skills and tools: each has <key>prof, <key>exp, <key>ability and an output field <key>mod */
+  var SKILLS = ["acro", "athl", "anhn", "insi", "inti", "know1", "know2", "know3",
+                "medi", "natr", "srch", "spcf", "stlh", "swim"];
+  var ADV_TOOLS = ["clmb", "disg", "forg", "herb", "navg", "psnr", "thvs"];
+  var ART_TOOLS = ["alch", "brew", "clig", "cpnt", "crtg", "cobb", "cook", "glbw", "jwlr",
+                   "lthr", "masn", "musc", "pntr", "pttr", "smth", "tnkr", "wevr", "wcrv"];
+  var CHECKS = SKILLS.concat(ADV_TOOLS, ART_TOOLS);
+
+  /* Every attribute the main math reads */
+  var MATH_INPUTS = ["level", "spellcastingstat"].concat(ABILITIES);
+  ABILITIES.forEach(function(a) { MATH_INPUTS.push(a + "saveprof"); });
+  CHECKS.forEach(function(k) { MATH_INPUTS.push(k + "prof", k + "exp", k + "ability"); });
+
+  var profBonusFor = function(levelValue) {
+    var level = Math.max(1, parseInt(levelValue, 10) || 1);
+    return Math.floor((level - 1) / 4) + 2;
+  };
+
+  var abilityMod = function(scoreValue) {
+    return Math.floor(((parseInt(scoreValue, 10) || 10) - 10) / 2);
+  };
+
+  /* ----- Main math: modifiers, saves, skills, tools, initiative, spellcasting ----- */
+  var checkMyMath = function() {
+    getAttrs(MATH_INPUTS, function(values) {
+      var profBonus = profBonusFor(values.level);
+      var mods = {};
+      ABILITIES.forEach(function(a) { mods[a.toUpperCase()] = abilityMod(values[a]); });
+
+      var update = {
+        profbonus: profBonus,
+        initmod: mods.DEX
+      };
+
+      /* ability modifiers and saving throws */
+      ABILITIES.forEach(function(a) {
+        var mod = mods[a.toUpperCase()];
+        update[a + "_mod"] = mod;
+        update[a + "savemod"] = mod + (values[a + "saveprof"] == "on" ? profBonus : 0);
+      });
+
+      /* skills and tools: expertise = double proficiency */
+      CHECKS.forEach(function(k) {
+        var training = values[k + "exp"] == "on" ? profBonus * 2
+                     : values[k + "prof"] == "on" ? profBonus : 0;
+        update[k + "mod"] = training + (mods[values[k + "ability"] || "STR"] || 0);
+      });
+
+      /* spellcasting */
+      var castMod = mods[values.spellcastingstat || "STR"] || 0;
+      update.spellattackbonus = profBonus + castMod;
+      update.spellsavedc = 8 + profBonus + castMod;
+
+      setAttrs(update, {silent: true});
+    });
+  };
+
+  /* ----- Shortcuts (attacks) ----- */
+  var shortcutFields = ["attackname", "attackstat", "attackbonus", "attackprof",
+                        "attackroll", "damagestat", "damagebonus", "damagetype",
+                        "damagesavestat", "attacksaveeffect", "attacksavedc"];
+
+  /* Strip characters that would break the roll template */
+  var cleanText = function(text) {
+    return String(text || "").replace(/[{}|\[\]]/g, "").trim();
+  };
+
+  var signed = function(n) {
+    return (n < 0 ? "- " + Math.abs(n) : "+ " + n);
+  };
+
+  /* Builds the roll macro for every row (or only the rows given) */
+  var updateShortcuts = function(onlyIds) {
+    getSectionIDs("repeating_shortcut", function(allIds) {
+      var ids = onlyIds || allIds;
+      var fields = ["level", "str", "dex", "con", "int", "wis", "cha"];
+      ids.forEach(function(id) {
+        shortcutFields.forEach(function(f) {
+          fields.push("repeating_shortcut_" + id + "_" + f);
+        });
+      });
+
+      getAttrs(fields, function(v) {
+        var level = Math.max(1, parseInt(v.level, 10) || 1);
+        var profBonus = Math.floor((level - 1) / 4) + 2;
+        var mods = {NONE: 0};
+        ["str", "dex", "con", "int", "wis", "cha"].forEach(function(a) {
+          mods[a.toUpperCase()] = Math.floor(((parseInt(v[a], 10) || 10) - 10) / 2);
+        });
+
+        var update = {};
+        ids.forEach(function(id) {
+          var row = function(f) { return v["repeating_shortcut_" + id + "_" + f]; };
+
+          var name = cleanText(row("attackname")) || "Attack";
+          var attackTotal = (mods[row("attackstat") || "NONE"] || 0)
+                          + (parseInt(row("attackbonus"), 10) || 0)
+                          + (row("attackprof") == "on" ? profBonus : 0);
+          var damageTotal = (mods[row("damagestat") || "NONE"] || 0)
+                          + (parseInt(row("damagebonus"), 10) || 0);
+          var dice = cleanText(row("attackroll"));
+          var damageType = cleanText(row("damagetype"));
+          var saveDC = cleanText(row("attacksavedc"));
+
+          /* Rows with a save DC roll damage only, no attack */
+          var macro = "&{template:default} {{name=" + name + "}}";
+          if (!saveDC) {
+            macro += " {{Attack=[[1d20 " + signed(attackTotal) + "]]}}";
+          }
+          if (dice) {
+            macro += " {{Damage=[[" + dice + " " + signed(damageTotal) + "]]"
+                   + (damageType ? " " + damageType : "") + "}}";
+          }
+          if (saveDC) {
+            macro += " {{Save=DC " + saveDC + " " + (row("damagesavestat") || "STR")
+                   + (row("attacksaveeffect") == "NODAM" ? ", no damage on success" : ", half damage on success")
+                   + "}}";
+          }
+          update["repeating_shortcut_" + id + "_attackmacro"] = macro;
+        });
+        setAttrs(update, {silent: true});
+      });
+    });
+  };
+
+  /* A shortcut row was edited: rebuild just that row */
+  on('change:repeating_shortcut', function(eventInfo) {
+    if (/_attackmacro$/.test(eventInfo.sourceAttribute || "")) return;
+    var match = (eventInfo.sourceAttribute || "").match(/^repeating_shortcut_(.+)_[a-z]+$/);
+    updateShortcuts(match ? [match[1]] : undefined);
+  });
+
+
+  /* ----- When to recalculate ----- */
+  on('sheet:opened', function() {
+    checkMyMath();
+    updateShortcuts();
+  });
+
+  /* Any input to the main math changed */
+  on(MATH_INPUTS.map(function(a) { return "change:" + a; }).join(" "), function() {
+    checkMyMath();
+  });
+
+  /* Ability scores or level also feed the attack shortcuts */
+  on('change:str change:dex change:con change:int change:wis change:cha change:level', function() {
+    updateShortcuts();
+  });
+
+</script>
