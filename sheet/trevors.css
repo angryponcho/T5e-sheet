@@ -3186,3 +3186,50 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   background-color: var(--panel);
   color: var(--text);
 }
+
+/* --- NPC: stat selectors on attacks, editable proficiency bonus --- */
+.sheetroot .npcaction {
+  grid-template-columns: 22px 1fr 1fr 1fr 1fr 16px 44px;
+  grid-template-areas: "roll name  name   name   name   chk   lbl"
+                       ".    stat  hit    total  reach  reach reach"
+                       ".    dstat dmg    dmgt   dmg2   dmg2t dmg2t"
+                       ".    dc    save   .      .      .     ."
+                       ".    desc  desc   desc   desc   desc  desc";
+}
+.sheetroot .npcactstat { grid-area: stat; }
+.sheetroot .npcactdmgstat { grid-area: dstat; }
+.sheetroot .npcacttotal { grid-area: total; font-size: 9pt; font-weight: bold; white-space: nowrap; text-align: center; }
+.sheetroot .npc select.npcactstat,
+.sheetroot .npc select.npcactdmgstat { width: 100%; height: 22px; font-size: 9pt; }
+.sheetroot .npcatkflag:not(:checked) ~ .npcactstat,
+.sheetroot .npcatkflag:not(:checked) ~ .npcactdmgstat,
+.sheetroot .npcatkflag:not(:checked) ~ .npcacttotal { display: none; }
+.sheetroot .npc input.npcpbinput { width: 40px; }
+
+/* --- NPC skills and tools: proficiency tick + calculated bonus --- */
+.sheetroot .npcskillgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 12px;
+  margin: 0 0 6px 0;
+}
+.sheetroot .npcskillcell {
+  display: grid;
+  grid-template-columns: 16px 1fr 28px;
+  column-gap: 4px;
+  align-items: center;
+  height: 20px;
+  font-size: 9pt;
+}
+.sheetroot .npcskillcell input[type="checkbox"] { margin: 0; justify-self: center; }
+.sheetroot .npcskillcell button {
+  text-align: left;
+  font-size: 9pt !important;
+  padding: 0 2px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sheetroot .npcskillabl { color: var(--muted); font-size: 7pt; }
+.sheetroot .npcskillmod { text-align: right; font-weight: bold; }
+.sheetroot .npcskillgrid { grid-template-rows: repeat(12, 20px); grid-auto-flow: column; } /* skills left, tools right */

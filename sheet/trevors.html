@@ -1164,13 +1164,103 @@
       </div>
       <div class="npcrule"></div>
       <div class="npcline npcskills"><span class="npckey">Skills &amp; Tools</span></div>
-      <fieldset class="repeating_npcskill">
-        <div class="npcskill">
-          <button class="npcroll" type="roll" name="roll_skill" value="&{template:default} {{name=@{character_name}}} {{@{npcskillname}=[[1d20 + @{npcskillbonus}]]}}" title="Roll">0</button>
-          <select name="attr_npcskillname"><option value="Acrobatics">Acrobatics</option><option value="Animal Handling">Animal Handling</option><option value="Athletics">Athletics</option><option value="Insight">Insight</option><option value="Intimidation">Intimidation</option><option value="Knowledge">Knowledge</option><option value="Medicine">Medicine</option><option value="Nature">Nature</option><option value="Search">Search</option><option value="Speechcraft">Speechcraft</option><option value="Stealth">Stealth</option><option value="Swimming">Swimming</option><option value="Climber's Kit">Climber's Kit</option><option value="Disguise Kit">Disguise Kit</option><option value="Forgery Kit">Forgery Kit</option><option value="Herbalism Kit">Herbalism Kit</option><option value="Navigator's Tools">Navigator's Tools</option><option value="Poisoner's Kit">Poisoner's Kit</option><option value="Thieves' Tools">Thieves' Tools</option><option value="Other">Other</option></select>
-          <input type="text" class="npcnum" name="attr_npcskillbonus" placeholder="+0"/>
+      <div class="npcskillgrid">
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_acroprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcacro" value="&{template:default} {{name=@{character_name}}} {{Acrobatics=[[1d20 + @{npc_acromod}]]}}">Acrobatics <span class="npcskillabl">(DEX)</span></button>
+          <span class="npcskillmod" name="attr_npc_acromod">0</span>
         </div>
-      </fieldset>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_anhnprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcanhn" value="&{template:default} {{name=@{character_name}}} {{Animal Handling=[[1d20 + @{npc_anhnmod}]]}}">Animal Handling <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_anhnmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_athlprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcathl" value="&{template:default} {{name=@{character_name}}} {{Athletics=[[1d20 + @{npc_athlmod}]]}}">Athletics <span class="npcskillabl">(STR)</span></button>
+          <span class="npcskillmod" name="attr_npc_athlmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_insiprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcinsi" value="&{template:default} {{name=@{character_name}}} {{Insight=[[1d20 + @{npc_insimod}]]}}">Insight <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_insimod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_intiprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcinti" value="&{template:default} {{name=@{character_name}}} {{Intimidation=[[1d20 + @{npc_intimod}]]}}">Intimidation <span class="npcskillabl">(CHA)</span></button>
+          <span class="npcskillmod" name="attr_npc_intimod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_knowprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcknow" value="&{template:default} {{name=@{character_name}}} {{Knowledge=[[1d20 + @{npc_knowmod}]]}}">Knowledge <span class="npcskillabl">(INT)</span></button>
+          <span class="npcskillmod" name="attr_npc_knowmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_mediprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcmedi" value="&{template:default} {{name=@{character_name}}} {{Medicine=[[1d20 + @{npc_medimod}]]}}">Medicine <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_medimod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_natrprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcnatr" value="&{template:default} {{name=@{character_name}}} {{Nature=[[1d20 + @{npc_natrmod}]]}}">Nature <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_natrmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_srchprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcsrch" value="&{template:default} {{name=@{character_name}}} {{Search=[[1d20 + @{npc_srchmod}]]}}">Search <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_srchmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_spcfprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcspcf" value="&{template:default} {{name=@{character_name}}} {{Speechcraft=[[1d20 + @{npc_spcfmod}]]}}">Speechcraft <span class="npcskillabl">(CHA)</span></button>
+          <span class="npcskillmod" name="attr_npc_spcfmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_stlhprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcstlh" value="&{template:default} {{name=@{character_name}}} {{Stealth=[[1d20 + @{npc_stlhmod}]]}}">Stealth <span class="npcskillabl">(DEX)</span></button>
+          <span class="npcskillmod" name="attr_npc_stlhmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_swimprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcswim" value="&{template:default} {{name=@{character_name}}} {{Swimming=[[1d20 + @{npc_swimmod}]]}}">Swimming <span class="npcskillabl">(STR)</span></button>
+          <span class="npcskillmod" name="attr_npc_swimmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_clmbprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcclmb" value="&{template:default} {{name=@{character_name}}} {{Climber's Kit=[[1d20 + @{npc_clmbmod}]]}}">Climber's Kit <span class="npcskillabl">(STR)</span></button>
+          <span class="npcskillmod" name="attr_npc_clmbmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_disgprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcdisg" value="&{template:default} {{name=@{character_name}}} {{Disguise Kit=[[1d20 + @{npc_disgmod}]]}}">Disguise Kit <span class="npcskillabl">(CHA)</span></button>
+          <span class="npcskillmod" name="attr_npc_disgmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_forgprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcforg" value="&{template:default} {{name=@{character_name}}} {{Forgery Kit=[[1d20 + @{npc_forgmod}]]}}">Forgery Kit <span class="npcskillabl">(DEX)</span></button>
+          <span class="npcskillmod" name="attr_npc_forgmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_herbprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcherb" value="&{template:default} {{name=@{character_name}}} {{Herbalism Kit=[[1d20 + @{npc_herbmod}]]}}">Herbalism Kit <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_herbmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_navgprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcnavg" value="&{template:default} {{name=@{character_name}}} {{Navigator's Tools=[[1d20 + @{npc_navgmod}]]}}">Navigator's Tools <span class="npcskillabl">(WIS)</span></button>
+          <span class="npcskillmod" name="attr_npc_navgmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_psnrprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcpsnr" value="&{template:default} {{name=@{character_name}}} {{Poisoner's Kit=[[1d20 + @{npc_psnrmod}]]}}">Poisoner's Kit <span class="npcskillabl">(INT)</span></button>
+          <span class="npcskillmod" name="attr_npc_psnrmod">0</span>
+        </div>
+        <div class="npcskillcell">
+          <input type="checkbox" name="attr_npc_thvsprof" title="Proficient"/>
+          <button class="wordbutton" type="roll" name="roll_npcthvs" value="&{template:default} {{name=@{character_name}}} {{Thieves' Tools=[[1d20 + @{npc_thvsmod}]]}}">Thieves' Tools <span class="npcskillabl">(DEX)</span></button>
+          <span class="npcskillmod" name="attr_npc_thvsmod">0</span>
+        </div>
+      </div>
       <div class="npcline"><span class="npckey">Vulnerabilities</span><input type="text" class="npcwide" name="attr_npc_vulnerabilities"/></div>
       <div class="npcline"><span class="npckey">Resistances</span><input type="text" class="npcwide" name="attr_npc_resistances"/></div>
       <div class="npcline"><span class="npckey">Immunities</span><input type="text" class="npcwide" name="attr_npc_immunities"/></div>
@@ -1180,7 +1270,7 @@
       <div class="npcline"><span class="npckey">Challenge</span>
         <input type="text" class="npcnum" name="attr_npc_cr" placeholder="1/4"/>
         <span class="npcxp">(<span name="attr_npc_xp">10</span> XP)</span>
-        <span class="npckey npcpbkey">Prof. Bonus</span><span class="npcpb">+<span name="attr_npc_pb">2</span></span></div>
+        <span class="npckey npcpbkey">Prof. Bonus</span><input type="text" class="npcnum npcpbinput" name="attr_npc_pb" value="" placeholder="+2" title="Filled in from Challenge; you can change it"/></div>
     </div>
 
     <div class="npcblock section">
@@ -1204,9 +1294,12 @@
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
           <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
-          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
+          <select class="npcactstat" name="attr_actstat" title="Ability for the attack roll"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="Extra bonus" title="Added on top of ability + proficiency"/>
+          <span class="npcacttotal" title="Attack bonus: ability + proficiency + extra"><span name="attr_actshowhit">+2</span> to hit</span>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
-          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
+          <select class="npcactdmgstat" name="attr_actdmgstat" title="Ability added to damage"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage dice (1d6)"/>
           <input type="text" class="npcactdmgtype" name="attr_actdamagetype" placeholder="Type (slashing)"/>
           <input type="text" class="npcactdmg2" name="attr_actdamage2" placeholder="Extra damage"/>
           <input type="text" class="npcactdmg2type" name="attr_actdamage2type" placeholder="Extra type"/>
@@ -1227,9 +1320,12 @@
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
           <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
-          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
+          <select class="npcactstat" name="attr_actstat" title="Ability for the attack roll"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="Extra bonus" title="Added on top of ability + proficiency"/>
+          <span class="npcacttotal" title="Attack bonus: ability + proficiency + extra"><span name="attr_actshowhit">+2</span> to hit</span>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
-          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
+          <select class="npcactdmgstat" name="attr_actdmgstat" title="Ability added to damage"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage dice (1d6)"/>
           <input type="text" class="npcactdmgtype" name="attr_actdamagetype" placeholder="Type (slashing)"/>
           <input type="text" class="npcactdmg2" name="attr_actdamage2" placeholder="Extra damage"/>
           <input type="text" class="npcactdmg2type" name="attr_actdamage2type" placeholder="Extra type"/>
@@ -1250,9 +1346,12 @@
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
           <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
-          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
+          <select class="npcactstat" name="attr_actstat" title="Ability for the attack roll"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="Extra bonus" title="Added on top of ability + proficiency"/>
+          <span class="npcacttotal" title="Attack bonus: ability + proficiency + extra"><span name="attr_actshowhit">+2</span> to hit</span>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
-          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
+          <select class="npcactdmgstat" name="attr_actdmgstat" title="Ability added to damage"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage dice (1d6)"/>
           <input type="text" class="npcactdmgtype" name="attr_actdamagetype" placeholder="Type (slashing)"/>
           <input type="text" class="npcactdmg2" name="attr_actdamage2" placeholder="Extra damage"/>
           <input type="text" class="npcactdmg2type" name="attr_actdamage2type" placeholder="Extra type"/>
@@ -1274,9 +1373,12 @@
           <button class="npcroll" type="roll" name="roll_act" value="@{actmacro}" title="Roll">0</button>
           <input type="text" class="npcactname" name="attr_actname" placeholder="Name (e.g. Scimitar)"/>
           <input type="checkbox" class="npcatkflag" name="attr_actattack" value="1" title="This is an attack"/><span class="npcatklabel">Attack</span>
-          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="To hit (+4)"/>
+          <select class="npcactstat" name="attr_actstat" title="Ability for the attack roll"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcacthit" name="attr_acttohit" placeholder="Extra bonus" title="Added on top of ability + proficiency"/>
+          <span class="npcacttotal" title="Attack bonus: ability + proficiency + extra"><span name="attr_actshowhit">+2</span> to hit</span>
           <input type="text" class="npcactreach" name="attr_actreach" placeholder="Reach / range (reach 5 ft.)"/>
-          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage (1d6+2)"/>
+          <select class="npcactdmgstat" name="attr_actdmgstat" title="Ability added to damage"><option value="NONE">-</option><option value="STR" selected>STR</option><option value="DEX">DEX</option><option value="CON">CON</option><option value="INT">INT</option><option value="WIS">WIS</option><option value="CHA">CHA</option></select>
+          <input type="text" class="npcactdmg" name="attr_actdamage" placeholder="Damage dice (1d6)"/>
           <input type="text" class="npcactdmgtype" name="attr_actdamagetype" placeholder="Type (slashing)"/>
           <input type="text" class="npcactdmg2" name="attr_actdamage2" placeholder="Extra damage"/>
           <input type="text" class="npcactdmg2type" name="attr_actdamage2type" placeholder="Extra type"/>
@@ -1521,14 +1623,20 @@
     return Math.max(2, Math.floor((Math.max(1, Math.ceil(crNumber(cr))) - 1) / 4) + 2);
   };
 
-  var NPC_INPUTS = ["npc_cr", "npc_spellability"].concat(ABILITIES);
+  /* Proficiency bonus: whatever is in the field; Challenge fills the field in */
+  var pbOf = function(v) {
+    var n = parseInt(String(v.npc_pb || "").replace(/\s/g, ""), 10);
+    return isNaN(n) ? npcProfBonus(v.npc_cr) : n;
+  };
+
+  var NPC_INPUTS = ["npc_pb", "npc_spellability"].concat(ABILITIES);
   ABILITIES.forEach(function(a) { NPC_INPUTS.push("npc_" + a + "saveprof"); });
 
   var npcMath = function() {
-    getAttrs(NPC_INPUTS, function(v) {
-      var pb = npcProfBonus(v.npc_cr);
+    getAttrs(NPC_INPUTS.concat(["npc_cr"]), function(v) {
+      var pb = pbOf(v);
       var cr = String(v.npc_cr || "").trim();
-      var update = { npc_pb: pb, npc_xp: CR_XP[cr] !== undefined ? CR_XP[cr] : "" };
+      var update = { npc_xp: CR_XP[cr] !== undefined ? CR_XP[cr] : "" };
       var castAbl = String(v.npc_spellability || "").toLowerCase();
       var castMod = castAbl ? abilityMod(v[castAbl]) : 0;
       update.npc_spellattack = pb + castMod;
@@ -1552,13 +1660,13 @@
 
   /* Actions, bonus actions, reactions and legendary actions share one row layout */
   var NPC_ACTION_SECTIONS = ["npcaction", "npcbonus", "npcreaction", "npclegendary"];
-  var actionFields = ["actname", "actattack", "acttohit", "actreach", "actdamage", "actdamagetype",
+  var actionFields = ["actname", "actattack", "actstat", "actdmgstat", "acttohit", "actreach", "actdamage", "actdamagetype",
                       "actdamage2", "actdamage2type", "actsavedc", "actsaveabl", "actdesc"];
 
   var updateNpcActions = function(section, onlyIds) {
     getSectionIDs("repeating_" + section, function(allIds) {
       var ids = onlyIds || allIds;
-      var fields = [];
+      var fields = ["npc_cr", "npc_pb"].concat(ABILITIES);
       ids.forEach(function(id) {
         actionFields.forEach(function(f) { fields.push("repeating_" + section + "_" + id + "_" + f); });
       });
@@ -1568,14 +1676,21 @@
           var row = function(f) { return v["repeating_" + section + "_" + id + "_" + f]; };
           var macro = "&{template:default} {{name=" + (oneLine(row("actname")) || "Action") + "}}";
           var isAttack = row("actattack") == "1";
-          var toHit = isAttack ? oneLine(row("acttohit")) : "";
-          var hitNum = parseInt(toHit.replace(/\s/g, ""), 10);
-          if (toHit !== "") {
-            macro += " {{Attack=[[1d20 " + signed(isNaN(hitNum) ? 0 : hitNum) + "]]"
+          var statMod = function(f) {
+            var a = String(row(f) || "STR").toLowerCase();
+            return a === "none" ? 0 : abilityMod(v[a]);
+          };
+          var extra = parseInt(String(row("acttohit") || "").replace(/\s/g, ""), 10) || 0;
+          var hitTotal = statMod("actstat") + pbOf(v) + extra;
+          update["repeating_" + section + "_" + id + "_actshowhit"] = (hitTotal < 0 ? "" : "+") + hitTotal;
+          if (isAttack) {
+            macro += " {{Attack=[[1d20 " + signed(hitTotal) + "]]"
                    + (oneLine(row("actreach")) ? " " + oneLine(row("actreach")) : "") + "}}";
           }
           if (isAttack && oneLine(row("actdamage"))) {
-            macro += " {{Damage=[[" + oneLine(row("actdamage")) + "]] " + oneLine(row("actdamagetype")) + "}}";
+            var dmgMod = statMod("actdmgstat");
+            macro += " {{Damage=[[" + oneLine(row("actdamage")) + (dmgMod ? " " + signed(dmgMod) : "") + "]] "
+                   + oneLine(row("actdamagetype")) + "}}";
           }
           if (isAttack && oneLine(row("actdamage2"))) {
             macro += " {{Extra=[[" + oneLine(row("actdamage2")) + "]] " + oneLine(row("actdamage2type")) + "}}";
@@ -1614,7 +1729,7 @@
 
   NPC_ACTION_SECTIONS.forEach(function(section) {
     on("change:repeating_" + section, function(eventInfo) {
-      if (/_actmacro$/.test(eventInfo.sourceAttribute || "")) return;
+      if (/_(actmacro|actshowhit)$/.test(eventInfo.sourceAttribute || "")) return;
       var m = (eventInfo.sourceAttribute || "").match(new RegExp("^repeating_" + section + "_(.+)_[a-z0-9]+$"));
       updateNpcActions(section, m ? [m[1]] : undefined);
     });
@@ -1624,8 +1739,20 @@
     var m = (eventInfo.sourceAttribute || "").match(/^repeating_npctrait_(.+)_[a-z]+$/);
     updateNpcTraits(m ? [m[1]] : undefined);
   });
-  on(NPC_INPUTS.map(function(a) { return "change:" + a; }).join(" "), npcMath);
+  on(NPC_INPUTS.map(function(a) { return "change:" + a; }).join(" "), function() {
+    npcMath();
+    NPC_ACTION_SECTIONS.forEach(function(section) { updateNpcActions(section); });
+  });
+  /* Challenge fills in proficiency bonus (and XP); the bonus can then be edited */
+  on("change:npc_cr", function() {
+    getAttrs(["npc_cr"], function(v) {
+      setAttrs({ npc_pb: npcProfBonus(v.npc_cr) });
+    });
+  });
   on("sheet:opened", function() {
+    getAttrs(["npc_pb", "npc_cr"], function(v) {
+      if (String(v.npc_pb || "").trim() === "") setAttrs({ npc_pb: npcProfBonus(v.npc_cr) }, {silent: true});
+    });
     npcMath();
     updateNpcTraits();
     NPC_ACTION_SECTIONS.forEach(function(section) { updateNpcActions(section); });
@@ -1640,12 +1767,12 @@
   var updateNpcSpells = function(onlyIds) {
     getSectionIDs("repeating_npcspell", function(allIds) {
       var ids = onlyIds || allIds;
-      var fields = ["npc_cr", "npc_spellability"].concat(ABILITIES);
+      var fields = ["npc_cr", "npc_pb", "npc_spellability"].concat(ABILITIES);
       ids.forEach(function(id) {
         spellFields.forEach(function(f) { fields.push("repeating_npcspell_" + id + "_" + f); });
       });
       getAttrs(fields, function(v) {
-        var pb = npcProfBonus(v.npc_cr);
+        var pb = pbOf(v);
         var castAbl = String(v.npc_spellability || "").toLowerCase();
         var castMod = castAbl ? abilityMod(v[castAbl]) : 0;
         var update = {};
@@ -1693,5 +1820,41 @@
       setAttrs(update, {silent: true});
     });
   });
+
+  /* NPC skills and tools: tick proficiency, bonus = ability + proficiency */
+  var NPC_SKILLS = [
+    {key: "acro", abl: "dex"},
+    {key: "anhn", abl: "wis"},
+    {key: "athl", abl: "str"},
+    {key: "insi", abl: "wis"},
+    {key: "inti", abl: "cha"},
+    {key: "know", abl: "int"},
+    {key: "medi", abl: "wis"},
+    {key: "natr", abl: "wis"},
+    {key: "srch", abl: "wis"},
+    {key: "spcf", abl: "cha"},
+    {key: "stlh", abl: "dex"},
+    {key: "swim", abl: "str"},
+    {key: "clmb", abl: "str"},
+    {key: "disg", abl: "cha"},
+    {key: "forg", abl: "dex"},
+    {key: "herb", abl: "wis"},
+    {key: "navg", abl: "wis"},
+    {key: "psnr", abl: "int"},
+    {key: "thvs", abl: "dex"}];
+  var NPC_SKILL_INPUTS = ["npc_pb", "npc_cr"].concat(ABILITIES,
+    NPC_SKILLS.map(function(s) { return "npc_" + s.key + "prof"; }));
+  var npcSkillMath = function() {
+    getAttrs(NPC_SKILL_INPUTS, function(v) {
+      var pb = pbOf(v), update = {};
+      NPC_SKILLS.forEach(function(s) {
+        var total = abilityMod(v[s.abl]) + (v["npc_" + s.key + "prof"] == "on" ? pb : 0);
+        update["npc_" + s.key + "mod"] = (total < 0 ? "" : "+") + total;
+      });
+      setAttrs(update, {silent: true});
+    });
+  };
+  on(NPC_SKILL_INPUTS.map(function(a) { return "change:" + a; }).join(" "), npcSkillMath);
+  on("sheet:opened", npcSkillMath);
 
 </script>
