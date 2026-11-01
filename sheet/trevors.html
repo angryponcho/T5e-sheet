@@ -1164,103 +1164,15 @@
       </div>
       <div class="npcrule"></div>
       <div class="npcline npcskills"><span class="npckey">Skills &amp; Tools</span></div>
-      <div class="npcskillgrid">
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_acroprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcacro" value="&{template:default} {{name=@{character_name}}} {{Acrobatics=[[1d20 + @{npc_acromod}]]}}">Acrobatics <span class="npcskillabl">(DEX)</span></button>
-          <span class="npcskillmod" name="attr_npc_acromod">0</span>
+      <fieldset class="repeating_npcskill">
+        <div class="npcskill">
+          <button class="npcroll" type="roll" name="roll_skill" value="@{npcskillmacro}" title="Roll">0</button>
+          <select name="attr_npcskillkey"><optgroup label="Skills"><option value="acro">Acrobatics (DEX)</option><option value="anhn">Animal Handling (WIS)</option><option value="athl">Athletics (STR)</option><option value="insi">Insight (WIS)</option><option value="inti">Intimidation (CHA)</option><option value="know1">Knowledge (Arcana) (INT)</option><option value="know2">Knowledge (History) (INT)</option><option value="know3">Knowledge (Religion) (INT)</option><option value="medi">Medicine (WIS)</option><option value="natr">Nature (WIS)</option><option value="srch">Search (WIS)</option><option value="spcf">Speechcraft (CHA)</option><option value="stlh">Stealth (DEX)</option><option value="swim">Swimming (STR)</option></optgroup><optgroup label="Adventurer Tools"><option value="clmb">Climber's Kit (STR)</option><option value="disg">Disguise Kit (CHA)</option><option value="forg">Forgery Kit (DEX)</option><option value="herb">Herbalism Kit (WIS)</option><option value="navg">Navigator's Tools (WIS)</option><option value="psnr">Poisoner's Kit (INT)</option><option value="thvs">Thieves' Tools (DEX)</option></optgroup><optgroup label="Artisan Tools"><option value="alch">Alchemist's Supplies (INT)</option><option value="brew">Brewer's Supplies (INT)</option><option value="clig">Calligrapher's Supplies (DEX)</option><option value="cpnt">Carpenter's Tools (STR)</option><option value="crtg">Cartographer's Tools (WIS)</option><option value="cobb">Cobbler's Tools (DEX)</option><option value="cook">Cook's Utensils (WIS)</option><option value="glbw">Glassblower's Tools (DEX)</option><option value="jwlr">Jeweler's Tools (DEX)</option><option value="lthr">Leatherworker's Tools (DEX)</option><option value="masn">Mason's Tools (STR)</option><option value="musc">Musical Instrument (CHA)</option><option value="pntr">Painter's Supplies (WIS)</option><option value="pttr">Potter's Supplies (DEX)</option><option value="smth">Smith's Tools (STR)</option><option value="tnkr">Tinker's Tools (DEX)</option><option value="wevr">Weaver's Supplies (DEX)</option><option value="wcrv">Woodcarver's Tools (DEX)</option></optgroup></select>
+          <input type="checkbox" name="attr_npcskillexp" value="1" title="Expertise (double proficiency)"/><span class="npcatklabel">Expertise</span>
+          <span class="npcskillmod" name="attr_npcskillshow">+0</span>
+          <input type="hidden" name="attr_npcskillmacro" value=""/>
         </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_anhnprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcanhn" value="&{template:default} {{name=@{character_name}}} {{Animal Handling=[[1d20 + @{npc_anhnmod}]]}}">Animal Handling <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_anhnmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_athlprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcathl" value="&{template:default} {{name=@{character_name}}} {{Athletics=[[1d20 + @{npc_athlmod}]]}}">Athletics <span class="npcskillabl">(STR)</span></button>
-          <span class="npcskillmod" name="attr_npc_athlmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_insiprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcinsi" value="&{template:default} {{name=@{character_name}}} {{Insight=[[1d20 + @{npc_insimod}]]}}">Insight <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_insimod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_intiprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcinti" value="&{template:default} {{name=@{character_name}}} {{Intimidation=[[1d20 + @{npc_intimod}]]}}">Intimidation <span class="npcskillabl">(CHA)</span></button>
-          <span class="npcskillmod" name="attr_npc_intimod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_knowprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcknow" value="&{template:default} {{name=@{character_name}}} {{Knowledge=[[1d20 + @{npc_knowmod}]]}}">Knowledge <span class="npcskillabl">(INT)</span></button>
-          <span class="npcskillmod" name="attr_npc_knowmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_mediprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcmedi" value="&{template:default} {{name=@{character_name}}} {{Medicine=[[1d20 + @{npc_medimod}]]}}">Medicine <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_medimod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_natrprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcnatr" value="&{template:default} {{name=@{character_name}}} {{Nature=[[1d20 + @{npc_natrmod}]]}}">Nature <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_natrmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_srchprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcsrch" value="&{template:default} {{name=@{character_name}}} {{Search=[[1d20 + @{npc_srchmod}]]}}">Search <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_srchmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_spcfprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcspcf" value="&{template:default} {{name=@{character_name}}} {{Speechcraft=[[1d20 + @{npc_spcfmod}]]}}">Speechcraft <span class="npcskillabl">(CHA)</span></button>
-          <span class="npcskillmod" name="attr_npc_spcfmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_stlhprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcstlh" value="&{template:default} {{name=@{character_name}}} {{Stealth=[[1d20 + @{npc_stlhmod}]]}}">Stealth <span class="npcskillabl">(DEX)</span></button>
-          <span class="npcskillmod" name="attr_npc_stlhmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_swimprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcswim" value="&{template:default} {{name=@{character_name}}} {{Swimming=[[1d20 + @{npc_swimmod}]]}}">Swimming <span class="npcskillabl">(STR)</span></button>
-          <span class="npcskillmod" name="attr_npc_swimmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_clmbprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcclmb" value="&{template:default} {{name=@{character_name}}} {{Climber's Kit=[[1d20 + @{npc_clmbmod}]]}}">Climber's Kit <span class="npcskillabl">(STR)</span></button>
-          <span class="npcskillmod" name="attr_npc_clmbmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_disgprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcdisg" value="&{template:default} {{name=@{character_name}}} {{Disguise Kit=[[1d20 + @{npc_disgmod}]]}}">Disguise Kit <span class="npcskillabl">(CHA)</span></button>
-          <span class="npcskillmod" name="attr_npc_disgmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_forgprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcforg" value="&{template:default} {{name=@{character_name}}} {{Forgery Kit=[[1d20 + @{npc_forgmod}]]}}">Forgery Kit <span class="npcskillabl">(DEX)</span></button>
-          <span class="npcskillmod" name="attr_npc_forgmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_herbprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcherb" value="&{template:default} {{name=@{character_name}}} {{Herbalism Kit=[[1d20 + @{npc_herbmod}]]}}">Herbalism Kit <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_herbmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_navgprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcnavg" value="&{template:default} {{name=@{character_name}}} {{Navigator's Tools=[[1d20 + @{npc_navgmod}]]}}">Navigator's Tools <span class="npcskillabl">(WIS)</span></button>
-          <span class="npcskillmod" name="attr_npc_navgmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_psnrprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcpsnr" value="&{template:default} {{name=@{character_name}}} {{Poisoner's Kit=[[1d20 + @{npc_psnrmod}]]}}">Poisoner's Kit <span class="npcskillabl">(INT)</span></button>
-          <span class="npcskillmod" name="attr_npc_psnrmod">0</span>
-        </div>
-        <div class="npcskillcell">
-          <input type="checkbox" name="attr_npc_thvsprof" title="Proficient"/>
-          <button class="wordbutton" type="roll" name="roll_npcthvs" value="&{template:default} {{name=@{character_name}}} {{Thieves' Tools=[[1d20 + @{npc_thvsmod}]]}}">Thieves' Tools <span class="npcskillabl">(DEX)</span></button>
-          <span class="npcskillmod" name="attr_npc_thvsmod">0</span>
-        </div>
-      </div>
+      </fieldset>
       <div class="npcline"><span class="npckey">Vulnerabilities</span><input type="text" class="npcwide" name="attr_npc_vulnerabilities"/></div>
       <div class="npcline"><span class="npckey">Resistances</span><input type="text" class="npcwide" name="attr_npc_resistances"/></div>
       <div class="npcline"><span class="npckey">Immunities</span><input type="text" class="npcwide" name="attr_npc_immunities"/></div>
@@ -1287,7 +1199,13 @@
   </div>
 
   <div class="npcright">
-    <div class="npcblock section">
+    <input type="hidden" class="npcshow-actions" name="attr_npc_show_actions" value="1"/>
+    <input type="hidden" class="npcshow-bonus" name="attr_npc_show_bonus" value="0"/>
+    <input type="hidden" class="npcshow-reactions" name="attr_npc_show_reactions" value="0"/>
+    <input type="hidden" class="npcshow-legendary" name="attr_npc_show_legendary" value="0"/>
+    <input type="hidden" class="npcshow-spells" name="attr_npc_show_spells" value="0"/>
+    <div class="npcsections"><label><input type="checkbox" name="attr_npc_show_actions" value="1" checked/><span>Actions</span></label><label><input type="checkbox" name="attr_npc_show_bonus" value="1"/><span>Bonus Actions</span></label><label><input type="checkbox" name="attr_npc_show_reactions" value="1"/><span>Reactions</span></label><label><input type="checkbox" name="attr_npc_show_legendary" value="1"/><span>Legendary Actions</span></label><label><input type="checkbox" name="attr_npc_show_spells" value="1"/><span>Spellcasting</span></label></div>
+    <div class="npcblock section npcsec-actions">
       <label class="npcheading">Actions</label>
       <fieldset class="repeating_npcaction">
         <div class="npcaction">
@@ -1313,7 +1231,7 @@
         </div>
       </fieldset>
     </div>
-    <div class="npcblock section">
+    <div class="npcblock section npcsec-bonus">
       <label class="npcheading">Bonus Actions</label>
       <fieldset class="repeating_npcbonus">
         <div class="npcaction">
@@ -1339,7 +1257,7 @@
         </div>
       </fieldset>
     </div>
-    <div class="npcblock section">
+    <div class="npcblock section npcsec-reactions">
       <label class="npcheading">Reactions</label>
       <fieldset class="repeating_npcreaction">
         <div class="npcaction">
@@ -1365,7 +1283,7 @@
         </div>
       </fieldset>
     </div>
-    <div class="npcblock section">
+    <div class="npcblock section npcsec-legendary">
       <label class="npcheading">Legendary Actions</label>
       <div class="npcline npclegend"><span class="npckey">Per round</span><input type="text" class="npcnum" name="attr_npc_legendary_count" placeholder="3"/></div>
       <fieldset class="repeating_npclegendary">
@@ -1392,7 +1310,7 @@
         </div>
       </fieldset>
     </div>
-    <div class="npcblock section">
+    <div class="npcblock section npcsec-spells">
       <label class="npcheading">Spellcasting</label>
       <div class="npcline npcspellhead">
         <span class="npckey">Ability</span>
@@ -1821,40 +1739,75 @@
     });
   });
 
-  /* NPC skills and tools: tick proficiency, bonus = ability + proficiency */
-  var NPC_SKILLS = [
-    {key: "acro", abl: "dex"},
-    {key: "anhn", abl: "wis"},
-    {key: "athl", abl: "str"},
-    {key: "insi", abl: "wis"},
-    {key: "inti", abl: "cha"},
-    {key: "know", abl: "int"},
-    {key: "medi", abl: "wis"},
-    {key: "natr", abl: "wis"},
-    {key: "srch", abl: "wis"},
-    {key: "spcf", abl: "cha"},
-    {key: "stlh", abl: "dex"},
-    {key: "swim", abl: "str"},
-    {key: "clmb", abl: "str"},
-    {key: "disg", abl: "cha"},
-    {key: "forg", abl: "dex"},
-    {key: "herb", abl: "wis"},
-    {key: "navg", abl: "wis"},
-    {key: "psnr", abl: "int"},
-    {key: "thvs", abl: "dex"}];
-  var NPC_SKILL_INPUTS = ["npc_pb", "npc_cr"].concat(ABILITIES,
-    NPC_SKILLS.map(function(s) { return "npc_" + s.key + "prof"; }));
-  var npcSkillMath = function() {
-    getAttrs(NPC_SKILL_INPUTS, function(v) {
-      var pb = pbOf(v), update = {};
-      NPC_SKILLS.forEach(function(s) {
-        var total = abilityMod(v[s.abl]) + (v["npc_" + s.key + "prof"] == "on" ? pb : 0);
-        update["npc_" + s.key + "mod"] = (total < 0 ? "" : "+") + total;
+  /* NPC skills and tools: only the ones the NPC is trained in are listed.
+     Bonus = ability + proficiency (doubled with Expertise) */
+  var NPC_SKILL_INFO = {
+    acro: {name: "Acrobatics", abl: "dex"},
+    anhn: {name: "Animal Handling", abl: "wis"},
+    athl: {name: "Athletics", abl: "str"},
+    insi: {name: "Insight", abl: "wis"},
+    inti: {name: "Intimidation", abl: "cha"},
+    know1: {name: "Knowledge (Arcana)", abl: "int"},
+    know2: {name: "Knowledge (History)", abl: "int"},
+    know3: {name: "Knowledge (Religion)", abl: "int"},
+    medi: {name: "Medicine", abl: "wis"},
+    natr: {name: "Nature", abl: "wis"},
+    srch: {name: "Search", abl: "wis"},
+    spcf: {name: "Speechcraft", abl: "cha"},
+    stlh: {name: "Stealth", abl: "dex"},
+    swim: {name: "Swimming", abl: "str"},
+    clmb: {name: "Climber\'s Kit", abl: "str"},
+    disg: {name: "Disguise Kit", abl: "cha"},
+    forg: {name: "Forgery Kit", abl: "dex"},
+    herb: {name: "Herbalism Kit", abl: "wis"},
+    navg: {name: "Navigator\'s Tools", abl: "wis"},
+    psnr: {name: "Poisoner\'s Kit", abl: "int"},
+    thvs: {name: "Thieves\' Tools", abl: "dex"},
+    alch: {name: "Alchemist\'s Supplies", abl: "int"},
+    brew: {name: "Brewer\'s Supplies", abl: "int"},
+    clig: {name: "Calligrapher\'s Supplies", abl: "dex"},
+    cpnt: {name: "Carpenter\'s Tools", abl: "str"},
+    crtg: {name: "Cartographer\'s Tools", abl: "wis"},
+    cobb: {name: "Cobbler\'s Tools", abl: "dex"},
+    cook: {name: "Cook\'s Utensils", abl: "wis"},
+    glbw: {name: "Glassblower\'s Tools", abl: "dex"},
+    jwlr: {name: "Jeweler\'s Tools", abl: "dex"},
+    lthr: {name: "Leatherworker\'s Tools", abl: "dex"},
+    masn: {name: "Mason\'s Tools", abl: "str"},
+    musc: {name: "Musical Instrument", abl: "cha"},
+    pntr: {name: "Painter\'s Supplies", abl: "wis"},
+    pttr: {name: "Potter\'s Supplies", abl: "dex"},
+    smth: {name: "Smith\'s Tools", abl: "str"},
+    tnkr: {name: "Tinker\'s Tools", abl: "dex"},
+    wevr: {name: "Weaver\'s Supplies", abl: "dex"},
+    wcrv: {name: "Woodcarver\'s Tools", abl: "dex"}};
+  var updateNpcSkills = function(onlyIds) {
+    getSectionIDs("repeating_npcskill", function(allIds) {
+      var ids = onlyIds || allIds;
+      var fields = ["npc_pb", "npc_cr"].concat(ABILITIES);
+      ids.forEach(function(id) {
+        fields.push("repeating_npcskill_" + id + "_npcskillkey", "repeating_npcskill_" + id + "_npcskillexp");
       });
-      setAttrs(update, {silent: true});
+      getAttrs(fields, function(v) {
+        var pb = pbOf(v), update = {};
+        ids.forEach(function(id) {
+          var p = "repeating_npcskill_" + id + "_";
+          var info = NPC_SKILL_INFO[v[p + "npcskillkey"] || "acro"] || NPC_SKILL_INFO.acro;
+          var total = abilityMod(v[info.abl]) + (v[p + "npcskillexp"] == "1" ? 2 * pb : pb);
+          update[p + "npcskillshow"] = (total < 0 ? "" : "+") + total;
+          update[p + "npcskillmacro"] = "&{template:default} {{name=@{character_name}}} {{"
+            + info.name + "=[[1d20 " + signed(total) + "]]}}";
+        });
+        setAttrs(update, {silent: true});
+      });
     });
   };
-  on(NPC_SKILL_INPUTS.map(function(a) { return "change:" + a; }).join(" "), npcSkillMath);
-  on("sheet:opened", npcSkillMath);
+  on("change:repeating_npcskill", function(eventInfo) {
+    if (/_(npcskillshow|npcskillmacro)$/.test(eventInfo.sourceAttribute || "")) return;
+    var m = (eventInfo.sourceAttribute || "").match(/^repeating_npcskill_(.+)_[a-z]+$/);
+    updateNpcSkills(m ? [m[1]] : undefined);
+  });
+  on(["npc_pb"].concat(ABILITIES).map(function(a) { return "change:" + a; }).join(" "), function() { updateNpcSkills(); });
+  on("sheet:opened", function() { updateNpcSkills(); });
 
 </script>

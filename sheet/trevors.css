@@ -3233,3 +3233,33 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
 .sheetroot .npcskillabl { color: var(--muted); font-size: 7pt; }
 .sheetroot .npcskillmod { text-align: right; font-weight: bold; }
 .sheetroot .npcskillgrid { grid-template-rows: repeat(12, 20px); grid-auto-flow: column; } /* skills left, tools right */
+
+/* --- NPC skills: picker rows (only trained skills/tools are listed) --- */
+.sheetroot .npcskill {
+  display: grid;
+  grid-template-columns: 22px 1fr 16px 54px 34px;
+  column-gap: 4px;
+  align-items: center;
+  margin-left: 0;
+  height: 24px;
+}
+.sheetroot .npcskill input[type="checkbox"] { margin: 0; justify-self: center; }
+.sheetroot .npcskill .npcatklabel { font-size: 8pt; color: var(--muted); }
+.sheetroot .npcskill .npcskillmod { text-align: right; font-weight: bold; font-size: 9pt; }
+
+/* --- NPC: tick which sections this NPC uses --- */
+.sheetroot .npcsections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 14px;
+  font-size: 8pt;
+  padding: 2px 0;
+}
+.sheetroot .npcsections label { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+.sheetroot .npcsections input[type="checkbox"] { margin: 0; accent-color: var(--accent); }
+.sheetroot .npcshow-actions:not([value="1"]) ~ .npcsec-actions,
+.sheetroot .npcshow-bonus:not([value="1"]) ~ .npcsec-bonus,
+.sheetroot .npcshow-reactions:not([value="1"]) ~ .npcsec-reactions,
+.sheetroot .npcshow-legendary:not([value="1"]) ~ .npcsec-legendary,
+.sheetroot .npcshow-spells:not([value="1"]) ~ .npcsec-spells { display: none; }
