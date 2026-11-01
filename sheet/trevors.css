@@ -310,9 +310,13 @@
 ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
 ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
 
+/* Paper texture behind every tab of the sheet */
+.charsheet {
+  background: #fff url("https://raw.githubusercontent.com/angryponcho/t5e-sheet/main/art/WtJzLgg.jpg") repeat-y top center / 100% auto;
+}
+
 .main {
   font-family: Arial;
-  /*background: url("https://i.imgur.com/WtJzLgg.jpg");*/
 
   display: grid;
   min-width: 800px;
