@@ -684,7 +684,7 @@
   height: 45px;
   cursor: pointer; 
   margin: 4px 0px 0px 14px; 
-  background-image: url("https://i.imgur.com/pYDAWWx.png");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/pYDAWWx.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1294,21 +1294,21 @@
   height: 13px;
   cursor: pointer; 
   margin: 5px 0px 0px 2px;
-  background-image: url("https://i.imgur.com/wa8p2pv.png");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/wa8p2pv.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .succs input[type="checkbox"]:checked + label {
-  background-image: url("https://i.imgur.com/VL0Ilw5.png");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/VL0Ilw5.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .fails input[type="checkbox"]:checked + label {
-  background-image: url("https://i.imgur.com/DFoEgvx.png");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/DFoEgvx.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1426,19 +1426,19 @@
 
 .copper { 
   grid-area: copper; 
-  background: url("https://i.imgur.com/7v6iyuW.png");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/7v6iyuW.png");
 }
 .silver { 
   grid-area: silver;
-  background: url("https://i.imgur.com/Y5IYvdL.png"); 
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/Y5IYvdL.png"); 
 }
 .gold { 
   grid-area: gold;
-  background: url("https://i.imgur.com/sKgkmhE.png");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/sKgkmhE.png");
 }
 .platinum { 
   grid-area: platinum; 
-  background: url("https://i.imgur.com/Rl1AVh9.png");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/Rl1AVh9.png");
 }
 
 .copper,
