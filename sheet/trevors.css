@@ -3263,3 +3263,11 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
 .sheetroot .npcshow-reactions:not([value="1"]) ~ .npcsec-reactions,
 .sheetroot .npcshow-legendary:not([value="1"]) ~ .npcsec-legendary,
 .sheetroot .npcshow-spells:not([value="1"]) ~ .npcsec-spells { display: none; }
+/* One ability drives both attack and damage */
+.sheetroot .npcaction {
+  grid-template-areas: "roll name  name   name   name   chk   lbl"
+                       ".    stat  hit    total  reach  reach reach"
+                       ".    dmg   dmgt   dmg2   dmg2t  dmg2t dmg2t"
+                       ".    dc    save   .      .      .     ."
+                       ".    desc  desc   desc   desc   desc  desc";
+}
