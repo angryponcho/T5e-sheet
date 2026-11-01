@@ -2861,3 +2861,236 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   color: var(--bg);
   border-color: var(--text);
 }
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** NPC SHEET ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Dark Mode checkbox (top left) */
+.sheetroot .themeswitch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9pt;
+  color: var(--text);
+  cursor: pointer;
+}
+.sheetroot .themeswitch input[type="checkbox"],
+.sheetroot .npcswitch input[type="checkbox"] { margin: 0; accent-color: var(--accent); }
+
+/* NPC Sheet checkbox (bottom left) */
+.sheetroot .npcswitch {
+  box-sizing: border-box;
+  max-width: 980px;
+  margin: 8px auto 0 auto;
+  padding: 0 12px 8px 12px;
+}
+.sheetroot .npcswitch label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8pt;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* NPC mode: only the NPC tab, under a single tab button */
+.sheetroot div.npc,
+.sheetroot .tabButtons .npcButton { display: none; }
+.sheetroot .npctoggle[value="1"] ~ div.character,
+.sheetroot .npctoggle[value="1"] ~ div.features,
+.sheetroot .npctoggle[value="1"] ~ div.spells,
+.sheetroot .npctoggle[value="1"] ~ .tabButtons .charButton,
+.sheetroot .npctoggle[value="1"] ~ .tabButtons .featButton,
+.sheetroot .npctoggle[value="1"] ~ .tabButtons .spelButton { display: none; }
+.sheetroot .npctoggle[value="1"] ~ .tabButtons .npcButton {
+  display: block;
+  grid-column: 3;
+  grid-row: 1;
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  cursor: default;
+}
+.sheetroot .npctoggle[value="1"] ~ div.npc {
+  display: grid;
+  box-sizing: border-box;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 12px;
+  grid-template-columns: 45fr 55fr;
+  column-gap: 8px;
+  align-items: start;
+  font-family: Arial, sans-serif;
+}
+.sheetroot .npcleft,
+.sheetroot .npcright { display: grid; row-gap: 8px; min-width: 0; }
+
+.sheetroot .npcblock { padding: 8px 12px 6px 12px; }
+.sheetroot .npcheading {
+  display: block;
+  font-size: 8pt !important;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center !important;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+  margin-bottom: 4px;
+}
+.sheetroot .npcrule { border-top: 2px solid var(--accent); margin: 6px 0; }
+
+/* Fields: see-through with a rule under them, like the bio fields */
+.sheetroot .npc input[type="text"],
+.sheetroot .npc select,
+.sheetroot .npc textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--field-line);
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  color: var(--text);
+}
+.sheetroot .npc input[type="text"]:focus,
+.sheetroot .npc textarea:focus { background: rgba(127, 127, 127, 0.15); }
+.sheetroot .npc input[type="text"] { height: 22px; padding: 0 3px; }
+
+.sheetroot .npc input.npcname {
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: none;
+}
+.sheetroot .npc input.npctype {
+  width: 100%;
+  font-style: italic;
+  font-size: 9pt;
+  border-bottom: none;
+}
+
+.sheetroot .npcline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  font-size: 9pt;
+}
+.sheetroot .npckey { font-weight: bold; white-space: nowrap; min-width: 92px; }
+.sheetroot .npc input.npcnum { width: 46px; text-align: center; }
+.sheetroot .npc input.npcnote { flex: 1 1 auto; min-width: 0; font-style: italic; }
+.sheetroot .npc input.npcwide { flex: 1 1 auto; min-width: 0; }
+.sheetroot .npcxp { color: var(--muted); }
+.sheetroot .npckey.npcpbkey { min-width: 0; margin-left: auto; }
+.sheetroot .npcsmallroll { font-size: 8pt !important; font-weight: bold; padding: 1px 6px !important; }
+
+/* Ability row: six centred cells */
+.sheetroot .npcabilities {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 4px;
+}
+.sheetroot .npcabil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.sheetroot .npcabillabel { font-weight: bold; font-size: 9pt !important; padding: 0 4px !important; }
+.sheetroot .npc input.npcscore {
+  width: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+.sheetroot .npc input.npcmod {
+  width: 40px;
+  height: 18px;
+  text-align: center;
+  font-size: 9pt;
+  color: var(--muted);
+  border-bottom: none;
+}
+.sheetroot .npcsave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 8pt;
+}
+.sheetroot .npcsave button { font-size: 8pt !important; padding: 0 2px !important; white-space: nowrap; }
+
+/* Skills */
+.sheetroot .npcskill {
+  display: grid;
+  grid-template-columns: 22px 1fr 46px;
+  column-gap: 6px;
+  align-items: center;
+  margin-left: 98px;
+}
+.sheetroot .npc .npcskill select { width: 100%; height: 22px; font-size: 9pt; }
+
+/* d20 roll buttons on repeating rows */
+.sheetroot .npc button.npcroll {
+  font-family: dicefontd20;
+  font-size: 14pt;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--text);
+}
+
+/* Traits and actions */
+.sheetroot .npctrait,
+.sheetroot .npcaction {
+  display: grid;
+  column-gap: 6px;
+  row-gap: 3px;
+  align-items: center;
+  padding: 4px 0 6px 0;
+  border-bottom: 1px dotted var(--field-line);
+}
+.sheetroot .npctrait {
+  grid-template-columns: 22px 1fr;
+  grid-template-areas: "roll name" ". desc";
+}
+.sheetroot .npcaction {
+  grid-template-columns: 22px 1fr 1fr 1fr 1fr;
+  grid-template-areas: "roll name  name   hit    reach"
+                       ".    dmg   dmgt   dmg2   dmg2t"
+                       ".    dc    save   .      ."
+                       ".    desc  desc   desc   desc";
+}
+.sheetroot .npcaction .npcroll,
+.sheetroot .npctrait .npcroll { grid-area: roll; }
+.sheetroot .npcactname { grid-area: name; font-weight: bold; }
+.sheetroot .npcacthit { grid-area: hit; }
+.sheetroot .npcactreach { grid-area: reach; }
+.sheetroot .npcactdmg { grid-area: dmg; }
+.sheetroot .npcactdmgtype { grid-area: dmgt; }
+.sheetroot .npcactdmg2 { grid-area: dmg2; }
+.sheetroot .npcactdmg2type { grid-area: dmg2t; }
+.sheetroot .npcactdc { grid-area: dc; }
+.sheetroot .npcactsave { grid-area: save; }
+.sheetroot .npcactdesc { grid-area: desc; }
+.sheetroot .npc input.npcactname,
+.sheetroot .npc input.npcacthit,
+.sheetroot .npc input.npcactreach,
+.sheetroot .npc input.npcactdmg,
+.sheetroot .npc input.npcactdmgtype,
+.sheetroot .npc input.npcactdmg2,
+.sheetroot .npc input.npcactdmg2type,
+.sheetroot .npc input.npcactdc,
+.sheetroot .npc select.npcactsave { width: 100%; min-width: 0; font-size: 9pt; }
+.sheetroot .npc select.npcactsave { height: 22px; }
+.sheetroot .npc textarea.npcactdesc {
+  width: 100%;
+  min-height: 38px;
+  height: 38px;
+  resize: vertical;
+  font-size: 9pt;
+  padding: 2px 3px;
+  box-sizing: border-box;
+}
+.sheetroot .npclegend { margin-bottom: 4px; }
