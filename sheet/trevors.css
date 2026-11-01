@@ -2314,3 +2314,413 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   font-size: 8pt !important;
   padding: 0 4px;
 }
+
+/***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ALIGNMENT PASS (2026-11-01) ***** ***** ***** ***** *****
+***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Rule of thumb: content is centred in its box (both ways) unless it has to sit
+   on a specific part of the art. Selectors start with .sheetroot so they beat
+   Roll20's own default input/button styles, which otherwise reset margins,
+   heights and borders and pull things off-centre. */
+
+/* Word buttons (STR, skill names, INITIATIVE, DEATH SAVES) are plain text, as
+   .wordbutton intends; Roll20's grey button box made them overlap the art */
+.sheetroot button.wordbutton[type="roll"],
+.sheetroot button.wordbutton[type="action"] {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 4px;
+  color: var(--text);
+}
+.sheetroot button.wordbutton[type="roll"]:hover {
+  background: var(--btn-hover);
+}
+
+/* Section titles: centred across the top of their box */
+.sheetroot .shortcuts > label,
+.sheetroot .levels > label,
+.sheetroot .proficiencies > label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 4px 0 2px 0;
+}
+
+/* --- Race ... Background: Roll20 zeroes input margins, so centre explicitly --- */
+.sheetroot .charbox input[type="text"] {
+  width: 90%;
+  height: 24px;
+  margin: 0 auto;
+}
+
+/* --- Inspiration and Proficiency: the art is drawn centred in each box, so
+   everything is placed from the box centre and stays on the art ---------- */
+.sheetroot .insp label {
+  position: absolute;
+  margin: 0;
+  left: calc(50% - 82px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.sheetroot .insplabel,
+.sheetroot .proflabel {
+  position: absolute;
+  float: none;
+  margin: 0;
+  left: calc(50% + 28px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.sheetroot .prof input[type="text"] {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: calc(50% - 76px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 22pt;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* --- Saves, skills and tools: every row item is 20px tall and centred ---- */
+.sheetroot .saves > *,
+.sheetroot .skilllist > *,
+.sheetroot .advtools > *,
+.sheetroot .artisantools > * {
+  align-self: center;
+}
+.sheetroot .saves input[type="text"],
+.sheetroot .skilllist input[type="text"],
+.sheetroot .advtools input[type="text"],
+.sheetroot .artisantools input[type="text"] {
+  height: 18px;
+  width: 25px;
+  padding: 0;
+  margin: 0;
+  justify-self: center;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+.sheetroot .saves button.wordbutton,
+.sheetroot .skilllist button.wordbutton,
+.sheetroot .advtools button.wordbutton,
+.sheetroot .artisantools button.wordbutton {
+  height: 20px;
+  line-height: 20px;
+  padding: 0 4px !important;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sheetroot .skilllist select,
+.sheetroot .advtools select,
+.sheetroot .artisantools select {
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  color: var(--muted);
+}
+.sheetroot .saves input[type="checkbox"],
+.sheetroot .skilllist input[type="checkbox"],
+.sheetroot .advtools input[type="checkbox"],
+.sheetroot .artisantools input[type="checkbox"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.sheetroot .saves input[type="checkbox"] { justify-self: center; margin-left: 0; }
+/* Knowledge topic: plain italic text after the button, same row height */
+.sheetroot .skilllist input.know1text,
+.sheetroot .skilllist input.know2text,
+.sheetroot .skilllist input.know3text {
+  width: 100% !important;
+  justify-self: stretch;
+  padding: 0 2px;
+  font-size: 12px;
+  font-style: italic;
+  text-align: left;
+  border-bottom: 1px dotted var(--line) !important;
+}
+
+/* --- AC / Initiative / Speed: label at the top, value centred in what's left --- */
+.sheetroot .vitals-one .vital {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sheetroot .vitals-one .vital input[type="text"] {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+/* --- HP: label centred over a centred field --- */
+.sheetroot .vitals-two .vital {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.sheetroot .vitals-two .vital label {
+  float: none;
+  margin: 0;
+  text-align: center;
+}
+.sheetroot .vitals-two .vital input[type="number"] {
+  float: none;
+  width: 80% !important;
+  height: 30px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* --- Hit dice: value and label centred in the box --- */
+.sheetroot .hitdice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sheetroot .hitdice input[type="text"] {
+  height: 34px;
+  margin: 0;
+  text-align: center;
+}
+.sheetroot .hitdice label { margin: 0; text-align: center; }
+
+/* --- Death saves: rows and button centred --- */
+.sheetroot .deathsv {
+  align-content: center;
+  justify-items: center;
+  padding: 4px 0;
+}
+.sheetroot .succs,
+.sheetroot .fails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.sheetroot .deathsv span { padding: 0; width: 14px; text-align: center; }
+.sheetroot .succs input + label,
+.sheetroot .fails input + label { margin: 0; }
+.sheetroot .deathsv button.dslabel {
+  width: auto;
+  height: 22px;
+  align-self: center;
+}
+
+/* --- Shortcuts: each line is a centred row of fields --- */
+.sheetroot .shortcut > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+.sheetroot .shortcut input[type="text"],
+.sheetroot .shortcut input[type="number"],
+.sheetroot .shortcut select {
+  height: 20px;
+  margin: 0;
+}
+.sheetroot .shortcut input[type="checkbox"] { margin: 0; }
+.sheetroot .shortname input[type="text"] { flex: 1 1 auto; height: 22px; }
+.sheetroot .shortname button { padding: 0 2px; }
+.sheetroot .shortsave select[name="attr_attacksaveeffect"] { width: 92px; }
+
+/* --- Inventory: coins centred in their columns, names right under them --- */
+.sheetroot .inventory input.copper,
+.sheetroot .inventory input.silver,
+.sheetroot .inventory input.gold,
+.sheetroot .inventory input.platinum {
+  justify-self: center;
+  align-self: end;
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 13px;
+}
+.sheetroot .copperlabel,
+.sheetroot .silverlabel,
+.sheetroot .goldlabel,
+.sheetroot .platinumlabel {
+  justify-self: center;
+  align-self: start;
+  margin: 0;
+  width: auto;
+}
+.sheetroot .inventory .itemlist {
+  justify-self: center;
+  width: calc(100% - 16px) !important;
+  height: calc(100% - 8px) !important;
+  margin: 0 8px 8px 8px;
+}
+
+/* --- Class & levels: rows centred inside the box --- */
+.sheetroot .classlevel {
+  grid-template-columns: 1fr 56px;
+  padding: 0 8px;
+  align-items: center;
+}
+.sheetroot .bio input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+.sheetroot .bio input[type="text"]:focus {
+  background: rgba(127, 127, 127, 0.15);
+}
+.sheetroot .class input[type="text"],
+.sheetroot .subclass input[type="text"] {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+.sheetroot .level input[type="text"] {
+  display: block;
+  width: 40px;
+  margin: 0 auto;
+}
+.sheetroot .appearance input[type="text"] {
+  margin: 0 auto;
+}
+
+/* --- Trait / Ideal / Bond / Flaw: rounded boxes like the other sections --- */
+.sheetroot .personality {
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 3px;
+}
+.sheetroot .personality > div {
+  border-radius: 15px;
+  background-color: var(--panel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sheetroot .personality textarea {
+  flex: 1 1 auto;
+  width: calc(100% - 20px);
+  height: auto;
+  margin: 2px 10px 8px 10px;
+  background: transparent;
+}
+
+/* --- Proficiencies: type and name side by side, inside the border --- */
+.sheetroot .proficiencies .proflist {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  column-gap: 6px;
+  align-items: center;
+  padding: 0 10px;
+}
+.sheetroot .proficiencies select,
+.sheetroot .proficiencies input[type="text"] {
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+.sheetroot .proficiencies select {
+  text-align: center;
+  background: transparent;
+}
+
+/* --- Features tab: boxes span the full sheet width --- */
+.sheetroot .features .resources,
+.sheetroot .features .feature {
+  width: 100%;
+  box-sizing: border-box;
+}
+.sheetroot .feature input[type="text"] {
+  height: auto;
+  margin: 0;
+  align-self: stretch;
+}
+.sheetroot .featuretext textarea {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* --- Spells tab --- */
+/* Stat, attack bonus and DC: one centred row, labels level with their boxes */
+.sheetroot .castingbanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.sheetroot .castingbanner .spellattackbonuslabel,
+.sheetroot .castingbanner .spellsavedclabel { margin-left: 28px; }
+.sheetroot .castingbanner input[type="text"],
+.sheetroot .castingbanner select {
+  height: 32px;
+  margin: 0;
+}
+.sheetroot .castingbanner input[type="text"] { width: 64px; }
+/* Slot numbers centred under their level */
+.sheetroot .slotbanner { align-items: center; padding: 4px 0; }
+.sheetroot .slotbanner input[type="number"] {
+  text-align: center;
+  margin: 0;
+}
+/* Spell card: three columns that fill the card, rows centred */
+.sheetroot .spell {
+  grid-template-columns: 330px 220px 1fr;
+  grid-template-rows: 1fr;
+  box-sizing: border-box;
+}
+.sheetroot .spellleft,
+.sheetroot .spellcenter {
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+}
+.sheetroot .spellleft > div,
+.sheetroot .spellcenter > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.sheetroot .spell input[type="checkbox"] { margin: 0; }
+.sheetroot .spell input[type="text"],
+.sheetroot .spell select {
+  height: 24px;
+  margin: 0;
+}
+.sheetroot .spellright {
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  padding: 2px 6px 6px 6px;
+  box-sizing: border-box;
+}
+.sheetroot .spellright .spelldescription {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  box-sizing: border-box;
+}
