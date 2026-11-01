@@ -36,7 +36,7 @@ Draft, 2026-11-01. Built from the attribute list of one real Classic character. 
 | `lvlN_slots_total` | `slmxN` | |
 | `lvlN_slots_total` − `lvlN_slots_expended` | `slncN` (slots left) | |
 | `cp` `sp` `gp` `pp` | `copper` `silver` `gold` `platinum` | |
-| `ep` | **decide** | T5e has no electrum. Suggest converting 1 ep = 5 sp |
+| `ep` | added to `silver` | T5e has no electrum. 1 ep = 5 sp (Trevor, 2026-11-01) |
 | Calculated values (`*_mod`, `*_bonus`, `pb`, `initiative_bonus`, `spell_save_dc`, …) | none | T5e recalculates these itself |
 
 ## Skills
@@ -106,15 +106,16 @@ Gaming sets and vehicles have no T5e tool. They go to `repeating_proflist` as OT
 | `repeating_proficiencies` (`prof_type`, `name`) + `other_languages`/`other_armor`/`other_weapon`/`other_other` text | `repeating_proflist` (`proftype`: WEAPON/ARMOR/LANGUAGE/OTHER, `profname`) |
 | `repeating_traits` (`name`, `source`, `description`) | `repeating_feature` (`featurename`, `featuresource`, `featuretext`) |
 | `repeating_attack` (`atkname`, `atkattr_base`, `atkbonus`, `atkprofflag`, `dmgbase`, `dmgattr`, `dmgmod`, `dmgtype`, `saveflag`, `saveattr`, `savedc`/`saveflat`, `saveeffect`) | `repeating_shortcut` (`attackname`, `attackstat`, `attackbonus`, `attackprof`, `attackroll`, `damagestat`, `damagebonus`, `damagetype`, `damagesavestat`, `attacksaveeffect`, `attacksavedc`) |
-| `repeating_spell-cantrip`, `repeating_spell-1` … `-9` (`spellname`, `spellschool`, `spellcastingtime`, `spellrange`, `spellduration`, `spellcomp_v/s/m`, `spellcomp_materials`, `spellconcentration`, `spellritual`, `spellprepared`, `spelldescription`) | `repeating_spell` (`spellname`, `spellschool`, `spellcastingtime`, `spellrange`, `spellduration`, `spellverbal/somatic/material`, `spellmaterialdesc`, `spellconcentration`, `spellritual`, `spellprepped`, `spelldescription`) — **T5e has no spell level field; decide** |
+| `repeating_spell-cantrip`, `repeating_spell-1` … `-9` (`spellname`, `spellschool`, `spellcastingtime`, `spellrange`, `spellduration`, `spellcomp_v/s/m`, `spellcomp_materials`, `spellconcentration`, `spellritual`, `spellprepared`, `spelldescription`) | `repeating_spell` (`spellname`, `spelllevel` 0–9 taken from the section name, cantrip = 0, `spellschool`, `spellcastingtime`, `spellrange`, `spellduration`, `spellverbal/somatic/material`, `spellmaterialdesc`, `spellconcentration`, `spellritual`, `spellprepped`, `spelldescription`) |
+| `class_resource` / `other_resource` (name + current/max), plus any `repeating_resource` rows **(verify)** | `repeating_classresource` (`resourcename`, `resourcecurrent`, `resourcemax`, `resourcerecharge` = Long Rest by default) |
 | `repeating_inventory` (`itemname`, `itemcount`, `itemweight`, `itemcontent`) + `treasure` | `inventory` text: one line per item, e.g. "Rope (50 ft) x1" |
 
 ## Dropped (no T5e equivalent)
 
-`jack` (Jack of All Trades), `hero_points`, `class_resource`/`other_resource` (name + value), `global_damage_mod_*`, `globalmagicmod`, encumbrance and weights, the Kingmaker attributes (`kingdom_*`, `army_*`), `honor`/`sanity` saves, and sheet bookkeeping (`version`, `appliedUpdates`, `mancer_*`, `tab`, `drop_*`, `options-*`). Class resources could become `repeating_feature` rows so the data isn't lost.
+`jack` (Jack of All Trades), `hero_points` (Trevor: drop), `global_damage_mod_*`, `globalmagicmod`, encumbrance and weights, the Kingmaker attributes (`kingdom_*`, `army_*`), `honor`/`sanity` saves, and sheet bookkeeping (`version`, `appliedUpdates`, `mancer_*`, `tab`, `drop_*`, `options-*`).
 
-## Decisions still open
+## Decisions made
 
-1. Spell level: add a level field to T5e spells, or write the level into the name?
-2. Electrum: convert to silver, or drop it?
-3. Class resources and hero points: keep them as feature notes, or drop them?
+1. Spell level: T5e spells now have a `spelllevel` field (Cantrip, 1st to 9th).
+2. Electrum: converted to silver at 5 sp each.
+3. Hero points: dropped. Class resources: moved to the new Class Resources section on the Features tab.

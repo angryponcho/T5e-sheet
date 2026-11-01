@@ -78,6 +78,50 @@
   height: 90%;
 }
 
+/* Class resources (Ki, Rage, Sorcery Points, ...) */
+.resources {
+  width: 95%;
+  border: black solid 2px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0px 0px 10px 0px;
+}
+
+.resourceslabel,
+.featureslabel {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.resourceheader,
+.resource {
+  display: grid;
+  grid-template-columns: 1fr 70px 12px 70px 110px;
+  grid-gap: 4px;
+  align-items: center;
+}
+
+.resourceheader {
+  font-size: 8pt;
+  text-align: center;
+}
+
+.resource {
+  margin-bottom: 3px;
+}
+
+.resource input,
+.resource select {
+  border: black solid 1px;
+}
+
+.resourcename { font-weight: bold; }
+.resourcecurrent,
+.resourcemax { text-align: center; }
+.resourceslash { text-align: center; }
+
 /***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** 
 ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****
 ***** ***** ***** ***** ***** ***** ***** SPELLS ***** ***** ***** ***** ***** ***** ***** 
@@ -213,7 +257,7 @@
   grid-gap: 2px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 25px 25px 25px 25px;
-  grid-template-areas:"spellname spellname spellname"
+  grid-template-areas:"spellname spellname spelllevel"
                       "components verbal somatic"
                       "material materialdesc materialdesc"
                       "prepared spellschool spellschool"
@@ -222,10 +266,17 @@
 .prepared { grid-area: prepared; }
 .spellname { 
   grid-area: spellname; 
-  width: 250px;
+  white-space: nowrap;
 }
 .spellname input {
-  width: 200px;
+  width: 150px;
+}
+.spelllevel {
+  grid-area: spelllevel;
+  white-space: nowrap;
+}
+.spelllevel select {
+  width: 70px;
 }
 .components { grid-area: components; }
 .verbal { grid-area: verbal; }

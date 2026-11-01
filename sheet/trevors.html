@@ -893,6 +893,28 @@
 
 </div>
 <div class="features">
+  <div class="resources">
+    <label class="resourceslabel">CLASS RESOURCES</label>
+    <div class="resourceheader">
+      <span>Resource</span><span>Current</span><span></span><span>Max</span><span>Recharge</span>
+    </div>
+    <fieldset class="repeating_classresource">
+      <div class="resource">
+        <input type="text" class="resourcename" name="attr_resourcename" placeholder="e.g. Ki Points">
+        <input type="number" class="resourcecurrent" name="attr_resourcecurrent" value="0">
+        <span class="resourceslash">/</span>
+        <input type="number" class="resourcemax" name="attr_resourcemax" value="0">
+        <select class="resourcerecharge" name="attr_resourcerecharge">
+          <option value="Long Rest">Long Rest</option>
+          <option value="Short Rest">Short Rest</option>
+          <option value="Dawn">Dawn</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </fieldset>
+  </div>
+
+  <label class="featureslabel">FEATURES</label>
   <fieldset class="repeating_feature">          
     <div class="feature">
       <input type="text" class="featurename" name="attr_featurename">
@@ -964,6 +986,22 @@
             <div class="spellname">
               <span>Name:</span>
               <input type="text" name="attr_spellname">
+            </div>
+
+            <div class="spelllevel">
+              <span>Level:</span>
+              <select name="attr_spelllevel">
+                <option value="0">Cantrip</option>
+                <option value="1">1st</option>
+                <option value="2">2nd</option>
+                <option value="3">3rd</option>
+                <option value="4">4th</option>
+                <option value="5">5th</option>
+                <option value="6">6th</option>
+                <option value="7">7th</option>
+                <option value="8">8th</option>
+                <option value="9">9th</option>
+              </select>
             </div>
 
             <span class="components">Components:</span>
