@@ -2724,3 +2724,19 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   margin: 0;
   box-sizing: border-box;
 }
+
+/* --- Tweaks 2026-11-01 (Trevor) --- */
+/* No frame of padding around the sheet */
+.sheetroot { padding: 0; border-radius: 0; }
+/* Bigger AC / Initiative / Speed values, labels a little lower */
+.sheetroot .vitals-one .vital input[type="text"] { font-size: 24px; }
+.sheetroot .ac label,
+.sheetroot .speed label { margin-top: 11px; }
+.sheetroot .init button.wordbutton { margin-top: 10px !important; }
+/* Hit dice / death saves need ~95px; give that row the room so Shortcuts
+   no longer overlaps it */
+.sheetroot .vitals { grid-template-rows: 85px 85px 96px; }
+.sheetroot .core { grid-template-rows: 276px 1fr 1fr; }
+.sheetroot .vitals-three > * { min-height: 0; height: 96px; }
+/* Character Name label a little further right, under the banner */
+.sheetroot .header label { left: 80px; }
