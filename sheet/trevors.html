@@ -1957,8 +1957,8 @@
   on("clicked:hitdice", function() {
     getAttrs(["hitdicemacro", "hd_left"], function(v) {
       var left = parseInt(v.hd_left, 10) || 0;
-      var macro = (v.hitdicemacro || "").replace("}}", "}} {{Spent=[[?{Hit dice to roll|1}]]}}");
-      if (!macro) return;
+      if (!v.hitdicemacro) return;
+      var macro = v.hitdicemacro + " {{Spent=[[?{Hit dice to roll|1}]]}}";
       startRoll(macro, function(roll) {
         var spent = roll.results && roll.results.Spent ? parseInt(roll.results.Spent.result, 10) || 0 : 0;
         finishRoll(roll.rollId);
