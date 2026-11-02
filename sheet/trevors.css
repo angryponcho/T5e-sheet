@@ -740,7 +740,7 @@
 }
 
 .insp input[type="checkbox"]:checked + label {
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/insperation.gif");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/insperation.gif");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -2068,7 +2068,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharScroll.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/CharScroll.svg");
   background-repeat: no-repeat;
 }
 
@@ -2079,7 +2079,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/CharBox.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/CharBox.svg");
   background-repeat: no-repeat;
 }
 
@@ -2090,7 +2090,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-back.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-back.svg");
   background-repeat: no-repeat;
   background-size: 90px 650px;
 }
@@ -2102,7 +2102,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-STR.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-STR.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2114,7 +2114,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-DEX.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-DEX.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2126,7 +2126,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CNS.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-CNS.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2138,7 +2138,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-INT.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-INT.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2150,7 +2150,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-WIS.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-WIS.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2162,7 +2162,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background-image: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/ability-CHA.svg");
+  background-image: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/ability-CHA.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2174,7 +2174,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/inspiration.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/inspiration.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2186,7 +2186,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/proficency-bonus.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/proficency-bonus.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2198,7 +2198,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/AC.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/AC.svg");
 }
 
 .init::before {
@@ -2208,7 +2208,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/vital-box.svg");
 }
 
 .speed::before {
@@ -2218,7 +2218,7 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   z-index: -1;
   pointer-events: none;
   filter: var(--art-filter);
-  background: url("https://raw.githubusercontent.com/mperes/Images-for-Roll20-5E-images/master/licensedsheet/vital-box.svg");
+  background: url("https://raw.githubusercontent.com/angryponcho/T5e-sheet/main/art/vital-box.svg");
 }
 
 /* Coin values sit on coloured coin art, so keep them dark and bold in both themes */
