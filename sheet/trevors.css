@@ -3437,3 +3437,112 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
   background-color: #1c1d20 !important;
   color-scheme: dark;
 }
+
+/***** 2026-11-02 rest / buttons / NPC fixes *****/
+/* Hit dice box: dice, how many are left, then the roll label */
+.sheetroot .hdleft {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8pt;
+  color: var(--muted);
+  margin: 2px 0;
+}
+.sheetroot .hdleft input[type="text"] {
+  width: 30px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 11pt;
+  font-weight: bold;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+.sheetroot .hitdice input[name="attr_hit_dice"] { height: 26px; font-size: 18px; }
+
+/* Long Rest button at the bottom of the stats column */
+.sheetroot button.restbutton[type="action"] {
+  width: 100%;
+  height: 26px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 8pt;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.sheetroot button.restbutton[type="action"]:hover { background: var(--btn-hover); }
+.sheetroot .sheetopts { margin-top: auto; }
+
+/* Add / Modify: icons only, Add on the left and Modify on the right in every section */
+.sheetroot .repcontrol {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  clear: both;
+  min-height: 24px;
+  margin: 2px 4px 4px 4px;
+}
+.sheetroot .repcontrol .repcontrol_add { order: 1; float: none !important; }
+.sheetroot .repcontrol .repcontrol_edit { order: 2; float: none !important; }
+.sheetroot .repcontrol .repcontrol_add,
+.sheetroot .repcontrol .repcontrol_edit {
+  font-size: 0 !important;
+  color: transparent !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto;
+  height: auto;
+  line-height: 0;
+}
+.sheetroot .repcontrol .repcontrol_add::before,
+.sheetroot .repcontrol .repcontrol_edit::after {
+  display: inline-block;
+  font-size: 12px !important;
+  line-height: 14px;
+  color: var(--text) !important;
+}
+/* hide anything else Roll20 draws inside these buttons */
+.sheetroot .repcontrol .repcontrol_add::after,
+.sheetroot .repcontrol .repcontrol_edit::before { display: none !important; }
+
+/* NPC tab in Roll20: columns can't grow past their share, and the
+   section toggles stay on one line */
+.sheetroot .npctoggle[value="1"] ~ div.npc {
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+}
+.sheetroot .npcleft,
+.sheetroot .npcright,
+.sheetroot .npcblock { min-width: 0; overflow: hidden; }
+.sheetroot .npcsections label {
+  display: inline-flex !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 8pt !important;
+  font-weight: normal !important;
+  white-space: nowrap;
+}
+.sheetroot .npc input[type="text"],
+.sheetroot .npc select,
+.sheetroot .npc textarea { max-width: 100%; }
+.sheetroot .npcline > input.npcwide,
+.sheetroot .npcline > input.npcnote { width: auto; }
+.sheetroot .sheetopts label {
+  display: flex !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+}
