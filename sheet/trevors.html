@@ -1,12 +1,10 @@
 <input type="hidden" class="themeinput" name="attr_sheettheme" value="0"/>
 <div class="sheetroot">
 <input type="hidden" class="npctoggle" name="attr_npc" value="0"/>
+<input type="hidden" class="customflag" name="attr_customclass" value="0"/>
 <input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character"/>
 
 <div class="tabButtons">
-    <label class="themeswitch">
-      <input type="checkbox" name="attr_sheettheme" value="dark"/><span>Dark Mode</span>
-    </label>
     <button class="spelButton" type="action" name="act_spells" >Spells</button>
     <button class="featButton" type="action" name="act_features" >Features</button>
     <button class="charButton" type="action" name="act_character" >Character</button>
@@ -23,7 +21,7 @@
     </div>
     <div class="charbox">
       <div class="race"> <input name="attr_race" type="text"/> <span>Race</span> </div>
-      <div class="characterlevel"> <input name="attr_level" type="text"/> <span>Character Level</span> </div> 
+      <div class="characterlevel"> <input name="attr_level" type="text" readonly title="Total of the class levels"/> <span>Character Level</span> </div> 
       <div class="pronouns"> <input name="attr_pronouns" type="text"/> <span>Pronouns</span> </div> 
       <div class="playername"> <input name="attr_player_name" type="text"/> <span>Player Name</span> </div>
       <div class="alignment"> <input name="attr_alignment" type="text"/> <span>Alignment</span> </div>
@@ -71,7 +69,15 @@
       </div>
 
       <div class="blank">
-        
+        <div class="encumbrance section">
+          <label>CARRYING</label>
+          <span class="encweight"><span name="attr_inv_weight">0</span> lb</span>
+          <span class="enccap">of <span name="attr_inv_capacity">150</span> lb</span>
+        </div>
+        <div class="sheetopts">
+          <label><input type="checkbox" name="attr_sheettheme" value="dark"/><span>Dark Mode</span></label>
+          <label><input type="checkbox" name="attr_npc" value="1"/><span>NPC Sheet</span></label>
+        </div>
       </div>
       
     </div>
@@ -724,8 +730,9 @@
 
         <div class="vitals-three">
           <div class="hitdice vital section">
-            <input name="attr_hit_dice" type="text">
-            <label>HIT DICE</label>
+            <input name="attr_hit_dice" type="text" class="calcfield" title="Set from your classes (editable with a Custom class)">
+            <button class="wordbutton hdlabel" type="roll" name="roll_hitdice" value="@{hitdicemacro}" title="Roll hit dice (CON added per die)">HIT DICE</button>
+            <input type="hidden" name="attr_hitdicemacro" value=""/>
           </div>
           <div class="deathsv section">
             <div class="succs">
@@ -833,7 +840,16 @@
         <input name="attr_platinum" type="text" class="platinum">
         <label class="platinumlabel">Platinum</label>
 
-        <textarea name="attr_inventory" class="itemlist"></textarea>
+        <div class="itemlist">
+          <div class="invhead"><span>Item</span><span>Weight</span><span>Count</span></div>
+          <fieldset class="repeating_inventory">
+            <div class="invrow">
+              <input type="text" class="invname" name="attr_itemname" placeholder="Item"/>
+              <input type="text" class="invweight" name="attr_itemweight" placeholder="0"/>
+              <input type="text" class="invcount" name="attr_itemcount" value="1"/>
+            </div>
+          </fieldset>
+        </div>
       </div>  
 
     </div>
@@ -845,7 +861,7 @@
         <fieldset class="repeating_classlevel">          
           <div class="classlevel">
             <div class="class"> 
-              <input type="text"  name="attr_class">
+              <select name="attr_class"><option value="">Choose a class</option><option value="Barbarian">Barbarian</option><option value="Bard">Bard</option><option value="Cleric">Cleric</option><option value="Druid">Druid</option><option value="Fighter">Fighter</option><option value="Monk">Monk</option><option value="Paladin">Paladin</option><option value="Ranger">Ranger</option><option value="Rogue">Rogue</option><option value="Sorcerer">Sorcerer</option><option value="Warlock">Warlock</option><option value="Wizard">Wizard</option><option value="Artificer">Artificer</option><option value="Custom">Custom</option></select>
               <span>Class</span> 
             </div> 
 
@@ -974,20 +990,21 @@
       <input class="slcn9" type="number" name="attr_slnc9">
 
       <span class="slottotallabel">Slots Total</span>
-      <input class="slmx1" type="number" name="attr_slmx1">
-      <input class="slmx2" type="number" name="attr_slmx2">
-      <input class="slmx3" type="number" name="attr_slmx3">
-      <input class="slmx4" type="number" name="attr_slmx4">
-      <input class="slmx5" type="number" name="attr_slmx5">
-      <input class="slmx6" type="number" name="attr_slmx6">
-      <input class="slmx7" type="number" name="attr_slmx7">
-      <input class="slmx8" type="number" name="attr_slmx8">
-      <input class="slmx9" type="number" name="attr_slmx9">
+      <input class="slmx1 calcfield" type="number" name="attr_slmx1">
+      <input class="slmx2 calcfield" type="number" name="attr_slmx2">
+      <input class="slmx3 calcfield" type="number" name="attr_slmx3">
+      <input class="slmx4 calcfield" type="number" name="attr_slmx4">
+      <input class="slmx5 calcfield" type="number" name="attr_slmx5">
+      <input class="slmx6 calcfield" type="number" name="attr_slmx6">
+      <input class="slmx7 calcfield" type="number" name="attr_slmx7">
+      <input class="slmx8 calcfield" type="number" name="attr_slmx8">
+      <input class="slmx9 calcfield" type="number" name="attr_slmx9">
     </div>
 
     <div class="spellbanner">
       <fieldset class="repeating_spell">
         <div class="spell">
+          <input type="checkbox" class="spellcollapse" name="attr_spellcollapsed" value="1" title="Minimise this spell"/>
 
           <div class="spellleft">
             <div class="spellname">
@@ -1196,6 +1213,10 @@
         </div>
       </fieldset>
     </div>
+    <div class="sheetopts">
+      <label><input type="checkbox" name="attr_sheettheme" value="dark"/><span>Dark Mode</span></label>
+      <label><input type="checkbox" name="attr_npc" value="1"/><span>NPC Sheet</span></label>
+    </div>
   </div>
 
   <div class="npcright">
@@ -1345,9 +1366,6 @@
   </div>
 </div>
 
-<div class="npcswitch">
-  <label><input type="checkbox" name="attr_npc" value="1"/><span>NPC Sheet</span></label>
-</div>
 
 </div> <!-- /sheetroot -->
 
@@ -1805,5 +1823,118 @@
   });
   on(["npc_pb"].concat(ABILITIES).map(function(a) { return "change:" + a; }).join(" "), function() { updateNpcSkills(); });
   on("sheet:opened", function() { updateNpcSkills(); });
+
+  /* ===================== Classes, hit dice, spell slots ===================== */
+  var CLASS_INFO = {
+    Barbarian: {die: 12, caster: 0}, Bard: {die: 8, caster: 1}, Cleric: {die: 8, caster: 1},
+    Druid: {die: 8, caster: 1}, Fighter: {die: 10, caster: 0}, Monk: {die: 8, caster: 0},
+    Paladin: {die: 10, caster: 2}, Ranger: {die: 10, caster: 2}, Rogue: {die: 8, caster: 0},
+    Sorcerer: {die: 6, caster: 1}, Warlock: {die: 8, caster: 0}, Wizard: {die: 6, caster: 1},
+    Artificer: {die: 8, caster: "art"}
+  };
+  /* Fighter and Rogue subclasses that cast as a third-caster */
+  var THIRD_CASTER_SUBCLASS = /eldritch knight|arcane trickster/i;
+
+  var hitDiceMacro = function(dice) {
+    var query = "?{Hit dice to roll|1}";
+    var die = dice.length === 1 ? "d" + dice[0]
+      : "d?{Die size|" + dice.map(function(d) { return "d" + d + "," + d; }).join("|") + "}";
+    return "&{template:default} {{name=@{character_name}}} {{Hit Dice=[[" + query + die
+         + " + (" + query + " * @{con_mod})]]}}";
+  };
+
+  var classMath = function() {
+    getSectionIDs("repeating_classlevel", function(ids) {
+      var fields = ["hit_dice", "npc"];
+      ids.forEach(function(id) {
+        ["class", "subclass", "classlevel"].forEach(function(f) { fields.push("repeating_classlevel_" + id + "_" + f); });
+      });
+      getAttrs(fields, function(v) {
+        var total = 0, custom = false, dieCounts = {}, casterRows = [];
+        ids.forEach(function(id) {
+          var p = "repeating_classlevel_" + id + "_";
+          var cls = v[p + "class"] || "", lvl = Math.max(0, parseInt(v[p + "classlevel"], 10) || 0);
+          total += lvl;
+          if (cls === "Custom") { custom = true; return; }
+          var info = CLASS_INFO[cls];
+          if (!info || !lvl) return;
+          dieCounts[info.die] = (dieCounts[info.die] || 0) + lvl;
+          var kind = info.caster;
+          if (!kind && THIRD_CASTER_SUBCLASS.test(v[p + "subclass"] || "")) kind = 3;
+          if (kind) casterRows.push({kind: kind, level: lvl});
+        });
+
+        /* NPCs have no class rows; leave their slots and hit dice alone */
+        if (v.npc == "1") return;
+        var update = { level: Math.max(1, total), customclass: custom ? "1" : "0" };
+        var dice = Object.keys(dieCounts).map(Number).sort(function(a, b) { return a - b; });
+
+        if (custom) {
+          /* Custom class: hit dice and slots are typed by hand; read the die sizes from the text */
+          var typed = String(v.hit_dice || "").match(/d(\d+)/g) || ["d8"];
+          var sizes = typed.map(function(t) { return parseInt(t.slice(1), 10); })
+                           .filter(function(n, i, a) { return a.indexOf(n) === i; });
+          update.hitdicemacro = hitDiceMacro(sizes);
+        } else {
+          update.hit_dice = dice.map(function(d) { return dieCounts[d] + "d" + d; }).join(" + ");
+          update.hitdicemacro = hitDiceMacro(dice.length ? dice : [8]);
+
+          /* Spellcaster level: one class uses its own table; several use the multiclass rule */
+          var casterLevel = 0;
+          if (casterRows.length === 1) {
+            var r = casterRows[0];
+            casterLevel = r.kind === 1 ? r.level
+              : r.kind === 2 ? (r.level < 2 ? 0 : Math.ceil(r.level / 2))
+              : r.kind === "art" ? Math.ceil(r.level / 2)
+              : (r.level < 3 ? 0 : Math.ceil(r.level / 3));
+          } else {
+            casterRows.forEach(function(r) {
+              casterLevel += r.kind === 1 ? r.level
+                : r.kind === 2 ? Math.floor(r.level / 2)
+                : r.kind === "art" ? Math.ceil(r.level / 2)
+                : Math.floor(r.level / 3);
+            });
+          }
+          var slots = WIZARD_SLOTS[Math.min(20, casterLevel)] || [];
+          for (var n = 1; n <= 9; n++) update["slmx" + n] = slots[n - 1] || "";
+        }
+        /* level is set without silent so the proficiency bonus and attacks recalculate */
+        setAttrs(update);
+      });
+    });
+  };
+  on("change:repeating_classlevel remove:repeating_classlevel", classMath);
+  on("change:hit_dice", function() {
+    getAttrs(["customclass"], function(v) { if (v.customclass == "1") classMath(); });
+  });
+  on("sheet:opened", classMath);
+
+  /* ===================== Inventory weight ===================== */
+  var inventoryMath = function() {
+    getSectionIDs("repeating_inventory", function(ids) {
+      var fields = ["str", "copper", "silver", "gold", "platinum"];
+      ids.forEach(function(id) {
+        fields.push("repeating_inventory_" + id + "_itemweight", "repeating_inventory_" + id + "_itemcount");
+      });
+      getAttrs(fields, function(v) {
+        var weight = 0;
+        ids.forEach(function(id) {
+          var p = "repeating_inventory_" + id + "_";
+          var count = v[p + "itemcount"] === "" || v[p + "itemcount"] === undefined ? 1 : parseFloat(v[p + "itemcount"]) || 0;
+          weight += (parseFloat(v[p + "itemweight"]) || 0) * count;
+        });
+        var coins = ["copper", "silver", "gold", "platinum"].reduce(function(t, c) {
+          return t + (parseInt(v[c], 10) || 0);
+        }, 0);
+        weight += coins / 50;   /* 50 coins weigh a pound */
+        setAttrs({
+          inv_weight: Math.round(weight * 10) / 10,
+          inv_capacity: (parseInt(v.str, 10) || 10) * 15
+        }, {silent: true});
+      });
+    });
+  };
+  on("change:repeating_inventory remove:repeating_inventory change:str change:copper change:silver change:gold change:platinum", inventoryMath);
+  on("sheet:opened", inventoryMath);
 
 </script>

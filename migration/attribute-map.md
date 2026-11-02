@@ -11,7 +11,7 @@ Draft, 2026-11-01. Built from the attribute list of one real Classic character. 
 | `background` | `character_bg` | |
 | `alignment` | `alignment` | |
 | `level` | `level` | Total character level |
-| `class`, `subclass`, `base_level` | `repeating_classlevel` row: `class`, `subclass`, `classlevel` | One row per class. Multiclass rows need checking **(verify)** |
+| `class`, `subclass`, `base_level` | `repeating_classlevel` row: `class` (dropdown: Barbarian … Wizard, Artificer, or Custom), `subclass`, `classlevel` | One row per class. Unknown class names become Custom. Character level, hit dice and max spell slots are then calculated. Multiclass rows need checking **(verify)** |
 | `age`, `size`, `height`, `weight`, `eyes`, `hair`, `skin` | same names | |
 | `personality_traits` | `trait` | |
 | `ideals` | `ideal` | |
@@ -108,7 +108,7 @@ Gaming sets and vehicles have no T5e tool. They go to `repeating_proflist` as OT
 | `repeating_attack` (`atkname`, `atkattr_base`, `atkbonus`, `atkprofflag`, `dmgbase`, `dmgattr`, `dmgmod`, `dmgtype`, `saveflag`, `saveattr`, `savedc`/`saveflat`, `saveeffect`) | `repeating_shortcut` (`attackname`, `attackstat`, `attackbonus`, `attackprof`, `attackroll`, `damagestat`, `damagebonus`, `damagetype`, `damagesavestat`, `attacksaveeffect`, `attacksavedc`) |
 | `repeating_spell-cantrip`, `repeating_spell-1` … `-9` (`spellname`, `spellschool`, `spellcastingtime`, `spellrange`, `spellduration`, `spellcomp_v/s/m`, `spellcomp_materials`, `spellconcentration`, `spellritual`, `spellprepared`, `spelldescription`) | `repeating_spell` (`spellname`, `spelllevel` 0–9 taken from the section name, cantrip = 0, `spellschool`, `spellcastingtime`, `spellrange`, `spellduration`, `spellverbal/somatic/material`, `spellmaterialdesc`, `spellconcentration`, `spellritual`, `spellprepped`, `spelldescription`) |
 | `class_resource` / `other_resource` (name + current/max), plus any `repeating_resource` rows **(verify)** | `repeating_classresource` (`resourcename`, `resourcecurrent`, `resourcemax`, `resourcerecharge` = Long Rest by default) |
-| `repeating_inventory` (`itemname`, `itemcount`, `itemweight`, `itemcontent`) + `treasure` | `inventory` text: one line per item, e.g. "Rope (50 ft) x1" |
+| `repeating_inventory` (`itemname`, `itemcount`, `itemweight`, `itemcontent`) + `treasure` | `repeating_inventory` (`itemname`, `itemweight`, `itemcount`), same field names; `treasure` text becomes one row per line |
 
 ## Dropped (no T5e equivalent)
 

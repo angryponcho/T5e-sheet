@@ -3271,3 +3271,169 @@ input[type="checkbox"]:not(:checked) + input.expcheck {
                        ".    dc    save   .      .      .     ."
                        ".    desc  desc   desc   desc   desc  desc";
 }
+
+/***** ***** ***** ***** 2026-11-02 batch ***** ***** ***** *****/
+/* Match the preview: size every box including its padding and border.
+   Roll20 doesn't set this, which pushed centred values (like AC) left */
+.sheetroot,
+.sheetroot *,
+.sheetroot *::before,
+.sheetroot *::after { box-sizing: border-box; }
+
+/* Roll20's character window pads the sheet with white; take that away */
+.charsheet { padding: 0 !important; }
+
+/* AC: the shield's middle sits a touch right of the box centre */
+.sheetroot .ac label,
+.sheetroot .ac input[type="text"] { padding-left: 4px; padding-right: 0; }
+
+/* Calculated fields (hit dice, max spell slots) are locked unless a
+   class is set to Custom, then they're typed by hand */
+.sheetroot .customflag:not([value="1"]) ~ div .calcfield {
+  pointer-events: none;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+.sheetroot .charbox input[name="attr_level"] { pointer-events: none; }
+
+/* Class & level rows: class dropdown in place of the text box */
+.sheetroot .class select {
+  display: block;
+  width: 90%;
+  height: 24px;
+  margin: 0 auto;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+
+/* Hit dice: the label rolls */
+.sheetroot .hitdice button.hdlabel {
+  font-size: 8pt !important;
+  padding: 1px 6px !important;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+/* Stats column, under the scores: carrying weight, then the sheet switches */
+.sheetroot .blank {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding-top: 6px;
+}
+.sheetroot .encumbrance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 2px 6px 2px;
+  text-align: center;
+}
+.sheetroot .encumbrance label { font-size: 7pt; letter-spacing: 0.05em; }
+.sheetroot .encweight { font-size: 14px; font-weight: bold; }
+.sheetroot .enccap { font-size: 8pt; color: var(--muted); }
+.sheetroot .sheetopts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  padding: 0 0 6px 2px;
+}
+.sheetroot .sheetopts label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8pt;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.sheetroot .sheetopts input[type="checkbox"] { margin: 0; accent-color: var(--accent); }
+.sheetroot .npcleft .sheetopts { flex-direction: row; gap: 14px; padding: 0 4px; }
+/* the old top-row switch is gone; tabs keep their columns */
+.sheetroot .tabButtons { min-height: 32px; }
+
+/* Inventory table */
+.sheetroot .inventory .itemlist {
+  display: block;
+  overflow-y: auto;
+  border: 1px solid var(--field-line);
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+.sheetroot .invhead,
+.sheetroot .invrow {
+  display: grid;
+  grid-template-columns: 1fr 52px 44px;
+  column-gap: 6px;
+  align-items: center;
+}
+.sheetroot .invhead {
+  font-size: 7pt;
+  font-weight: bold;
+  color: var(--muted);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.sheetroot .invhead span:not(:first-child) { text-align: center; }
+.sheetroot .invrow input[type="text"] {
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  padding: 0 3px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--field-line);
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 9pt;
+}
+.sheetroot .invrow input.invweight,
+.sheetroot .invrow input.invcount { text-align: center; }
+
+/* Spells: minimise to name and level */
+.sheetroot .spell { height: auto; position: relative; }
+.sheetroot .spellleft,
+.sheetroot .spellcenter { grid-template-rows: repeat(4, minmax(25px, auto)); }
+.sheetroot input.spellcollapse {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.sheetroot input.spellcollapse::after {
+  content: "\25B2";
+  display: block;
+  font-size: 9px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--muted);
+}
+.sheetroot input.spellcollapse:checked::after { content: "\25BC"; }
+.sheetroot .spellcollapse:checked ~ .spellcenter,
+.sheetroot .spellcollapse:checked ~ .spellright,
+.sheetroot .spellcollapse:checked ~ .spellleft > :not(.spellname):not(.spelllevel) { display: none; }
+.sheetroot .spellcollapse:checked ~ .spellleft { grid-template-rows: auto; }
+
+/* Roll20 wraps the sheet in form.sheetform > div.charsheet, which are white
+   with padding. Remove the padding, and in Dark Mode paint them dark too
+   (:has lets the wrapper see the theme input inside it) */
+.sheetform,
+.charsheet { padding: 0 !important; }
+.sheetform:has(.themeinput[value="dark"]),
+.charsheet:has(> .themeinput[value="dark"]) {
+  background-color: #1c1d20 !important;
+  color-scheme: dark;
+}
